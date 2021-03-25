@@ -5,6 +5,8 @@
  */
 package vista;
 
+import Modelo.Conexion_Ecu_Cinema;
+
 /**
  *
  * @author FabianCh
@@ -188,6 +190,7 @@ public class Vista_Inicio extends javax.swing.JFrame {
                Vista_Inicio n1=new Vista_Inicio();
                n1.setVisible(true);
                n1.setLocationRelativeTo(null);
+               Conexion_Ecu_Cinema conexion= new Conexion_Ecu_Cinema();
                
                
             }

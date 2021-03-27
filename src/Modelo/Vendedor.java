@@ -1,5 +1,7 @@
 package Modelo;
 
+import java.awt.Image;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,18 +14,18 @@ package Modelo;
  */
 public class Vendedor extends Usuario{
     private String ContraseñaV;
-    private byte FotoV; 
+    private Image FotoV; 
 
     public Vendedor() {
     }
 
     
-    public Vendedor(String ContraseñaV, byte FotoV) {
+    public Vendedor(String ContraseñaV, Image FotoV) {
         this.ContraseñaV = ContraseñaV;
         this.FotoV = FotoV;
     }
 
-    public Vendedor(String ContraseñaV, byte FotoV, String Cedula, String Nombre, String Telefono, String Apellido, String Correo) {
+    public Vendedor(String ContraseñaV, Image FotoV, String Cedula, String Nombre, String Telefono, String Apellido, String Correo) {
         super(Cedula, Nombre, Telefono, Apellido, Correo);
         this.ContraseñaV = ContraseñaV;
         this.FotoV = FotoV;
@@ -37,11 +39,11 @@ public class Vendedor extends Usuario{
         this.ContraseñaV = ContraseñaV;
     }
 
-    public byte getFotoV() {
+    public Image getFotoV() {
         return FotoV;
     }
 
-    public void setFotoV(byte FotoV) {
+    public void setFotoV(Image FotoV) {
         this.FotoV = FotoV;
     }
     

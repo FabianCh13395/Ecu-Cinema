@@ -5,24 +5,26 @@
  */
 package Modelo;
 
+import java.awt.Image;
+
 /**
  *
  * @author a-adr_000
  */
 public class Administrador extends Usuario{
     private String Contraseña;
-    private byte FotoA;
+    private Image FotoA;
 
     public Administrador() {
     }
     
 
-    public Administrador(String Contraseña, byte FotoA) {
+    public Administrador(String Contraseña, Image FotoA) {
         this.Contraseña = Contraseña;
         this.FotoA = FotoA;
     }
 
-    public Administrador(String Contraseña, byte FotoA, String Cedula, String Nombre, String Telefono, String Apellido, String Correo) {
+    public Administrador(String Contraseña, Image FotoA, String Cedula, String Nombre, String Telefono, String Apellido, String Correo) {
         super(Cedula, Nombre, Telefono, Apellido, Correo);
         this.Contraseña = Contraseña;
         this.FotoA = FotoA;
@@ -36,11 +38,11 @@ public class Administrador extends Usuario{
         this.Contraseña = Contraseña;
     }
 
-    public byte getFotoA() {
+    public Image getFotoA() {
         return FotoA;
     }
 
-    public void setFotoA(byte FotoA) {
+    public void setFotoA(Image FotoA) {
         this.FotoA = FotoA;
     }
     

@@ -9,6 +9,14 @@ package Modelo;
  *
  * @author a-adr_000
  */
-public class persona {
+public class ModeloAsiento extends Asiento{
+
+    public ModeloAsiento(String IdAsiento, String NombreAsiento, boolean Disponibilidad) {
+        super(IdAsiento, NombreAsiento, Disponibilidad);
+    }
+
+    public ModeloAsiento() {
+    }
+    
     
 }

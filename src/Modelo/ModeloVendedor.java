@@ -96,7 +96,7 @@ public class ModeloVendedor  extends Vendedor{
             Logger.getLogger(ModeloVendedor.class.getName()).log(Level.SEVERE, null, ex);
         }
         String sql;
-          sql = "INSERT vendedor usuario (id_vendedor,cedula,contraseña,foto,)";
+          sql = "INSERT vendedor usuario (id_vendedor,cedula,contraseña,foto)";
         sql += "VALUES('" + GeneraridVendedor()+ "','" + getCedula() + "','" + getContraseñaV()+"','"+ foto64 + "')";
         if (con.noquery(sql) == null) {
             return true;
@@ -104,7 +104,7 @@ public class ModeloVendedor  extends Vendedor{
             return false;
         }
     }
-    
+    //para transformar la imagen
     private BufferedImage imgBuffered(Image img) {
         if (img instanceof BufferedImage) {
             return (BufferedImage) img;
@@ -115,4 +115,5 @@ public class ModeloVendedor  extends Vendedor{
         gra.dispose();
         return b1;
     }
+    
 }

@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.sql.Date;
+
 /**
  *
  * @author a-adr_000
@@ -16,6 +18,10 @@ public class Cliente extends Usuario{
 
     public Cliente(String Cedula, String Nombre, String Telefono, String Apellido, String Correo) {
         super(Cedula, Nombre, Telefono, Apellido, Correo);
+    }
+
+    public Cliente(String Cedula, String Nombre, String Telefono, String Apellido, String Correo, Date fecha_nacimiento) {
+        super(Cedula, Nombre, Telefono, Apellido, Correo, fecha_nacimiento);
     }
     
     

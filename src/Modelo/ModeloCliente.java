@@ -39,7 +39,7 @@ public class ModeloCliente extends Cliente{
       public boolean grabarVendedor(){
     
         String sql;
-          sql = "INSERT vendedor usuario (id_cliente,cedula)";
+          sql = "INSERT  cliente usuario (id_cliente,cedula)";
         sql += "VALUES('" + getCedula()+ "','" + getCedula()+ "')";
         if (con.noquery(sql) == null) {
             return true;

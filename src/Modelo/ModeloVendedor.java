@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -30,6 +31,11 @@ public class ModeloVendedor  extends Vendedor{
     public ModeloVendedor(String ContraseñaV, Image FotoV) {
         super(ContraseñaV, FotoV);
     }
+
+    public ModeloVendedor(String Cedula, String Nombre, String Telefono, String Apellido, String Correo, Date fecha_nacimiento) {
+        super(Cedula, Nombre, Telefono, Apellido, Correo, fecha_nacimiento);
+    }
+    
 
     public ModeloVendedor(String ContraseñaV, Image FotoV, String Cedula, String Nombre, String Telefono, String Apellido, String Correo) {
         super(ContraseñaV, FotoV, Cedula, Nombre, Telefono, Apellido, Correo);
@@ -52,7 +58,7 @@ public class ModeloVendedor  extends Vendedor{
         ResultSet dato = con.query(sql);
        
             if (dato.next()) {
-                id= dato.getString("max(id_vendedor)");
+                id= dato.getString(1);
             }
             System.out.println(id);
             int suf;
@@ -96,7 +102,7 @@ public class ModeloVendedor  extends Vendedor{
             Logger.getLogger(ModeloVendedor.class.getName()).log(Level.SEVERE, null, ex);
         }
         String sql;
-          sql = "INSERT vendedor usuario (id_vendedor,cedula,contraseña,foto)";
+          sql = "INSERT INTO vendedor (id_vendedor,cedula,contraseña,foto)";
         sql += "VALUES('" + GeneraridVendedor()+ "','" + getCedula() + "','" + getContraseñaV()+"','"+ foto64 + "')";
         if (con.noquery(sql) == null) {
             return true;

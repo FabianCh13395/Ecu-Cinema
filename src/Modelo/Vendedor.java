@@ -1,6 +1,7 @@
 package Modelo;
 
 import java.awt.Image;
+import java.sql.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,6 +18,10 @@ public class Vendedor extends Usuario{
     private Image FotoV; 
 
     public Vendedor() {
+    }
+
+    public Vendedor(String Cedula, String Nombre, String Telefono, String Apellido, String Correo, Date fecha_nacimiento) {
+        super(Cedula, Nombre, Telefono, Apellido, Correo, fecha_nacimiento);
     }
 
     

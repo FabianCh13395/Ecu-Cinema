@@ -13,16 +13,16 @@ public class Sala {
     private String IdSala;
     private int TotalAsientos;
     private String NombreSala;
-    private int vacante;
+    private boolean disponibilidad;
 
     public Sala() {
     }
 
-    public Sala(String IdSala, int TotalAsientos, String NombreSala, int vacante) {
+    public Sala(String IdSala, int TotalAsientos, String NombreSala, boolean disponibilidad) {
         this.IdSala = IdSala;
         this.TotalAsientos = TotalAsientos;
         this.NombreSala = NombreSala;
-        this.vacante = vacante;
+        this.disponibilidad = disponibilidad;
     }
 
     public String getIdSala() {
@@ -49,12 +49,12 @@ public class Sala {
         this.NombreSala = NombreSala;
     }
 
-    public int getVacante() {
-        return vacante;
+    public  boolean getDisponibilidad() {
+        return disponibilidad;
     }
 
-    public void setVacante(int vacante) {
-        this.vacante = vacante;
+    public void setDisponibilidad(boolean disponibilidad) {
+        this.disponibilidad = disponibilidad;
     }
     
     

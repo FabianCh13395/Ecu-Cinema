@@ -41,11 +41,12 @@ public class ControlVendedor {
     public ControlVendedor() {
     }
     public void inicioControlVendedor(){
-        re.getBtn_Registrar().addActionListener(l->grabarUsuario());
+        re.getBtn_Registrar().addActionListener(l->grabarVendedor());
         re.getBtn_Examninar().addActionListener(l->cargarImagen());
+        re.getBtn_cancelar().addActionListener(l->re.dispose());
         re.getLbl_codigo().setText(v.GeneraridVendedor());
     }
-    private void grabarUsuario() {
+    private void grabarVendedor() {
 
         String cedula = re.getT_txt_cedulaV().getText();
         String nombre = re.getTxt_nombreV().getText();
@@ -72,12 +73,9 @@ public class ControlVendedor {
        vendedor.setContraseñaV(contraseña);
        vendedor.setFotoV(foto);
         if (vendedor.grabarVendedor()== true) {
-            
-            
             JOptionPane.showMessageDialog(re, "Vendedor Guardado exitosamente");
         } else {
             JOptionPane.showMessageDialog(re, "ERROR ");
-
         }
         
     }

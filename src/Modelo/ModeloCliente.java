@@ -8,6 +8,7 @@ package Modelo;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -26,6 +27,11 @@ public class ModeloCliente extends Cliente{
     public ModeloCliente(String Cedula, String Nombre, String Telefono, String Apellido, String Correo) {
         super(Cedula, Nombre, Telefono, Apellido, Correo);
     }
+
+    public ModeloCliente(String Cedula, String Nombre, String Telefono, String Apellido, String Correo, Date fecha_nacimiento) {
+        super(Cedula, Nombre, Telefono, Apellido, Correo, fecha_nacimiento);
+    }
+    
       public boolean grabarUsuario(){
         String sql;
         sql = "INSERT INTO usuario (cedula,nombre,apellido,telefono,correo,fecha_nacimiento)";
@@ -36,10 +42,10 @@ public class ModeloCliente extends Cliente{
             return false;
         }
     }
-      public boolean grabarVendedor(){
+      public boolean grabarCliente(){
     
         String sql;
-          sql = "INSERT  cliente usuario (id_cliente,cedula)";
+          sql = "INSERT INTO cliente (id_cliente,cedula)";
         sql += "VALUES('" + getCedula()+ "','" + getCedula()+ "')";
         if (con.noquery(sql) == null) {
             return true;

@@ -83,14 +83,6 @@ public class Registro_Usuario extends javax.swing.JFrame {
         this.lbl_fotoV = lbl_fotoV;
     }
 
-    public JLabel getLbl_vendedor() {
-        return lbl_vendedor;
-    }
-
-    public void setLbl_vendedor(JLabel lbl_vendedor) {
-        this.lbl_vendedor = lbl_vendedor;
-    }
-
   
 
     public JTextField getT_txt_cedulaV() {
@@ -123,6 +115,14 @@ public class Registro_Usuario extends javax.swing.JFrame {
 
     public JTextField getTxt_CorreoV() {
         return txt_CorreoV;
+    }
+
+    public JLabel getLbl_text1() {
+        return lbl_text1;
+    }
+
+    public void setLbl_text1(JLabel lbl_text1) {
+        this.lbl_text1 = lbl_text1;
     }
 
     public void setTxt_CorreoV(JTextField txt_CorreoV) {
@@ -167,7 +167,6 @@ public class Registro_Usuario extends javax.swing.JFrame {
         btn_Examninar = new javax.swing.JButton();
         lbl_fotoV = new javax.swing.JLabel();
         fechaNaciV = new com.toedter.calendar.JDateChooser();
-        lbl_vendedor = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jpas_vendedor = new javax.swing.JPasswordField();
         jLabel11 = new javax.swing.JLabel();
@@ -176,7 +175,7 @@ public class Registro_Usuario extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txt_CorreoV = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_text1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(151, 28, 28));
 
@@ -223,9 +222,6 @@ public class Registro_Usuario extends javax.swing.JFrame {
 
         lbl_fotoV.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbl_vendedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_vendedor.setText("Registro Vendedor");
-
         jLabel10.setText("Contraseña:");
 
         jLabel11.setText("Confirme Contraseña: ");
@@ -252,38 +248,33 @@ public class Registro_Usuario extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel6))
+                                .addGap(32, 32, 32)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel6))
-                                        .addGap(32, 32, 32)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(t_txt_cedulaV, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txt_nombreV, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txt_apellidoV, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txt_tlfV, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 83, Short.MAX_VALUE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txt_CorreoV)
-                                            .addComponent(jpas_vendedor)
-                                            .addComponent(fechaNaciV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jpasw_vendedor1)))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbl_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(t_txt_cedulaV, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_nombreV, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_apellidoV, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_tlfV, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 83, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_CorreoV)
+                                    .addComponent(jpas_vendedor)
+                                    .addComponent(fechaNaciV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jpasw_vendedor1))))
                         .addGap(151, 151, 151)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_Examninar)
@@ -299,8 +290,9 @@ public class Registro_Usuario extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(lbl_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)))))
                 .addGap(40, 40, 40))
         );
         jPanel2Layout.setVerticalGroup(
@@ -308,9 +300,7 @@ public class Registro_Usuario extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
+                        .addGap(76, 76, 76)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(t_txt_cedulaV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -350,9 +340,9 @@ public class Registro_Usuario extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbl_codigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                                 .addGap(95, 95, 95))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -367,10 +357,10 @@ public class Registro_Usuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setBackground(new java.awt.Color(166, 166, 35));
-        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 3, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Registro Usuario");
+        lbl_text1.setBackground(new java.awt.Color(166, 166, 35));
+        lbl_text1.setFont(new java.awt.Font("Trebuchet MS", 3, 18)); // NOI18N
+        lbl_text1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_text1.setText("Registro Vendedor");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -378,7 +368,7 @@ public class Registro_Usuario extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_text1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(305, 305, 305))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
@@ -389,7 +379,7 @@ public class Registro_Usuario extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jLabel1)
+                .addComponent(lbl_text1)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -435,7 +425,6 @@ public class Registro_Usuario extends javax.swing.JFrame {
     private javax.swing.JButton btn_Registrar;
     private javax.swing.JButton btn_cancelar;
     private com.toedter.calendar.JDateChooser fechaNaciV;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -452,7 +441,7 @@ public class Registro_Usuario extends javax.swing.JFrame {
     private javax.swing.JPasswordField jpasw_vendedor1;
     private javax.swing.JLabel lbl_codigo;
     private javax.swing.JLabel lbl_fotoV;
-    private javax.swing.JLabel lbl_vendedor;
+    private javax.swing.JLabel lbl_text1;
     private javax.swing.JTextField t_txt_cedulaV;
     private javax.swing.JTextField txt_CorreoV;
     private javax.swing.JTextField txt_apellidoV;

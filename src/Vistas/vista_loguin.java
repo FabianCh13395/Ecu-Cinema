@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author JOSEPH
@@ -18,6 +21,38 @@ public class vista_loguin extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtn_cancelarInicio() {
+        return btn_cancelarInicio;
+    }
+
+    public void setBtn_cancelarInicio(JButton btn_cancelarInicio) {
+        this.btn_cancelarInicio = btn_cancelarInicio;
+    }
+
+    public JButton getBtn_inicio() {
+        return btn_inicio;
+    }
+
+    public void setBtn_inicio(JButton btn_inicio) {
+        this.btn_inicio = btn_inicio;
+    }
+
+    public JTextField getTxt_inicioCedula() {
+        return txt_inicioCedula;
+    }
+
+    public void setTxt_inicioCedula(JTextField txt_inicioCedula) {
+        this.txt_inicioCedula = txt_inicioCedula;
+    }
+
+    public JTextField getTxt_paswInicio() {
+        return txt_paswInicio;
+    }
+
+    public void setTxt_paswInicio(JTextField txt_paswInicio) {
+        this.txt_paswInicio = txt_paswInicio;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,17 +62,14 @@ public class vista_loguin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
         fondo_login1 = new Imagenes_Panel.Fondo_login();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-
-        jButton2.setText("jButton2");
+        txt_inicioCedula = new javax.swing.JTextField();
+        txt_paswInicio = new javax.swing.JTextField();
+        btn_inicio = new javax.swing.JButton();
+        btn_cancelarInicio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,9 +83,9 @@ public class vista_loguin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña");
 
-        jButton1.setText("Iniciar");
+        btn_inicio.setText("Iniciar");
 
-        jButton3.setText("Cancelar");
+        btn_cancelarInicio.setText("Cancelar");
 
         javax.swing.GroupLayout fondo_login1Layout = new javax.swing.GroupLayout(fondo_login1);
         fondo_login1.setLayout(fondo_login1Layout);
@@ -75,14 +107,14 @@ public class vista_loguin extends javax.swing.JFrame {
             .addGroup(fondo_login1Layout.createSequentialGroup()
                 .addGap(151, 151, 151)
                 .addGroup(fondo_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_paswInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_inicioCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 118, Short.MAX_VALUE))
             .addGroup(fondo_login1Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addComponent(jButton1)
+                .addComponent(btn_inicio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btn_cancelarInicio)
                 .addGap(77, 77, 77))
         );
         fondo_login1Layout.setVerticalGroup(
@@ -93,15 +125,15 @@ public class vista_loguin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_inicioCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_paswInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(fondo_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
+                    .addComponent(btn_inicio)
+                    .addComponent(btn_cancelarInicio))
                 .addGap(37, 37, 37))
         );
 
@@ -123,14 +155,13 @@ public class vista_loguin extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cancelarInicio;
+    private javax.swing.JButton btn_inicio;
     private Imagenes_Panel.Fondo_login fondo_login1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txt_inicioCedula;
+    private javax.swing.JTextField txt_paswInicio;
     // End of variables declaration//GEN-END:variables
 }

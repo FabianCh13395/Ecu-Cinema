@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -120,6 +121,23 @@ public class ModeloVendedor  extends Vendedor{
         gra.drawImage(img, 0, 0, null);
         gra.dispose();
         return b1;
+    }
+    public Vendedor ComprobarCedulaVendedor() {
+        try {
+            String sql;
+            sql = "Select cedula,contraseña from vendedor where cedula='" + getCedula()+ "'";
+            ResultSet dato = con.query(sql);
+            if (dato.next()) {
+                Vendedor v=new Vendedor();
+                v.setCedula(dato.getString("cedula"));
+                v.setContraseñaV(dato.getString("contraseña"));
+                return v;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloVendedor.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return null;
     }
     
 }

@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.ModeloVendedor;
 import Vistas.Registro_Usuario;
+import Vistas.vista_loguin;
 
 /**
  *
@@ -16,8 +17,10 @@ public class Control_Ventana_Principal {
   public static void main(String[] args){
       
       ModeloVendedor mvendedor= new ModeloVendedor();
-      Registro_Usuario uvendedor=new Registro_Usuario();
-      ControlVendedor cvendedor= new ControlVendedor (mvendedor,uvendedor);
-      
+//      Registro_Usuario uvendedor=new Registro_Usuario();
+//      ControlVendedor cvendedor= new ControlVendedor (mvendedor,uvendedor);
+//      
+      vista_loguin l=new vista_loguin();
+     Control_Iniciar_Sesion i=new Control_Iniciar_Sesion(mvendedor,l); 
   }
 }

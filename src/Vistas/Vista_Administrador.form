@@ -40,7 +40,7 @@
             <Property name="text" type="java.lang.String" value="Peliculas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="btnNuevasPelis">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconos/pelicula.png"/>
@@ -58,12 +58,20 @@
             <Property name="text" type="java.lang.String" value="Funciones"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="btnNuevasFunciones">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconos/glasses_icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Gestionar Funciones"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="btnNuevasSalas">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/iconos/sala.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Gestionar salas"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -76,7 +84,7 @@
             <Property name="text" type="java.lang.String" value="Reportes"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="btnreportVentas">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconos/Sales-report_.png"/>
@@ -84,7 +92,7 @@
                 <Property name="text" type="java.lang.String" value="Reporte Ventas"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="btnReportClientes">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconos/documentediting_.png"/>
@@ -92,16 +100,19 @@
                 <Property name="text" type="java.lang.String" value="Reporte Clientes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReportClientesActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="btnreportEmpleados">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconos/report.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Reporte Empleados"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnreportEmpleadosActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

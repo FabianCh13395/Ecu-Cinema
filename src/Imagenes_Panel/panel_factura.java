@@ -24,7 +24,7 @@ public class panel_factura extends javax.swing.JPanel {
 
     public void paint(Graphics g) {
         Dimension dimension=this.getSize();
-        ImageIcon icon=new ImageIcon(getClass().getResource("/Imagenes_fondo/inicio.jpg"));
+        ImageIcon icon=new ImageIcon(getClass().getResource("/Imagenes_fondo/ECU-CINEMA.PNG"));
         g.drawImage(icon.getImage(), 0, 0, dimension.width, dimension.height, null);
         this.setOpaque(false);
         super.paintChildren(g);

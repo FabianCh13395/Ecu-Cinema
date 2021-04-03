@@ -81,7 +81,7 @@ public class Vista_MenuEmpleado extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(355, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(173, 42, 42));
@@ -92,7 +92,7 @@ public class Vista_MenuEmpleado extends javax.swing.JFrame {
         menu_general.setLayout(menu_generalLayout);
         menu_generalLayout.setHorizontalGroup(
             menu_generalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 538, Short.MAX_VALUE)
+            .addGap(0, 784, Short.MAX_VALUE)
         );
         menu_generalLayout.setVerticalGroup(
             menu_generalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -163,29 +163,26 @@ public class ModeloVendedor  extends Vendedor{
         }
         return null;
     }
-    public Vendedor traer_foto(){
+    public Image traer_foto(){
         try {
             String sql;
             sql = "Select foto from vendedor where cedula='" + getCedula()+ "'";
             ResultSet dato = con.query(sql);
             byte[] bf;
             if (dato.next()) {
-                Vendedor v=new Vendedor();
+                
                 bf=dato.getBytes("foto");
                 if (bf != null) {
                     bf = Base64.decode(bf, 0, bf.length);
                     try {
                         //OBTENER IMAGEN
-                        v.setFotoV(obtenImagen(bf));
+                      return  obtenImagen(bf);
                     } catch (IOException ex) {
-                        v.setFotoV(null);
+                       
                         Logger.getLogger(ModeloVendedor.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } else {
-                    v.setFotoV(null);
-                }
-              
-                return v;
+                } 
+                return null;
             }
         } catch (SQLException ex) {
             Logger.getLogger(ModeloVendedor.class.getName()).log(Level.SEVERE, null, ex);

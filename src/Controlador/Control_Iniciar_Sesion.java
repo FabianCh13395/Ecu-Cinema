@@ -62,9 +62,11 @@ public class Control_Iniciar_Sesion {
             login.getTxt_paswInicio().setText("");
 
         } else if (ve.getCedula().equals(v1.getCedula()) && ve.getContraseñaV().equals(v1.getContraseñaV())) {
-            Vista_MenuEmpleado menuE = new Vista_MenuEmpleado();
-            menuE.setLocationRelativeTo(null);
-            menuE.setVisible(true);
+            JOptionPane.showMessageDialog(login, "Usted a iniciado sesión como vendedor");
+           
+           Vista_MenuEmpleado menuE=new  Vista_MenuEmpleado();
+           ControlVentanaEmpleado e=new ControlVentanaEmpleado(ve,menuE);
+           
         } else {
             JOptionPane.showMessageDialog(login, "Contraseña Incorrecta");
             login.getTxt_paswInicio().setText("");

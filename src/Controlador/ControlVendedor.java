@@ -39,7 +39,6 @@ public class ControlVendedor {
         this.re = re;
         inicioControlVendedor();
         this.re.setVisible(true);
-        System.out.println("hola cruel");
         
     }
 
@@ -84,14 +83,7 @@ public class ControlVendedor {
         }
         
     }
-    private void mostrarNF(){
-        String cedula=l.getTxt_inicioCedula().getText();
-        ModeloVendedor v1=new ModeloVendedor();
-        v1.setCedula(cedula);
-        String nombre=v1.VistaInicioVendedor();
-        m.getLbl_nombreV().setText(nombre);
-       
-    }
+  
     private void cargarImagen() {
         Image captura;
 

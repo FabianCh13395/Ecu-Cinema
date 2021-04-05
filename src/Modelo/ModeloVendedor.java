@@ -9,14 +9,19 @@ package Modelo;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.imageio.ImageReadParam;
+import javax.imageio.ImageReader;
+import javax.imageio.stream.ImageInputStream;
 import org.postgresql.util.Base64;
 
 /**
@@ -138,6 +143,66 @@ public class ModeloVendedor  extends Vendedor{
 
         }
         return null;
+    }
+    public String VistaInicioVendedor() {
+        String nombre;
+        String apellido;
+           try {
+            String sql;
+            sql = "Select nombre,apellido from usuario where cedula='" + getCedula()+ "'";
+            ResultSet dato = con.query(sql);
+            
+            if (dato.next()) {
+                nombre=dato.getString("nombre");
+                apellido=dato.getString("apellido");
+                return nombre+" "+apellido;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloVendedor.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return null;
+    }
+    public Vendedor traer_foto(){
+        try {
+            String sql;
+            sql = "Select foto from vendedor where cedula='" + getCedula()+ "'";
+            ResultSet dato = con.query(sql);
+            byte[] bf;
+            if (dato.next()) {
+                Vendedor v=new Vendedor();
+                bf=dato.getBytes("foto");
+                if (bf != null) {
+                    bf = Base64.decode(bf, 0, bf.length);
+                    try {
+                        //OBTENER IMAGEN
+                        v.setFotoV(obtenImagen(bf));
+                    } catch (IOException ex) {
+                        v.setFotoV(null);
+                        Logger.getLogger(ModeloVendedor.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    v.setFotoV(null);
+                }
+              
+                return v;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloVendedor.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return null;
+    }
+    public static Image obtenImagen(byte[] bytes) throws IOException {
+        ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+        Iterator it = ImageIO.getImageReadersByFormatName("png");
+        ImageReader reader = (ImageReader) it.next();
+        Object source = bis;
+        ImageInputStream iis = ImageIO.createImageInputStream(source);
+        reader.setInput(iis, true);
+        ImageReadParam param = reader.getDefaultReadParam();
+        param.setSourceSubsampling(1, 1, 0, 0);
+        return reader.read(0, param);
     }
     
 }

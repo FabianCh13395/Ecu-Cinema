@@ -6,7 +6,10 @@
 package Controlador;
 
 import Modelo.ModeloVendedor;
+import Modelo.Vendedor;
 import Vistas.Registro_Usuario;
+import Vistas.Vista_MenuEmpleado;
+import Vistas.vista_loguin;
 import java.awt.Image;
 import java.io.IOException;
 import java.sql.Date;
@@ -28,6 +31,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class ControlVendedor {
     private ModeloVendedor v;
     private Registro_Usuario re;
+    private Vista_MenuEmpleado m;
+    private vista_loguin l;
 
     public ControlVendedor(ModeloVendedor v, Registro_Usuario re) {
         this.v = v;
@@ -78,6 +83,14 @@ public class ControlVendedor {
             JOptionPane.showMessageDialog(re, "ERROR ");
         }
         
+    }
+    private void mostrarNF(){
+        String cedula=l.getTxt_inicioCedula().getText();
+        ModeloVendedor v1=new ModeloVendedor();
+        v1.setCedula(cedula);
+        String nombre=v1.VistaInicioVendedor();
+        m.getLbl_nombreV().setText(nombre);
+       
     }
     private void cargarImagen() {
         Image captura;

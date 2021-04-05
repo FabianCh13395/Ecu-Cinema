@@ -6,6 +6,7 @@
 package Vistas;
 
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -45,13 +46,15 @@ public class vista_loguin extends javax.swing.JFrame {
         this.txt_inicioCedula = txt_inicioCedula;
     }
 
-    public JTextField getTxt_paswInicio() {
+    public JPasswordField getTxt_paswInicio() {
         return txt_paswInicio;
     }
 
-    public void setTxt_paswInicio(JTextField txt_paswInicio) {
+    public void setTxt_paswInicio(JPasswordField txt_paswInicio) {
         this.txt_paswInicio = txt_paswInicio;
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,9 +70,9 @@ public class vista_loguin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txt_inicioCedula = new javax.swing.JTextField();
-        txt_paswInicio = new javax.swing.JTextField();
         btn_inicio = new javax.swing.JButton();
         btn_cancelarInicio = new javax.swing.JButton();
+        txt_paswInicio = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +89,12 @@ public class vista_loguin extends javax.swing.JFrame {
         btn_inicio.setText("Iniciar");
 
         btn_cancelarInicio.setText("Cancelar");
+
+        txt_paswInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_paswInicioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout fondo_login1Layout = new javax.swing.GroupLayout(fondo_login1);
         fondo_login1.setLayout(fondo_login1Layout);
@@ -105,17 +114,17 @@ public class vista_loguin extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(181, 181, 181))
             .addGroup(fondo_login1Layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addGroup(fondo_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_paswInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_inicioCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 118, Short.MAX_VALUE))
-            .addGroup(fondo_login1Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(btn_inicio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addComponent(btn_cancelarInicio)
                 .addGap(77, 77, 77))
+            .addGroup(fondo_login1Layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addGroup(fondo_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_inicioCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(txt_paswInicio))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         fondo_login1Layout.setVerticalGroup(
             fondo_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,9 +137,9 @@ public class vista_loguin extends javax.swing.JFrame {
                 .addComponent(txt_inicioCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_paswInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(fondo_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_inicio)
                     .addComponent(btn_cancelarInicio))
@@ -151,6 +160,10 @@ public class vista_loguin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txt_paswInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_paswInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_paswInicioActionPerformed
+
    
    
 
@@ -162,6 +175,6 @@ public class vista_loguin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txt_inicioCedula;
-    private javax.swing.JTextField txt_paswInicio;
+    private javax.swing.JPasswordField txt_paswInicio;
     // End of variables declaration//GEN-END:variables
 }

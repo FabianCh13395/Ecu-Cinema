@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author JOSEPH
@@ -16,6 +19,30 @@ public class Vista_MenuEmpleado extends javax.swing.JFrame {
      */
     public Vista_MenuEmpleado() {
         initComponents();
+    }
+
+    public JButton getBtn_generarVenta() {
+        return btn_generarVenta;
+    }
+
+    public void setBtn_generarVenta(JButton btn_generarVenta) {
+        this.btn_generarVenta = btn_generarVenta;
+    }
+
+    public JLabel getLbl_foto() {
+        return lbl_foto;
+    }
+
+    public void setLbl_foto(JLabel lbl_foto) {
+        this.lbl_foto = lbl_foto;
+    }
+
+    public JLabel getLbl_nombreV() {
+        return lbl_nombreV;
+    }
+
+    public void setLbl_nombreV(JLabel lbl_nombreV) {
+        this.lbl_nombreV = lbl_nombreV;
     }
 
     /**
@@ -34,7 +61,7 @@ public class Vista_MenuEmpleado extends javax.swing.JFrame {
         btn_generarVenta = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btn_salir = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        lbl_foto = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         lbl_nombreV = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -52,7 +79,7 @@ public class Vista_MenuEmpleado extends javax.swing.JFrame {
 
         btn_salir.setText("Salir");
 
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbl_foto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -65,36 +92,38 @@ public class Vista_MenuEmpleado extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator1)
-                .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lbl_nombreV, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(btn_salir))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(btn_generarVenta))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jSeparator1))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbl_nombreV, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(58, 58, 58)
+                                        .addComponent(btn_salir))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(71, 71, 71)
+                                        .addComponent(jLabel2))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(71, 71, 71)
+                                        .addComponent(jLabel1))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(35, 35, 35)
+                                        .addComponent(btn_generarVenta))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(lbl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 10, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -190,12 +219,12 @@ public class Vista_MenuEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton btn_salir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lbl_foto;
     private javax.swing.JLabel lbl_nombreV;
     private javax.swing.JDesktopPane menu_general;
     // End of variables declaration//GEN-END:variables

@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.ModeloVendedor;
 import Vistas.Registro_Usuario;
+import Vistas.Vista_ventanaCarga;
 import Vistas.vista_loguin;
 
 /**
@@ -21,6 +22,8 @@ public class Control_Ventana_Principal {
 //      ControlVendedor cvendedor= new ControlVendedor (mvendedor,uvendedor);
 //      
       vista_loguin l=new vista_loguin();
-     Control_Iniciar_Sesion i=new Control_Iniciar_Sesion(mvendedor,l); 
+      Vista_ventanaCarga l1=new Vista_ventanaCarga();
+     Control_Iniciar_Sesion i=new Control_Iniciar_Sesion(mvendedor,l,l1); 
+    
   }
 }

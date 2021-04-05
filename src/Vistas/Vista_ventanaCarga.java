@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import javax.swing.JProgressBar;
+
 /**
  *
  * @author EdwinPC
@@ -29,8 +31,8 @@ public class Vista_ventanaCarga extends javax.swing.JFrame {
 
         fondo_login1 = new Imagenes_Panel.Fondo_login();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        barra_progreso = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,6 +43,8 @@ public class Vista_ventanaCarga extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Aqui va el icono ya le voy poner");
 
+        barra_progreso.setForeground(new java.awt.Color(0, 204, 0));
+
         javax.swing.GroupLayout fondo_login1Layout = new javax.swing.GroupLayout(fondo_login1);
         fondo_login1.setLayout(fondo_login1Layout);
         fondo_login1Layout.setHorizontalGroup(
@@ -48,15 +52,13 @@ public class Vista_ventanaCarga extends javax.swing.JFrame {
             .addGroup(fondo_login1Layout.createSequentialGroup()
                 .addGroup(fondo_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondo_login1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fondo_login1Layout.createSequentialGroup()
                         .addGap(490, 490, 490)
                         .addComponent(jLabel1))
                     .addGroup(fondo_login1Layout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(jLabel2)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
+            .addComponent(barra_progreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         fondo_login1Layout.setVerticalGroup(
             fondo_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,9 +67,9 @@ public class Vista_ventanaCarga extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(65, 65, 65)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addComponent(barra_progreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -84,45 +86,23 @@ public class Vista_ventanaCarga extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JProgressBar getBarra_progreso() {
+        return barra_progreso;
+    }
+
+    public void setBarra_progreso(JProgressBar barra_progreso) {
+        this.barra_progreso = barra_progreso;
+    }
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista_ventanaCarga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista_ventanaCarga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista_ventanaCarga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista_ventanaCarga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista_ventanaCarga().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar barra_progreso;
     private Imagenes_Panel.Fondo_login fondo_login1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

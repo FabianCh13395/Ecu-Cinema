@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.awt.Image;
+import java.sql.Date;
 
 /**
  *
@@ -22,6 +23,10 @@ public class Administrador extends Usuario{
     public Administrador(String Contraseña, Image FotoA) {
         this.Contraseña = Contraseña;
         this.FotoA = FotoA;
+    }
+
+    public Administrador(String Cedula, String Nombre, String Telefono, String Apellido, String Correo, Date fecha_nacimiento) {
+        super(Cedula, Nombre, Telefono, Apellido, Correo, fecha_nacimiento);
     }
 
     public Administrador(String Contraseña, Image FotoA, String Cedula, String Nombre, String Telefono, String Apellido, String Correo) {

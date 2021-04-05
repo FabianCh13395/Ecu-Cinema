@@ -31,14 +31,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class ControlVendedor {
     private ModeloVendedor v;
     private Registro_Usuario re;
-    private Vista_MenuEmpleado m;
-    private vista_loguin l;
+   
 
     public ControlVendedor(ModeloVendedor v, Registro_Usuario re) {
         this.v = v;
         this.re = re;
         inicioControlVendedor();
         this.re.setVisible(true);
+        re.getLbl_text1().setText("Registro Vendedor");
         
     }
 
@@ -54,7 +54,7 @@ public class ControlVendedor {
 
         String cedula = re.getT_txt_cedulaV().getText();
         String nombre = re.getTxt_nombreV().getText();
-        String apellido = re.getTxt_nombreV().getText();
+        String apellido = re.getTxt_apellidoV().getText();
         String telefono = re.getTxt_tlfV().getText();
         String correo= re.getTxt_CorreoV().getText();
         Instant instant = re.getFechaNaciV().getDate().toInstant();
@@ -78,6 +78,7 @@ public class ControlVendedor {
        vendedor.setFotoV(foto);
         if (vendedor.grabarVendedor()== true) {
             JOptionPane.showMessageDialog(re, "Vendedor Guardado exitosamente");
+            re.dispose();
         } else {
             JOptionPane.showMessageDialog(re, "ERROR ");
         }

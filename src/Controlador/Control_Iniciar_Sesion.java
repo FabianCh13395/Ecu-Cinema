@@ -5,9 +5,12 @@
  */
 package Controlador;
 
+import Modelo.Administrador;
+import Modelo.ModeloAdministrador;
 import Modelo.ModeloVendedor;
 import Modelo.Vendedor;
 import Vistas.Vista_MenuEmpleado;
+import Vistas.Vista_MenuGeneral;
 import Vistas.Vista_ventanaCarga;
 import Vistas.vista_loguin;
 import java.awt.event.ActionEvent;
@@ -26,8 +29,10 @@ public class Control_Iniciar_Sesion {
     private Vendedor vendedor;
     private Vista_ventanaCarga l;
     private Timer t;
+    private ModeloAdministrador a;
     private int x = 0;
     private ActionListener ac;
+    private Administrador admi;
 
     public Control_Iniciar_Sesion(ModeloVendedor v, vista_loguin login, Vendedor vendedor) {
         this.v = v;
@@ -35,7 +40,7 @@ public class Control_Iniciar_Sesion {
         this.vendedor = vendedor;
     }
 
-    public Control_Iniciar_Sesion(ModeloVendedor v, vista_loguin login,Vista_ventanaCarga l) {
+    public Control_Iniciar_Sesion(ModeloVendedor v, vista_loguin login,Vista_ventanaCarga l,ModeloAdministrador a) {
         this.v = v;
         this.login = login;
         this.l=l;
@@ -57,7 +62,7 @@ public class Control_Iniciar_Sesion {
         ve.setContraseñaV(contraseña);
         Vendedor v1 = ve.ComprobarCedulaVendedor();
         if (v1 == null) {
-            JOptionPane.showMessageDialog(login, "No existe el Usuario");
+            comprobacionCedulaAdministrador();
             login.getTxt_inicioCedula().setText("");
             login.getTxt_paswInicio().setText("");
 
@@ -73,6 +78,31 @@ public class Control_Iniciar_Sesion {
         }
 
     }
+    public void comprobacionCedulaAdministrador(){
+        String cedula = login.getTxt_inicioCedula().getText();
+        String contraseña = String.valueOf(login.getTxt_paswInicio().getPassword());
+        ModeloAdministrador va=new ModeloAdministrador();
+        va.setCedula(cedula);
+        va.setContraseña(contraseña);
+        Administrador vr=va.ComprobarCedulaAdministrador();
+                if (vr == null) {
+                   
+            JOptionPane.showMessageDialog(login, "No existe el Usuario");
+            login.getTxt_inicioCedula().setText("");
+            login.getTxt_paswInicio().setText("");
+
+        } else if (va.getCedula().equals(vr.getCedula()) && va.getContraseña().equals(vr.getContraseña())) {
+            JOptionPane.showMessageDialog(login, "Usted a iniciado sesión como Administrador");
+           
+           Vista_MenuGeneral menuE=new  Vista_MenuGeneral();
+           ControladorVistaGeneral e=new ControladorVistaGeneral(menuE,va);
+           
+        } else {
+            JOptionPane.showMessageDialog(login, "Contraseña Incorrecta");
+            login.getTxt_paswInicio().setText("");
+        }
+    }
+    
 
     public void VentanaInicial() {
           ac=new ActionListener() {

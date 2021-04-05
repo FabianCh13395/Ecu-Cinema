@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author JOSEPH
@@ -18,6 +21,46 @@ public class Vista_MenuGeneral extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtn_Salir() {
+        return btn_Salir;
+    }
+
+    public void setBtn_Salir(JButton btn_Salir) {
+        this.btn_Salir = btn_Salir;
+    }
+
+    public JButton getBtn_registroA() {
+        return btn_registroA;
+    }
+
+    public void setBtn_registroA(JButton btn_registroA) {
+        this.btn_registroA = btn_registroA;
+    }
+
+    public JButton getBtn_registroV() {
+        return btn_registroV;
+    }
+
+    public void setBtn_registroV(JButton btn_registroV) {
+        this.btn_registroV = btn_registroV;
+    }
+
+    public JLabel getLbl_fotoA() {
+        return lbl_fotoA;
+    }
+
+    public void setLbl_fotoA(JLabel lbl_fotoA) {
+        this.lbl_fotoA = lbl_fotoA;
+    }
+
+    public JLabel getLbl_nombreA() {
+        return lbl_nombreA;
+    }
+
+    public void setLbl_nombreA(JLabel lbl_nombreA) {
+        this.lbl_nombreA = lbl_nombreA;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,11 +71,12 @@ public class Vista_MenuGeneral extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btn_registroA = new javax.swing.JButton();
+        btn_Salir = new javax.swing.JButton();
+        btn_registroV = new javax.swing.JButton();
+        lbl_fotoA = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        lbl_nombreA = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         menu_general = new javax.swing.JDesktopPane();
 
@@ -40,55 +84,68 @@ public class Vista_MenuGeneral extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(149, 28, 28));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icon_login.png"))); // NOI18N
+        btn_registroA.setText("Registrar Administrador");
 
-        jButton1.setText("Iniciar Sesion");
+        btn_Salir.setText("Salir");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/llave.png"))); // NOI18N
+        btn_registroV.setText("Registrar Vendedor");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Add_User.png"))); // NOI18N
+        lbl_fotoA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton2.setText("Registrar");
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+
+        lbl_nombreA.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_nombreA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_nombreA.setText("Nombre");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btn_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btn_registroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_registroV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(lbl_fotoA, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 1, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jButton1))))
-                .addGap(18, 18, 18))
+                .addComponent(jSeparator1)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(lbl_nombreA, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel1)
-                .addGap(87, 87, 87)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton1))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel3))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lbl_fotoA, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_nombreA)
+                .addGap(89, 89, 89)
+                .addComponent(btn_registroV)
+                .addGap(34, 34, 34)
+                .addComponent(btn_registroA)
+                .addGap(36, 36, 36)
+                .addComponent(btn_Salir)
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(166, 39, 39));
-
-        menu_general.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout menu_generalLayout = new javax.swing.GroupLayout(menu_general);
         menu_general.setLayout(menu_generalLayout);
@@ -142,13 +199,14 @@ public class Vista_MenuGeneral extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btn_Salir;
+    private javax.swing.JButton btn_registroA;
+    private javax.swing.JButton btn_registroV;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lbl_fotoA;
+    private javax.swing.JLabel lbl_nombreA;
     private javax.swing.JDesktopPane menu_general;
     // End of variables declaration//GEN-END:variables
 }

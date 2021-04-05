@@ -37,6 +37,14 @@ public class Vista_MenuEmpleado extends javax.swing.JFrame {
         this.lbl_foto = lbl_foto;
     }
 
+    public JButton getBtn_salir() {
+        return btn_salir;
+    }
+
+    public void setBtn_salir(JButton btn_salir) {
+        this.btn_salir = btn_salir;
+    }
+
     public JLabel getLbl_nombreV() {
         return lbl_nombreV;
     }

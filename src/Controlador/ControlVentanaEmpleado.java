@@ -31,6 +31,7 @@ public class ControlVentanaEmpleado {
     public ControlVentanaEmpleado() {
     }
     public void InicioControl(){
+        m.getBtn_salir().addActionListener(l->m.dispose());
         mostrarFoto();
         mostrarNF();
     }

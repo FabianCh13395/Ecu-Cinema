@@ -6,6 +6,7 @@
 package Vistas;
 
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 
 /**
@@ -59,6 +60,14 @@ public class Vista_MenuGeneral extends javax.swing.JFrame {
 
     public void setLbl_nombreA(JLabel lbl_nombreA) {
         this.lbl_nombreA = lbl_nombreA;
+    }
+
+    public JDesktopPane getMenu_general() {
+        return menu_general;
+    }
+
+    public void setMenu_general(JDesktopPane menu_general) {
+        this.menu_general = menu_general;
     }
 
     /**
@@ -151,7 +160,7 @@ public class Vista_MenuGeneral extends javax.swing.JFrame {
         menu_general.setLayout(menu_generalLayout);
         menu_generalLayout.setHorizontalGroup(
             menu_generalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 585, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
         menu_generalLayout.setVerticalGroup(
             menu_generalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,15 +171,13 @@ public class Vista_MenuGeneral extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(menu_general)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(menu_general)
                 .addContainerGap())
         );

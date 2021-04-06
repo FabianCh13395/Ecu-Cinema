@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.ModeloVendedor;
+import Vistas.Venta;
 import Vistas.Vista_MenuEmpleado;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -34,6 +35,7 @@ public class ControlVentanaEmpleado {
         m.getBtn_salir().addActionListener(l->m.dispose());
         mostrarFoto();
         mostrarNF();
+        m.getBtn_generarVenta().addActionListener(l->DestokPaneEmpleado());
     }
     
       private void mostrarNF(){
@@ -48,6 +50,12 @@ public class ControlVentanaEmpleado {
         if (ima != null) {
                 m.getLbl_foto().setIcon(new ImageIcon (ima));
             }
+    }
+    private void DestokPaneEmpleado(){
+        ModeloVendedor v=new ModeloVendedor();
+        Venta v1=new Venta();
+        ControlVenta m1=new ControlVenta(v,v1);
+        m.getMenu_general().add(v1);
     }
     
 }

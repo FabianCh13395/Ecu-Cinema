@@ -11,7 +11,7 @@ import javax.swing.JMenuItem;
  *
  * @author JOSEPH
  */
-public class Vista_Administrador extends javax.swing.JFrame {
+public class Vista_Administrador extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Vista_Administrador

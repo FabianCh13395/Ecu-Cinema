@@ -71,6 +71,8 @@ public class Control_Iniciar_Sesion {
            
            Vista_MenuEmpleado menuE=new  Vista_MenuEmpleado();
            ControlVentanaEmpleado e=new ControlVentanaEmpleado(ve,menuE);
+            login.getTxt_inicioCedula().setText("");
+            login.getTxt_paswInicio().setText("");
            
         } else {
             JOptionPane.showMessageDialog(login, "Contraseña Incorrecta");

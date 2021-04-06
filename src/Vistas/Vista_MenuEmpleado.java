@@ -6,6 +6,7 @@
 package Vistas;
 
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 
 /**
@@ -51,6 +52,14 @@ public class Vista_MenuEmpleado extends javax.swing.JFrame {
 
     public void setLbl_nombreV(JLabel lbl_nombreV) {
         this.lbl_nombreV = lbl_nombreV;
+    }
+
+    public JDesktopPane getMenu_general() {
+        return menu_general;
+    }
+
+    public void setMenu_general(JDesktopPane menu_general) {
+        this.menu_general = menu_general;
     }
 
     /**

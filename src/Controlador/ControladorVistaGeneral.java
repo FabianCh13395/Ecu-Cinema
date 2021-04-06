@@ -8,6 +8,7 @@ package Controlador;
 import Modelo.ModeloAdministrador;
 import Modelo.ModeloVendedor;
 import Vistas.Registro_Usuario;
+import Vistas.Vista_Administrador;
 import Vistas.Vista_MenuGeneral;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -19,6 +20,7 @@ import javax.swing.ImageIcon;
 public class ControladorVistaGeneral {
     private Vista_MenuGeneral g;
     private ModeloAdministrador a;
+    
 
     public ControladorVistaGeneral(Vista_MenuGeneral g, ModeloAdministrador a) {
         this.g = g;
@@ -26,9 +28,17 @@ public class ControladorVistaGeneral {
         g.setVisible(true);
         g.setLocationRelativeTo(null);
         InicioControl();
+        abrirDestokpainAdministrador();
     }
 
     public ControladorVistaGeneral() {
+    }
+    private void abrirDestokpainAdministrador(){
+        
+        ModeloAdministrador admi=new ModeloAdministrador();
+        Vista_Administrador v=new Vista_Administrador();
+        ControlVistaAdministrador m= new ControlVistaAdministrador(admi,v);
+        g.getMenu_general().add(v);
     }
     public void InicioControl(){
        g.getBtn_registroA().addActionListener(l->RegistroAdministrador());

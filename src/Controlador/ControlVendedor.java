@@ -11,6 +11,8 @@ import Vistas.Registro_Usuario;
 import Vistas.Vista_MenuEmpleado;
 import Vistas.vista_loguin;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.Instant;
@@ -49,6 +51,8 @@ public class ControlVendedor {
         re.getBtn_Examninar().addActionListener(l->cargarImagen());
         re.getBtn_cancelar().addActionListener(l->re.dispose());
         re.getLbl_codigo().setText(v.GeneraridVendedor());
+      
+        
     }
     private void grabarVendedor() {
 
@@ -103,4 +107,5 @@ public class ControlVendedor {
             }
         }
     }
+   
 }

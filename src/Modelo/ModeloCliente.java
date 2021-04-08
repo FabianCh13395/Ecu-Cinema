@@ -9,6 +9,11 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -72,6 +77,31 @@ public class ModeloCliente extends Cliente{
             return true;
         } else {
             return false;
+        }
+      }
+      public List<Cliente> buscarCedula(){
+            try {
+            String query;
+            query = "SELECT* FROM usuario u join cliente c on u.cedula=c.cedula where  c.cedula LIKE '%" + getCedula()+ "%'";
+
+            ResultSet rs = con.query(query);
+            List<Cliente> lista = new ArrayList<Cliente>();
+            while (rs.next()) {
+                Cliente c = new Cliente();
+                c.setCedula(rs.getString("cedula"));
+                c.setNombre(rs.getString("nombre"));
+                c.setApellido(rs.getString("apellido"));
+                c.setTelefono(rs.getString("telefono"));
+                c.setCorreo(rs.getString("correo"));
+                // PARA FECHA
+                c.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
+                lista.add(c);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloCliente.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
       }
       public boolean  eliminarUsuario(){

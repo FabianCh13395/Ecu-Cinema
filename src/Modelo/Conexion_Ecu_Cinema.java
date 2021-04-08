@@ -33,7 +33,6 @@ public class Conexion_Ecu_Cinema {
         
         try {
             con = DriverManager.getConnection(cadenaConexion, usuarioPos ,pasw);
-            System.out.println("Conexion realizada con exito");
         } catch (SQLException ex) {
             Logger.getLogger(Conexion_Ecu_Cinema.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error en la conexión");

@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Atxy2k.CustomTextField.RestrictedTextField;
 import Modelo.Administrador;
 import Modelo.ModeloAdministrador;
 import Modelo.ModeloVendedor;
@@ -52,6 +53,7 @@ public class Control_Iniciar_Sesion {
 
     public void InicioControlVentana() {
         login.getBtn_inicio().addActionListener(l -> comprobacionCedulaVendedor());
+        validarInicio();
     }
 
     public void comprobacionCedulaVendedor() {
@@ -123,5 +125,11 @@ public class Control_Iniciar_Sesion {
         t = new Timer(35, ac);
         t.start();
     }
-
+   private void validarInicio(){
+       RestrictedTextField t =new RestrictedTextField(login.getTxt_inicioCedula());
+        t.setLimit(10);
+        t.setOnlyNums(true);
+        RestrictedTextField g=new RestrictedTextField(login.getTxt_paswInicio());
+        g.setLimit(15);
+   }
 }

@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Atxy2k.CustomTextField.RestrictedTextField;
 import Modelo.ModeloAdministrador;
 import Modelo.ModeloVendedor;
 import Vistas.Registro_Usuario;
@@ -41,6 +42,7 @@ public class ControlAdministradror {
     public ControlAdministradror() {
     }
     public void InicioControlAdministrador(){
+        validarAdministrador();
         r.getBtn_Registrar().addActionListener(l->grabarAdministrador());
         r.getBtn_cancelar().addActionListener(l->r.dispose());
         r.getBtn_Examninar().addActionListener(l->cargarImagen());
@@ -111,4 +113,25 @@ public class ControlAdministradror {
         r.getLbl_codigo().setText("");
         r.getLbl_fotoV().setIcon(null);
     }
+    private void validarAdministrador(){
+        RestrictedTextField t =new RestrictedTextField(r.getT_txt_cedulaV());
+        t.setLimit(10);
+        t.setOnlyNums(true);
+        RestrictedTextField n =new RestrictedTextField(r.getTxt_nombreV());
+        n.setLimit(20);
+        n.setOnlyText(true);
+        RestrictedTextField a =new RestrictedTextField(r.getTxt_apellidoV());
+        a.setLimit(20);
+        a.setOnlyText(true);
+        RestrictedTextField ce= new RestrictedTextField(r.getTxt_tlfV());
+        ce.setLimit(10);
+        ce.setOnlyNums(true);
+        RestrictedTextField p =new RestrictedTextField(r.getJpas_vendedor());
+        p.setLimit(15);
+        RestrictedTextField pc =new RestrictedTextField(r.getJpasw_vendedor1());
+        pc.setLimit(15);
+        RestrictedTextField co =new RestrictedTextField(r.getTxt_CorreoV());
+        co.setLimit(35);
+        //validaciones();
+        }    
 }

@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Atxy2k.CustomTextField.RestrictedTextField;
 import Modelo.Cliente;
 import Modelo.ModeloCliente;
 import Modelo.ModeloVendedor;
@@ -34,6 +35,7 @@ public class ControlVenta {
     }
     
     public void inicioControlCliente(){
+        validarCliente();
          deshabilitarB(false);
         vistacli.getBtn_buscar().addActionListener(l->mostrarInfCliente());
         vistacli.getBtn_registrarCli().addActionListener(l->grabarCliente());
@@ -89,6 +91,11 @@ public class ControlVenta {
             deshabilitarB(Boolean.TRUE);
             vistacli.getTxtcedula_cli().setText(cedulacliente);
             vistacli.getTxt_buscar().setText("");
+            vistacli.getTxt_nombreCli().setText("");
+            vistacli.getTxt_apeliidoCli().setText("");
+            vistacli.getTxt_correoCli().setText("");
+            vistacli.getTxt_telefonoCli().setText("");
+            vistacli.getFecha_cliente().setDate(null);
             
         }
         
@@ -104,7 +111,26 @@ public class ControlVenta {
         vistacli.getFecha_cliente().setEnabled(opcion);
         vistacli.getBtn_registrarCli().setEnabled(opcion);
     }
-   
+   private void validarCliente(){
+       RestrictedTextField c1 =new RestrictedTextField(vistacli.getTxtcedula_cli());
+        c1.setLimit(10);
+        c1.setOnlyNums(true);
+        RestrictedTextField c2 =new RestrictedTextField(vistacli.getTxt_buscar());
+        c2.setLimit(10);
+        c2.setOnlyNums(true);
+         RestrictedTextField c3 =new RestrictedTextField(vistacli.getTxt_nombreCli());
+        c3.setLimit(20);
+        c3.setOnlyText(true);
+        RestrictedTextField c4 =new RestrictedTextField(vistacli.getTxt_apeliidoCli());
+        c3.setLimit(20);
+        c3.setOnlyText(true);
+        RestrictedTextField c5 =new RestrictedTextField(vistacli.getTxt_telefonoCli());
+        c3.setLimit(10);
+        c3.setOnlyNums(true);
+        RestrictedTextField c6=new RestrictedTextField(vistacli.getTxt_correoCli());
+        c3.setLimit(35);
+        
+   }
 }
 
     

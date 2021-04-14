@@ -87,7 +87,7 @@ public class Venta extends javax.swing.JInternalFrame {
         jComboBox6 = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabButacas = new javax.swing.JTable();
-        jButton9 = new javax.swing.JButton();
+        btn_Asiento = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtcedula_cli = new javax.swing.JTextField();
@@ -419,9 +419,9 @@ public class Venta extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(tabButacas);
 
-        jButton9.setBackground(new java.awt.Color(255, 255, 255));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus.png"))); // NOI18N
-        jButton9.setBorder(null);
+        btn_Asiento.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Asiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus.png"))); // NOI18N
+        btn_Asiento.setBorder(null);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -462,7 +462,7 @@ public class Venta extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton9))
+                        .addComponent(btn_Asiento))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -517,7 +517,7 @@ public class Venta extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel21)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn_Asiento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(57, 57, 57)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -716,6 +716,14 @@ public class Venta extends javax.swing.JInternalFrame {
         this.txtcedula_cli = txtcedula_cli;
     }
 
+    public JButton getBtn_Asiento() {
+        return btn_Asiento;
+    }
+
+    public void setBtn_Asiento(JButton btn_Asiento) {
+        this.btn_Asiento = btn_Asiento;
+    }
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -726,6 +734,7 @@ public class Venta extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Asiento;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_registrarCli;
     private javax.swing.JDialog dlgFactura;
@@ -737,7 +746,6 @@ public class Venta extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

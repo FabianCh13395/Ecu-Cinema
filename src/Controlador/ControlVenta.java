@@ -7,9 +7,11 @@ package Controlador;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import Modelo.Cliente;
+import Modelo.ModeloAsiento;
 import Modelo.ModeloCliente;
 import Modelo.ModeloVendedor;
 import Vistas.Venta;
+import Vistas.VistaAsiento;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -39,7 +41,12 @@ public class ControlVenta {
          deshabilitarB(false);
         vistacli.getBtn_buscar().addActionListener(l->mostrarInfCliente());
         vistacli.getBtn_registrarCli().addActionListener(l->grabarCliente());
+       vistacli.getBtn_Asiento().addActionListener(l->{
+       VistaAsiento v= new VistaAsiento();
+       ModeloAsiento m= new ModeloAsiento();
+       ControlAsiento c= new ControlAsiento(v,m);
        
+       });
     }
     
     public void grabarCliente(){

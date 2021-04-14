@@ -10,14 +10,21 @@ import Modelo.ModeloVendedor;
 import Vistas.Registro_Usuario;
 import Vistas.Vista_ventanaCarga;
 import Vistas.vista_loguin;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
  * @author FabianCh
  */
 public class Control_Ventana_Principal {
-  public static void main(String[] args){
-      
+  public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException{
+      for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
       ModeloVendedor mvendedor= new ModeloVendedor();
       ModeloAdministrador a=new ModeloAdministrador();
 //      Registro_Usuario uvendedor=new Registro_Usuario();

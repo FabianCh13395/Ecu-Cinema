@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.ModeloCliente;
+import Modelo.ModeloFuncion;
 import Modelo.ModeloVendedor;
 import Vistas.Venta;
 import Vistas.Vista_MenuEmpleado;
@@ -20,6 +21,7 @@ import javax.swing.JLabel;
 public class ControlVentanaEmpleado {
     private ModeloVendedor v;
     private Vista_MenuEmpleado m;
+    private ModeloFuncion f;
 
     public ControlVentanaEmpleado(ModeloVendedor v, Vista_MenuEmpleado m) {
         this.v = v;
@@ -37,6 +39,8 @@ public class ControlVentanaEmpleado {
         mostrarFoto();
         mostrarNF();
         m.getBtn_generarVenta().addActionListener(l->DestokPaneEmpleado());
+        f=new ModeloFuncion();
+        f.DisponibilidadFuncion();
     }
     
       private void mostrarNF(){

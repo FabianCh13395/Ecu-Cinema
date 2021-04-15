@@ -7,8 +7,10 @@ package Controlador;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
 import Modelo.Cliente;
+import Modelo.Funcion;
 import Modelo.ModeloAsiento;
 import Modelo.ModeloCliente;
+import Modelo.ModeloFuncion;
 import Modelo.ModeloVendedor;
 import Vistas.Venta;
 import Vistas.VistaAsiento;
@@ -16,6 +18,7 @@ import java.sql.Date;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -27,12 +30,14 @@ public class ControlVenta {
     private ModeloVendedor v;
     private ModeloCliente c;
     private Venta vistacli;
+    private ModeloFuncion f;
 
     public ControlVenta(ModeloVendedor v, Venta vistacli,ModeloCliente c) {
         this.v = v;
         this.vistacli = vistacli;
         this.c=c;
         vistacli.setVisible(true);
+        CargaFunciones();
         inicioControlCliente();
     }
     
@@ -47,6 +52,12 @@ public class ControlVenta {
        ControlAsiento c= new ControlAsiento(v,m);
        
        });
+    }
+    private void CargaFunciones(){
+        List<Funcion> lista= new ModeloFuncion().traerFuncion();
+        for (Funcion funcion : lista) {
+            vistacli.getjComboFuncion().addItem(funcion.toString());    
+        }
     }
     
     public void grabarCliente(){

@@ -20,8 +20,23 @@ public class Funcion {
     private boolean disponibilidad;
     private LocalTime HoraInicio;
     private LocalTime HoraFin;
+    private Sala   s;
+    private Pelicula p;
 
     public Funcion() {
+    }
+
+    public Funcion(LocalTime HoraInicio, LocalTime HoraFin, Sala s, Pelicula p) {
+        this.HoraInicio = HoraInicio;
+        this.HoraFin = HoraFin;
+        this.s = s;
+        this.p = p;
+    }
+
+  
+
+    public Funcion(Sala s) {
+        this.s = s;
     }
 
     public Funcion(String IdFuncion, Date Fecha, boolean disponibilidad, LocalTime HoraInicio, LocalTime HoraFin) {
@@ -71,6 +86,13 @@ public class Funcion {
     public void setHoraFin(LocalTime HoraFin) {
         this.HoraFin = HoraFin;
     }
+
+    @Override
+    public String toString() {
+        return  String.format("%15s",p.getTitulo()) +String.format("%25s",s.getNombreSala()) +String.format("%40s",HoraInicio) + String.format("%30s", HoraFin)  ;
+    }
+
+    
     
     
 }

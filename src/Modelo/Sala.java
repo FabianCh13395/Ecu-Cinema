@@ -18,6 +18,11 @@ public class Sala {
     public Sala() {
     }
 
+    public Sala(String NombreSala) {
+        this.NombreSala = NombreSala;
+    }
+    
+
     public Sala(String IdSala, int TotalAsientos, String NombreSala, boolean disponibilidad) {
         this.IdSala = IdSala;
         this.TotalAsientos = TotalAsientos;

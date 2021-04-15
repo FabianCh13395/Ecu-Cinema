@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.awt.Image;
+
 /**
  *
  * @author a-adr_000
@@ -14,21 +16,55 @@ public class Pelicula {
     private String Descripcion;
     private String Clasificacion;
     private String Genero;
-    private String Duracion;
+    private int Duracion;
+    private String Titulo;
     private String Estado;
+    private Image foto;
 
     
     public Pelicula() {
     }
 
-    public Pelicula(String IdPelicula, String Descripcion, String Clasificacion, String Genero, String Duracion, String Estado) {
+    public Pelicula(String Titulo) {
+        this.Titulo = Titulo;
+    }
+
+    public Pelicula(String IdPelicula, String Descripcion, String Clasificacion, String Genero, int Duracion, String Titulo, String Estado, Image foto) {
         this.IdPelicula = IdPelicula;
         this.Descripcion = Descripcion;
         this.Clasificacion = Clasificacion;
         this.Genero = Genero;
         this.Duracion = Duracion;
+        this.Titulo = Titulo;
         this.Estado = Estado;
+        this.foto = foto;
     }
+
+    public int getDuracion() {
+        return Duracion;
+    }
+
+    public void setDuracion(int Duracion) {
+        this.Duracion = Duracion;
+    }
+
+    public String getTitulo() {
+        return Titulo;
+    }
+
+    public void setTitulo(String Titulo) {
+        this.Titulo = Titulo;
+    }
+
+    public Image getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Image foto) {
+        this.foto = foto;
+    }
+
+   
 
     public String getIdPelicula() {
         return IdPelicula;
@@ -62,13 +98,7 @@ public class Pelicula {
         this.Genero = Genero;
     }
 
-    public String getDuracion() {
-        return Duracion;
-    }
-
-    public void setDuracion(String Duracion) {
-        this.Duracion = Duracion;
-    }
+   
 
     public String getEstado() {
         return Estado;

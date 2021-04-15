@@ -92,7 +92,7 @@ public class ModeloFuncion extends Funcion{
      }
      public boolean DisponibilidadFuncion(){
          String sql="";
-         sql="Update funcion set(disponibilidad=false)where fecha<(Select now())";
+         sql="Update funcion set disponibilidad='false' where fecha<(Select now())";
          return (con.noquery(sql)!=null);
      }
 }

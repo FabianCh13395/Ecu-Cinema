@@ -22,6 +22,14 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JMenu getBtnSalir() {
+        return btnSalir;
+    }
+
+    public void setBtnSalir(JMenu btnSalir) {
+        this.btnSalir = btnSalir;
+    }
+
     public JMenuItem getBtnNuevasFunciones() {
         return btnNuevasFunciones;
     }

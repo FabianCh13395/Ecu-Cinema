@@ -14,12 +14,18 @@ import Modelo.ModeloFuncion;
 import Modelo.ModeloVendedor;
 import Vistas.Venta;
 import Vistas.VistaAsiento;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,7 +48,7 @@ public class ControlVenta {
     }
     
     public void inicioControlCliente(){
-        
+        validarCliente();
          deshabilitarB(false);
         vistacli.getBtn_buscar().addActionListener(l->mostrarInfCliente());
         vistacli.getBtn_registrarCli().addActionListener(l->grabarCliente());
@@ -109,6 +115,7 @@ public class ControlVenta {
         vistacli.getFecha_cliente().setDate(new java.util.Date(c1.getFecha_nacimiento().getTime()));
         }); 
         }else{
+            vistacli.getTxt_buscar().setText("");
             vistacli.getTxtcedula_cli().setText(cedulacliente);
              JOptionPane.showMessageDialog(vistacli, "No existe el cliente");
             deshabilitarB(Boolean.TRUE);
@@ -127,25 +134,143 @@ public class ControlVenta {
         vistacli.getBtn_registrarCli().setEnabled(opcion);
     }
    private void validarCliente(){
-       RestrictedTextField c1 =new RestrictedTextField(vistacli.getTxtcedula_cli());
-        c1.setLimit(10);
-        c1.setOnlyNums(true);
-        RestrictedTextField c2 =new RestrictedTextField(vistacli.getTxt_buscar());
-        c2.setLimit(10);
-        c2.setOnlyNums(true);
-         RestrictedTextField c3 =new RestrictedTextField(vistacli.getTxt_nombreCli());
-        c3.setLimit(20);
-        c3.setOnlyText(true);
-        RestrictedTextField c4 =new RestrictedTextField(vistacli.getTxt_apeliidoCli());
-        c4.setLimit(20);
-        c4.setOnlyText(true);
-        RestrictedTextField c5 =new RestrictedTextField(vistacli.getTxt_telefonoCli());
-        c5.setLimit(10);
-        c5.setOnlyNums(true);
-        RestrictedTextField c6=new RestrictedTextField(vistacli.getTxt_correoCli());
-        c6.setLimit(35);
+          vistacli.getTxt_buscar().addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               if (vistacli.getTxt_buscar().getText().length() >= 10) {
+                    e.consume();
+                }
+                char c = e.getKeyChar();
+                if (c < '0' || c > '9') {
+                    e.consume();
+                }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+               
+           }
+           @Override
+           public void keyReleased(KeyEvent e) {
+               
+           }
+       });
+       vistacli.getTxtcedula_cli().addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               if (vistacli.getTxtcedula_cli().getText().length() >= 10) {
+                    e.consume();
+                }
+                char c = e.getKeyChar();
+                if (c < '0' || c > '9') {
+                    e.consume();
+                }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+               
+           }
+           @Override
+           public void keyReleased(KeyEvent e) {
+               
+           }
+       });
+       vistacli.getTxt_nombreCli().addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               if(vistacli.getTxt_nombreCli().getText().length()>=15){
+                   char c = e.getKeyChar();
+                   e.consume();
+                if (Character.isDigit(c)) {
+                    e.consume();
+
+                }
+               }
+                 
+           }
+           @Override
+           public void keyPressed(KeyEvent e) {
+              
+           }
+           @Override
+           public void keyReleased(KeyEvent e) {
+               
+           }
+       });
+       vistacli.getTxt_apeliidoCli().addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+                 if(vistacli.getTxt_apeliidoCli().getText().length()>=15){
+                   char c = e.getKeyChar();
+                   e.consume();
+                if (Character.isDigit(c)) {
+                    e.consume();
+
+                }
+               }
+           }
+           @Override
+           public void keyPressed(KeyEvent e) {
+              
+           }
+           @Override
+           public void keyReleased(KeyEvent e) {
+               
+           }
+       });
+       vistacli.getTxt_telefonoCli().addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               if (vistacli.getTxt_telefonoCli().getText().length() >= 12) {
+                    e.consume();
+                }
+                char c = e.getKeyChar();
+                if (c < '0' || c > '9') {
+                    e.consume();
+                }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+               
+           }
+           @Override
+           public void keyReleased(KeyEvent e) {
+               
+           }
+       });
+        vistacli.getTxt_correoCli().addFocusListener(new FocusListener() {
+           @Override
+           public void focusGained(FocusEvent e) {
+              
+           }
+
+           @Override
+           public void focusLost(FocusEvent e) {
+               if (paraEmail(vistacli.getTxt_correoCli().getText())) {
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Correo Incorrecto", "Validar correo", JOptionPane.INFORMATION_MESSAGE);
+                    vistacli.getTxtcedula_cli().requestFocus();
+                }
+           }
+       });
+
+       
         
    }
+     public boolean paraEmail(String correo2) {
+        Pattern pat = null;
+        Matcher mat = null;
+        pat = Pattern.compile("^[\\w\\-\\_\\+]+(\\.[\\w\\-\\_]+)*@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$");
+        mat = pat.matcher(correo2);
+        if (mat.find()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
     

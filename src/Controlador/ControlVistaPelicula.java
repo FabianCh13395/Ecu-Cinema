@@ -44,6 +44,7 @@ public class ControlVistaPelicula {
        v.getBtn_guardar().addActionListener(l->grabarPelicula());
        v.getBtn_ExaminarFoto().addActionListener(l->cargarImagen());
        v.getBtn_salir().addActionListener(l->v.dispose());
+       cargaPeliculas();
     }
     private void grabarPelicula(){
         boolean disponibilidad=true ;

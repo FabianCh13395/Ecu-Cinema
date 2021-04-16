@@ -9,6 +9,7 @@ import Modelo.ModeloAdministrador;
 import Modelo.ModeloPelicula;
 import Modelo.ModeloSala;
 import Vistas.Vista_Administrador;
+import Vistas.Vista_MenuGeneral;
 import Vistas.Vista_Salas;
 import Vistas.Vista_gestionPeliculas;
 
@@ -42,6 +43,10 @@ public class ControlVistaAdministrador {
         Vista_Salas k=new Vista_Salas();
         ControlVistaSala s1=new ControlVistaSala(s,k);
         v.getMenuAdmin().add(k);
+        });
+        v.getBtnSalir().addActionListener(l->{
+        Vista_MenuGeneral vista= new Vista_MenuGeneral();
+        vista.dispose();
         });
     }
     

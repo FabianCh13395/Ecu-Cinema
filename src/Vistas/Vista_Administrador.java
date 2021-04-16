@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import javax.swing.JDesktopPane;
+import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 /**
@@ -32,8 +34,32 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         return btnNuevasPelis;
     }
 
+    public JDesktopPane getMenuAdmin() {
+        return menuAdmin;
+    }
+
+    public void setMenuAdmin(JDesktopPane menuAdmin) {
+        this.menuAdmin = menuAdmin;
+    }
+
+    public JMenu getMenu_peliculas() {
+        return menu_peliculas;
+    }
+
+    public void setMenu_peliculas(JMenu menu_peliculas) {
+        this.menu_peliculas = menu_peliculas;
+    }
+
     public void setBtnNuevasPelis(JMenuItem btnNuevasPelis) {
         this.btnNuevasPelis = btnNuevasPelis;
+    }
+
+    public JMenuItem getBtnNuevasSalas() {
+        return btnNuevasSalas;
+    }
+
+    public void setBtnNuevasSalas(JMenuItem btnNuevasSalas) {
+        this.btnNuevasSalas = btnNuevasSalas;
     }
 
     public JMenuItem getBtnReportClientes() {
@@ -78,7 +104,7 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         menuAdmin = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menu_peliculas = new javax.swing.JMenu();
         btnNuevasPelis = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         btnNuevasFunciones = new javax.swing.JMenuItem();
@@ -98,6 +124,7 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(true);
 
         jPanel1.setBackground(new java.awt.Color(179, 43, 43));
 
@@ -123,14 +150,14 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
             .addComponent(menuAdmin, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ticket_icon.png"))); // NOI18N
-        jMenu1.setText("Peliculas");
+        menu_peliculas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ticket_icon.png"))); // NOI18N
+        menu_peliculas.setText("Peliculas");
 
         btnNuevasPelis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pelicula.png"))); // NOI18N
         btnNuevasPelis.setText("Gestion Peliculas");
-        jMenu1.add(btnNuevasPelis);
+        menu_peliculas.add(btnNuevasPelis);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menu_peliculas);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/teatro.png"))); // NOI18N
         jMenu5.setText("Funciones");
@@ -213,7 +240,6 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
     private javax.swing.JMenu btnSalir;
     private javax.swing.JMenuItem btnreportEmpleados;
     private javax.swing.JMenuItem btnreportVentas;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -223,5 +249,6 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JDesktopPane menuAdmin;
+    private javax.swing.JMenu menu_peliculas;
     // End of variables declaration//GEN-END:variables
 }

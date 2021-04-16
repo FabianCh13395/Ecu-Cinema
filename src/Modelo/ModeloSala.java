@@ -7,6 +7,8 @@ package Modelo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,11 +29,11 @@ public class ModeloSala extends Sala{
         String id="";
         try{
         String sql;
-        sql="Select max(id_vendedor)from vendedor";
+        sql="Select max(id_sala)from sala";
         ResultSet dato = con.query(sql);
        
             if (dato.next()) {
-                id= dato.getString("max(id_vendedor)");
+                id= dato.getString(1);
             }
             System.out.println(id);
             int suf;
@@ -69,6 +71,24 @@ public class ModeloSala extends Sala{
             return false;
         }
    }
-   
+   public  List<Sala> ListarSalas(){
+        try {
+            String query="select id_sala,nombre,total_asientos from sala";
+            ResultSet rs=con.query(query);
+            List<Sala> lista=new ArrayList<Sala>();
+            while(rs.next()){
+            Sala s=new Sala();
+            s.setIdSala(rs.getString("id_sala"));
+            s.setNombreSala(rs.getString("nombre"));
+            s.setTotalAsientos(rs.getInt("total_asientos"));
+            lista.add(s);
+        }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloSala.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+   }
     
 }

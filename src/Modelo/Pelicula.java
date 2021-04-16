@@ -18,7 +18,7 @@ public class Pelicula {
     private String Genero;
     private int Duracion;
     private String Titulo;
-    private String Estado;
+    private boolean Estado;
     private Image foto;
 
     
@@ -29,7 +29,15 @@ public class Pelicula {
         this.Titulo = Titulo;
     }
 
-    public Pelicula(String IdPelicula, String Descripcion, String Clasificacion, String Genero, int Duracion, String Titulo, String Estado, Image foto) {
+    public boolean getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(boolean Estado) {
+        this.Estado = Estado;
+    }
+
+    public Pelicula(String IdPelicula, String Descripcion, String Clasificacion, String Genero, int Duracion, String Titulo, boolean Estado, Image foto) {
         this.IdPelicula = IdPelicula;
         this.Descripcion = Descripcion;
         this.Clasificacion = Clasificacion;
@@ -39,6 +47,8 @@ public class Pelicula {
         this.Estado = Estado;
         this.foto = foto;
     }
+
+   
 
     public int getDuracion() {
         return Duracion;
@@ -100,13 +110,7 @@ public class Pelicula {
 
    
 
-    public String getEstado() {
-        return Estado;
-    }
-
-    public void setEstado(String Estado) {
-        this.Estado = Estado;
-    }
+  
     
     
     

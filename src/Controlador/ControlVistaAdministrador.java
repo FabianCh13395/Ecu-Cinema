@@ -6,7 +6,11 @@
 package Controlador;
 
 import Modelo.ModeloAdministrador;
+import Modelo.ModeloPelicula;
+import Modelo.ModeloSala;
 import Vistas.Vista_Administrador;
+import Vistas.Vista_Salas;
+import Vistas.Vista_gestionPeliculas;
 
 /**
  *
@@ -20,11 +24,25 @@ public class ControlVistaAdministrador {
         this.a = a;
         this.v = v;
         v.setVisible(true);
-        
+        InicioControl();
     }
 
     public ControlVistaAdministrador() {
     }
     
+    private void  InicioControl(){
+        v.getBtnNuevasPelis().addActionListener(l->{
+        ModeloPelicula m= new ModeloPelicula();
+        Vista_gestionPeliculas a=new Vista_gestionPeliculas();
+        ControlVistaPelicula m1=new ControlVistaPelicula(m,a);
+        v.getMenuAdmin().add(a);
+        });
+        v.getBtnNuevasSalas().addActionListener(l->{
+        ModeloSala s= new ModeloSala();
+        Vista_Salas k=new Vista_Salas();
+        ControlVistaSala s1=new ControlVistaSala(s,k);
+        v.getMenuAdmin().add(k);
+        });
+    }
     
 }

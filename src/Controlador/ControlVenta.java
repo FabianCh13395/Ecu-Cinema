@@ -42,7 +42,7 @@ public class ControlVenta {
     }
     
     public void inicioControlCliente(){
-        validarCliente();
+        
          deshabilitarB(false);
         vistacli.getBtn_buscar().addActionListener(l->mostrarInfCliente());
         vistacli.getBtn_registrarCli().addActionListener(l->grabarCliente());
@@ -92,7 +92,12 @@ public class ControlVenta {
         ModeloCliente cli=new ModeloCliente();
         cli.setCedula(cedulacliente);
         List<Cliente> lista=cli.buscarCedula();
+        vistacli.getTxtcedula_cli().setText("");
+        System.out.println(lista.size()+"Lista");
+        System.out.println(cedulacliente+"hola");
+        
         if(lista.size()>0){
+         
             vistacli.getTxt_buscar().setText("");
             deshabilitarB(false);
            lista.forEach(c1->{
@@ -104,19 +109,11 @@ public class ControlVenta {
         vistacli.getFecha_cliente().setDate(new java.util.Date(c1.getFecha_nacimiento().getTime()));
         }); 
         }else{
-             JOptionPane.showMessageDialog(vistacli, "No existe el cliente");
-             
-            deshabilitarB(Boolean.TRUE);
             vistacli.getTxtcedula_cli().setText(cedulacliente);
-            vistacli.getTxt_buscar().setText("");
-            vistacli.getTxt_nombreCli().setText("");
-            vistacli.getTxt_apeliidoCli().setText("");
-            vistacli.getTxt_correoCli().setText("");
-            vistacli.getTxt_telefonoCli().setText("");
-            vistacli.getFecha_cliente().setDate(null);
+             JOptionPane.showMessageDialog(vistacli, "No existe el cliente");
+            deshabilitarB(Boolean.TRUE);
             
         }
-        
         
     }
     private void deshabilitarB(Boolean opcion){
@@ -140,13 +137,13 @@ public class ControlVenta {
         c3.setLimit(20);
         c3.setOnlyText(true);
         RestrictedTextField c4 =new RestrictedTextField(vistacli.getTxt_apeliidoCli());
-        c3.setLimit(20);
-        c3.setOnlyText(true);
+        c4.setLimit(20);
+        c4.setOnlyText(true);
         RestrictedTextField c5 =new RestrictedTextField(vistacli.getTxt_telefonoCli());
-        c3.setLimit(10);
-        c3.setOnlyNums(true);
+        c5.setLimit(10);
+        c5.setOnlyNums(true);
         RestrictedTextField c6=new RestrictedTextField(vistacli.getTxt_correoCli());
-        c3.setLimit(35);
+        c6.setLimit(35);
         
    }
 }

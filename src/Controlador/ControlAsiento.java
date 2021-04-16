@@ -39,6 +39,7 @@ public class ControlAsiento {
         InicioControlAsiento();
     }
     private void InicioControlAsiento(){
+        a.getBtn_salirAsiento().addActionListener(l->a.dispose());
         FilasAsiento();
         
         

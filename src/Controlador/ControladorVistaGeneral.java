@@ -40,6 +40,7 @@ public class ControladorVistaGeneral {
         ControlVistaAdministrador m= new ControlVistaAdministrador(admi,v);
         g.getMenu_general().add(v);
     }
+    
     public void InicioControl(){
        g.getBtn_registroA().addActionListener(l->RegistroAdministrador());
        g.getBtn_registroV().addActionListener(l->RegistroVendedor());

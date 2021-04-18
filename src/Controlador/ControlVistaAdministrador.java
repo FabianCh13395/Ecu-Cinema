@@ -6,9 +6,11 @@
 package Controlador;
 
 import Modelo.ModeloAdministrador;
+import Modelo.ModeloFuncion;
 import Modelo.ModeloPelicula;
 import Modelo.ModeloSala;
 import Vistas.Vista_Administrador;
+import Vistas.Vista_GestionFunciones;
 import Vistas.Vista_MenuGeneral;
 import Vistas.Vista_Salas;
 import Vistas.Vista_gestionPeliculas;
@@ -43,6 +45,12 @@ public class ControlVistaAdministrador {
         Vista_Salas k=new Vista_Salas();
         ControlVistaSala s1=new ControlVistaSala(s,k);
         v.getMenuAdmin().add(k);
+        });
+        v.getBtnNuevasFunciones().addActionListener(l->{
+        ModeloFuncion f= new ModeloFuncion();
+        Vista_GestionFunciones v1=new Vista_GestionFunciones();
+        ControlGestionFunciones r1=new ControlGestionFunciones(f,v1);
+        v.getMenuAdmin().add(v1);
         });
         v.getBtnSalir().addActionListener(l->{
         Vista_MenuGeneral vista= new Vista_MenuGeneral();

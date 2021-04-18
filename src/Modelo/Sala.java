@@ -14,12 +14,21 @@ public class Sala {
     private int TotalAsientos;
     private String NombreSala;
     private boolean disponibilidad;
+    private Funcion f;
 
     public Sala() {
     }
 
     public Sala(String NombreSala) {
         this.NombreSala = NombreSala;
+    }
+
+    public Funcion getF() {
+        return f;
+    }
+
+    public void setF(Funcion f) {
+        this.f = f;
     }
     
 

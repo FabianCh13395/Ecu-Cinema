@@ -33,6 +33,32 @@ public class Funcion {
         this.p = p;
     }
 
+    public Funcion(String IdFuncion, Date Fecha, boolean disponibilidad, LocalTime HoraInicio, LocalTime HoraFin, Sala s, Pelicula p) {
+        this.IdFuncion = IdFuncion;
+        this.Fecha = Fecha;
+        this.disponibilidad = disponibilidad;
+        this.HoraInicio = HoraInicio;
+        this.HoraFin = HoraFin;
+        this.s = s;
+        this.p = p;
+    }
+
+    public Sala getS() {
+        return s;
+    }
+
+    public void setS(Sala s) {
+        this.s = s;
+    }
+
+    public Pelicula getP() {
+        return p;
+    }
+
+    public void setP(Pelicula p) {
+        this.p = p;
+    }
+
   
 
     public Funcion(Sala s) {
@@ -63,7 +89,7 @@ public class Funcion {
         this.Fecha = Fecha;
     }
 
-    public boolean isDisponibilidad() {
+    public boolean getDisponibilidad() {
         return disponibilidad;
     }
 

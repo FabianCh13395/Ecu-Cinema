@@ -21,10 +21,12 @@ public class Pelicula {
     private boolean Estado;
     private Image foto;
 
-    
     public Pelicula() {
     }
 
+    
+     
+    
     public Pelicula(String Titulo) {
         this.Titulo = Titulo;
     }

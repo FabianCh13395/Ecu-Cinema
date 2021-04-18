@@ -76,6 +76,7 @@ public class ModeloPelicula extends Pelicula{
         return id;
     }
     
+    
    public boolean GrabarPelicula(){
         String foto64 = null;
         //transformar imagen a base 64 para postgres
@@ -95,6 +96,28 @@ public class ModeloPelicula extends Pelicula{
             return true;
         } else {
             return false;
+        }
+   }
+   public List<Pelicula> listarPeliculaFuncion(){
+       try {
+            String query = "select id_pelicula,titulo,duracion,genero,clasificacion from pelicula where disponibilidad='true'";
+            ResultSet rs = con.query(query);
+            List<Pelicula> lista = new ArrayList<Pelicula>();
+            while (rs.next()) {
+                Pelicula p = new Pelicula();
+                p.setIdPelicula(rs.getString("id_pelicula"));
+                p.setTitulo(rs.getString("titulo"));
+                p.setGenero(rs.getString("genero"));
+                p.setClasificacion(rs.getString("clasificacion"));
+                p.setDuracion(rs.getInt("duracion"));
+               
+               lista.add(p);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloPelicula.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
    }
    public  List<Pelicula> listarPeliculas() {

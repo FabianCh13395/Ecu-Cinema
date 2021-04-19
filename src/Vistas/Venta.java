@@ -67,8 +67,8 @@ public class Venta extends javax.swing.JInternalFrame {
         btn_buscar = new javax.swing.JButton();
         btn_registrarCli = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_aceptar = new javax.swing.JButton();
+        btn_cancelar = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jcombo_Categoria = new javax.swing.JComboBox<>();
@@ -76,7 +76,7 @@ public class Venta extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txt_costoTotal = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
@@ -369,14 +369,14 @@ public class Venta extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setText("Aceptar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_aceptar.setText("Aceptar");
+        btn_aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_aceptarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Cancelar");
+        btn_cancelar.setText("Cancelar");
 
         jLabel13.setText("Pelicula");
 
@@ -392,7 +392,7 @@ public class Venta extends javax.swing.JInternalFrame {
 
         jLabel21.setText("Metodo de pago");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tarjeta de Crédito", "Tarjeta de Débito", "Efectivo", " " }));
 
         jLabel27.setText("Sala");
 
@@ -455,11 +455,11 @@ public class Venta extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_costoTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(70, 70, 70)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton2)))
+                            .addComponent(btn_cancelar)
+                            .addComponent(btn_aceptar)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addGap(18, 18, 18)
@@ -503,11 +503,11 @@ public class Venta extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20)
-                            .addComponent(jButton2))
+                            .addComponent(btn_aceptar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_costoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
-                        .addComponent(jButton3)))
+                        .addComponent(btn_cancelar)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -660,6 +660,14 @@ public class Venta extends javax.swing.JInternalFrame {
         return txt_buscar;
     }
 
+    public JComboBox<String> getJcombo_MetodoPago() {
+        return jComboBox5;
+    }
+
+    public void setJcombo_MetodoPago(JComboBox<String> jcombo_MetodoPago) {
+        this.jComboBox5 = jcombo_MetodoPago;
+    }
+
     public void setTxt_buscar(JTextField txt_buscar) {
         this.txt_buscar = txt_buscar;
     }
@@ -712,6 +720,30 @@ public class Venta extends javax.swing.JInternalFrame {
         this.jComboFuncion = jComboFuncion;
     }
 
+    public JButton getBtn_aceptar() {
+        return btn_aceptar;
+    }
+
+    public void setBtn_aceptar(JButton btn_aceptar) {
+        this.btn_aceptar = btn_aceptar;
+    }
+
+    public JButton getBtn_cancelar() {
+        return btn_cancelar;
+    }
+
+    public void setBtn_cancelar(JButton btn_cancelar) {
+        this.btn_cancelar = btn_cancelar;
+    }
+
+    public JTextField getTxt_costoTotal() {
+        return txt_costoTotal;
+    }
+
+    public void setTxt_costoTotal(JTextField txt_costoTotal) {
+        this.txt_costoTotal = txt_costoTotal;
+    }
+
 
     public JComboBox<String> getjComboBox5() {
         return jComboBox5;
@@ -746,9 +778,9 @@ public class Venta extends javax.swing.JInternalFrame {
         this.txt_Cantidad = txt_Cantidad;
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_aceptarActionPerformed
 
     private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
         // TODO add your handling code here:
@@ -757,13 +789,13 @@ public class Venta extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Asiento;
+    private javax.swing.JButton btn_aceptar;
     private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_registrarCli;
     private javax.swing.JDialog dlgFactura;
     private javax.swing.JDialog dlgNuevoCliente;
     private com.toedter.calendar.JDateChooser fecha_cliente;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
@@ -808,7 +840,6 @@ public class Venta extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
@@ -820,6 +851,7 @@ public class Venta extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_apeliidoCli;
     private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_correoCli;
+    private javax.swing.JTextField txt_costoTotal;
     private javax.swing.JTextField txt_nombreCli;
     private javax.swing.JTextField txt_telefonoCli;
     private javax.swing.JTextField txtcedula_cli;

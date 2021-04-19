@@ -10,6 +10,7 @@ import Modelo.Cliente;
 import Modelo.Funcion;
 import Modelo.ModeloAsiento;
 import Modelo.ModeloCliente;
+import Modelo.ModeloCompra;
 import Modelo.ModeloFuncion;
 import Modelo.ModeloVendedor;
 import Vistas.Venta;
@@ -20,9 +21,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.Date;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,6 +41,7 @@ public class ControlVenta {
     private ModeloCliente c;
     private Venta vistacli;
     private ModeloFuncion f;
+    private ModeloCompra compra;
 
     public ControlVenta(ModeloVendedor v, Venta vistacli,ModeloCliente c) {
         this.v = v;
@@ -46,6 +51,7 @@ public class ControlVenta {
         CargaFunciones();
         inicioControlCliente();
     }
+    
     
     public void inicioControlCliente(){
         validarCliente();
@@ -58,6 +64,18 @@ public class ControlVenta {
        ControlAsiento c= new ControlAsiento(v,m);
        
        });
+    }
+    private void realizarCompra(){
+        String cedula=vistacli.getTxtcedula_cli().getText();
+        Calendar fecha_compra=Calendar.getInstance();
+        Date Fechaactual=(Date) fecha_compra.getTime();
+        String metodoPa=String.valueOf(vistacli.getJcombo_MetodoPago().getSelectedItem());
+        Double costoTotal=Double.valueOf(vistacli.getTxt_costoTotal().getText());
+        LocalDateTime horaActual=LocalDateTime.now();
+        int hora=horaActual.getHour();
+        int minutos=horaActual.getMinute();
+        int segundos=horaActual.getSecond();
+        LocalTime horadecompra=LocalTime.of(hora,minutos,segundos);
     }
     private void CargaFunciones(){
         List<Funcion> lista= new ModeloFuncion().traerFuncion();

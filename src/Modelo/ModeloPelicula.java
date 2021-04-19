@@ -157,6 +157,38 @@ public class ModeloPelicula extends Pelicula{
             return null;
         }
     }
+    public boolean Editar() {
+        String foto64 = null;
+        ByteArrayOutputStream byt = new ByteArrayOutputStream();
+        try {
+            BufferedImage img = imgBuffered(getFoto());
+            ImageIO.write(img, "PNG", byt);
+            byte[] bgt = byt.toByteArray();
+            foto64 = Base64.encodeBytes(bgt);
+        } catch (IOException ex) {
+            Logger.getLogger(ModeloPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String nsql;
+        nsql = "UPDATE pelicula set titulo='" + getTitulo() + "',genero='" + getGenero() + "',disponibilidad='" + getEstado() + "',clasificacion='" + getClasificacion() +"',duracion='" + getDuracion() + "',foto='"+foto64+"'";
+        nsql += " WHERE id_pelicula='" + getIdPelicula() + "'";
+        System.out.println(nsql);
+        if(con.noquery(nsql)==null){
+            return true;
+        } else {
+            return false;
+        }
+    }   
+   
+    public boolean eliminar(){
+        String nsql;
+        nsql="DELETE FROM pelicula where id_pelicula='"+getIdPelicula()+"'";
+        System.out.println(nsql);
+        if(con.noquery(nsql)==null){
+            return true;
+        }else{
+            return false;
+        }
+    }
    public static Image obtenImagen(byte[] bytes) throws IOException {
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
         Iterator it = ImageIO.getImageReadersByFormatName("png");

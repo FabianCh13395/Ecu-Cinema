@@ -29,6 +29,14 @@ public class VistaAsiento extends javax.swing.JFrame {
        
     }
 
+    public JPanel getPanelAsientos() {
+        return panelAsientos;
+    }
+
+    public void setPanelAsientos(JPanel panelAsientos) {
+        this.panelAsientos = panelAsientos;
+    }
+
     public JButton getBtn_salirAsiento() {
         return btn_salirAsiento;
     }
@@ -38,11 +46,11 @@ public class VistaAsiento extends javax.swing.JFrame {
     }
 
     public JPanel getjPanel1() {
-        return jPanel1;
+        return panelAsientos;
     }
 
     public void setjPanel1(JPanel jPanel1) {
-        this.jPanel1 = jPanel1;
+        this.panelAsientos = jPanel1;
     }
 
     
@@ -59,7 +67,7 @@ public class VistaAsiento extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        panelAsientos = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -82,7 +90,7 @@ public class VistaAsiento extends javax.swing.JFrame {
         jLabel3.setText("DISPONIBLES");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        panelAsientos.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_fondo/exit.jpg"))); // NOI18N
 
@@ -90,23 +98,23 @@ public class VistaAsiento extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 255));
         jLabel7.setText("ENTRADA");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelAsientosLayout = new javax.swing.GroupLayout(panelAsientos);
+        panelAsientos.setLayout(panelAsientosLayout);
+        panelAsientosLayout.setHorizontalGroup(
+            panelAsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAsientosLayout.createSequentialGroup()
                 .addContainerGap(449, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(panelAsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAsientosLayout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAsientosLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(271, 271, 271))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelAsientosLayout.setVerticalGroup(
+            panelAsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAsientosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
@@ -114,7 +122,7 @@ public class VistaAsiento extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 770, 430));
+        getContentPane().add(panelAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 770, 430));
 
         jPanel2.setBackground(new java.awt.Color(0, 255, 0));
 
@@ -177,8 +185,8 @@ public class VistaAsiento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel panelAsientos;
     // End of variables declaration//GEN-END:variables
 }

@@ -47,7 +47,7 @@ public class ControlGestionFunciones {
         });
         LLenarTablaPelicula();
         LlenarComboBoxSala();
-        actualizarSalaDispo();
+        
     }
     private void LLenarTablaPelicula(){
         DefaultTableModel tbmodel;

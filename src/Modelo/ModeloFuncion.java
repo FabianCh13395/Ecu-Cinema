@@ -75,22 +75,22 @@ public class ModeloFuncion extends Funcion{
     
      
      public List<Funcion> traerFuncion(){
-         String query="select p.titulo,s.nombre,f.hora_inicio,f.hora_final "+
+         String query="select p.titulo,s.nombre,s.id_sala,f.hora_inicio,f.hora_final "+
           "from funcion f "+
           "join pelicula p on f.id_pelicula=p.id_pelicula "+
           "join sala s on f.id_sala=s.id_sala "+
-          "where f.disponibilidad='true' and f.hora_inicio>(select current_time)";
+          "where f.disponibilidad='true' and f.hora_inicio>=(select current_time)";
          ResultSet rs =con.query(query);
          List<Funcion> lista=new ArrayList<Funcion>();
         try {
             while(rs.next()){
-                
+                Sala s1=new Sala();
+                s1.setIdSala(rs.getString(3));
+                s1.setNombreSala(rs.getString(2));
                 lista.add(new Funcion(
-                        rs.getTime(3).toLocalTime(),
                         rs.getTime(4).toLocalTime(),
-                         new Sala(
-                                rs.getString(2)
-                        ),
+                        rs.getTime(5).toLocalTime(),
+                       s1,
                         new Pelicula(
                         rs.getString(1))                       
                 ));
@@ -130,7 +130,7 @@ public class ModeloFuncion extends Funcion{
     }
      public boolean DisponibilidadFuncion(){
          String sql="";
-         sql="Update funcion set disponibilidad='false' where hora_inicio >(Select current_time)";
+         sql="Update funcion set disponibilidad='false' where hora_inicio >(Select current_time) and fecha<(select current_date)";
          return (con.noquery(sql)!=null);
      }
 }

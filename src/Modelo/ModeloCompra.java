@@ -23,7 +23,7 @@ public class ModeloCompra extends Compra{
     public ModeloCompra() {
     }
 
-    public ModeloCompra(String IdCompra, Date Fecha, LocalTime Hora, int MetodoPago, double CostoTotal) {
+    public ModeloCompra(String IdCompra, Date Fecha, LocalTime Hora, String MetodoPago, double CostoTotal) {
         super(IdCompra, Fecha, Hora, MetodoPago, CostoTotal);
     }
     public String GeneraridCompra() {
@@ -64,7 +64,7 @@ public class ModeloCompra extends Compra{
     public boolean grabarCompra() {
         String sql;
         sql = "INSERT INTO compra (id_compra,id_cliente,fecha,hora,metodo_pago,costo_total)";
-        sql += "VALUES('" + GeneraridCompra() + "','" + c.getCedula() + "','" + getFecha()+ "','" + getHora()+ "','" + getMetodoPago()+ "','" + getCostoTotal()+ "')";
+        sql += "VALUES('" + GeneraridCompra() + "','" + getC().getCedula() + "','" + getFecha()+ "','" + getHora()+ "','" + getMetodoPago()+ "','" + getCostoTotal()+ "')";
         if (con.noquery(sql) == null) {
             return true;
         } else {

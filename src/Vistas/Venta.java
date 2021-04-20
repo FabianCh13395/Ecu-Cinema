@@ -8,6 +8,8 @@ package Vistas;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -22,6 +24,78 @@ public class Venta extends javax.swing.JInternalFrame {
      */
     public Venta() {
         initComponents();
+    }
+
+    public JButton getBtn_cancelarDialog() {
+        return btn_cancelarDialog;
+    }
+
+    public void setBtn_cancelarDialog(JButton btn_cancelarDialog) {
+        this.btn_cancelarDialog = btn_cancelarDialog;
+    }
+
+    public JButton getBtn_imprimir() {
+        return btn_imprimir;
+    }
+
+    public void setBtn_imprimir(JButton btn_imprimir) {
+        this.btn_imprimir = btn_imprimir;
+    }
+
+    public JDialog getDlgFactura() {
+        return dlgFactura;
+    }
+
+    public void setDlgFactura(JDialog dlgFactura) {
+        this.dlgFactura = dlgFactura;
+    }
+
+    public JLabel getLbl_asientos() {
+        return lbl_asientos;
+    }
+
+    public void setLbl_asientos(JLabel lbl_asientos) {
+        this.lbl_asientos = lbl_asientos;
+    }
+
+    public JLabel getLbl_cliente() {
+        return lbl_cliente;
+    }
+
+    public void setLbl_cliente(JLabel lbl_cliente) {
+        this.lbl_cliente = lbl_cliente;
+    }
+
+    public JLabel getLbl_horainicio() {
+        return lbl_horainicio;
+    }
+
+    public void setLbl_horainicio(JLabel lbl_horainicio) {
+        this.lbl_horainicio = lbl_horainicio;
+    }
+
+    public JLabel getLbl_sala() {
+        return lbl_sala;
+    }
+
+    public void setLbl_sala(JLabel lbl_sala) {
+        this.lbl_sala = lbl_sala;
+    }
+
+    public JLabel getLblpelicula() {
+        return lblpelicula;
+    }
+
+    public void setLblpelicula(JLabel lblpelicula) {
+        this.lblpelicula = lblpelicula;
+    }
+
+    public JLabel getLbltotalPagar() {
+        return lbltotalPagar;
+    }
+
+    public void setLbltotalPagar(JLabel lbltotalPagar) {
+        this.lbltotalPagar = lbltotalPagar;
     }
 
     /**
@@ -41,8 +115,16 @@ public class Venta extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btn_imprimir = new javax.swing.JButton();
+        btn_cancelarDialog = new javax.swing.JButton();
+        lbl_cliente = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        lblpelicula = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        lbl_horainicio = new javax.swing.JLabel();
+        lbl_sala = new javax.swing.JLabel();
+        lbl_asientos = new javax.swing.JLabel();
+        lbltotalPagar = new javax.swing.JLabel();
         dlgNuevoCliente = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -109,59 +191,104 @@ public class Venta extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Sala");
 
-        jLabel10.setText("Funcion");
+        jLabel10.setText("HoraInicio");
 
         jLabel11.setText("Butacas");
 
         jLabel12.setText("Total a pagar");
 
-        jButton4.setText("Imprimir");
+        btn_imprimir.setText("Imprimir");
 
-        jButton5.setText("Cancelar");
+        btn_cancelarDialog.setText("Cancelar");
+
+        lbl_cliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblpelicula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lbl_horainicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lbl_sala.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lbl_asientos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lbltotalPagar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel12)
-                        .addComponent(jLabel10)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(27, 27, 27)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(180, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(btn_cancelarDialog)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(btn_imprimir)
                 .addGap(43, 43, 43))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblpelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbl_horainicio, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbl_sala, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbl_asientos, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbltotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(lbl_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addGap(35, 35, 35)
+                .addGap(3, 3, 3)
+                .addComponent(lbl_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblpelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel9)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_sala, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_horainicio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
-                .addGap(27, 27, 27)
+                .addGap(1, 1, 1)
+                .addComponent(lbl_asientos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lbltotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(btn_imprimir)
+                    .addComponent(btn_cancelarDialog))
                 .addGap(19, 19, 19))
         );
 
@@ -792,12 +919,12 @@ public class Venta extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_aceptar;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_cancelarDialog;
+    private javax.swing.JButton btn_imprimir;
     private javax.swing.JButton btn_registrarCli;
     private javax.swing.JDialog dlgFactura;
     private javax.swing.JDialog dlgNuevoCliente;
     private com.toedter.calendar.JDateChooser fecha_cliente;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox5;
@@ -811,6 +938,7 @@ public class Venta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -823,6 +951,7 @@ public class Venta extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -846,6 +975,12 @@ public class Venta extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JComboBox<String> jcombo_Categoria;
+    private javax.swing.JLabel lbl_asientos;
+    private javax.swing.JLabel lbl_cliente;
+    private javax.swing.JLabel lbl_horainicio;
+    private javax.swing.JLabel lbl_sala;
+    private javax.swing.JLabel lblpelicula;
+    private javax.swing.JLabel lbltotalPagar;
     private javax.swing.JTable tabButacas;
     private javax.swing.JTextField txt_Cantidad;
     private javax.swing.JTextField txt_apeliidoCli;

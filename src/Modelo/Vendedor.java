@@ -16,8 +16,17 @@ import java.sql.Date;
 public class Vendedor extends Usuario{
     private String ContraseñaV;
     private Image FotoV; 
+    private String id_vendedor;
 
     public Vendedor() {
+    }
+
+    public String getId_vendedor() {
+        return id_vendedor;
+    }
+
+    public void setId_vendedor(String id_vendedor) {
+        this.id_vendedor = id_vendedor;
     }
 
     public Vendedor(String Cedula, String Nombre, String Telefono, String Apellido, String Correo, Date fecha_nacimiento) {

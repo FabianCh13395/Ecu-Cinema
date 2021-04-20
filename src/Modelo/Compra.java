@@ -16,18 +16,35 @@ public class Compra {
     private String IdCompra;
     private Date Fecha;
     private LocalTime Hora;
-    private int MetodoPago;
+    private String MetodoPago;
     private double CostoTotal;
+    private Cliente c;
 
     public Compra() {
     }
 
-    public Compra(String IdCompra, Date Fecha, LocalTime Hora, int MetodoPago, double CostoTotal) {
+    public Compra(String IdCompra, Date Fecha, LocalTime Hora, String MetodoPago, double CostoTotal) {
         this.IdCompra = IdCompra;
         this.Fecha = Fecha;
         this.Hora = Hora;
         this.MetodoPago = MetodoPago;
         this.CostoTotal = CostoTotal;
+    }
+
+    public Compra(String IdCompra, LocalTime Hora, String MetodoPago, double CostoTotal, Cliente c) {
+        this.IdCompra = IdCompra;
+        this.Hora = Hora;
+        this.MetodoPago = MetodoPago;
+        this.CostoTotal = CostoTotal;
+        this.c = c;
+    }
+
+    public Cliente getC() {
+        return c;
+    }
+
+    public void setC(Cliente c) {
+        this.c = c;
     }
 
     public String getIdCompra() {
@@ -54,13 +71,15 @@ public class Compra {
         this.Hora = Hora;
     }
 
-    public int getMetodoPago() {
+    public String getMetodoPago() {
         return MetodoPago;
     }
 
-    public void setMetodoPago(int MetodoPago) {
+    public void setMetodoPago(String MetodoPago) {
         this.MetodoPago = MetodoPago;
     }
+
+   
 
     public double getCostoTotal() {
         return CostoTotal;

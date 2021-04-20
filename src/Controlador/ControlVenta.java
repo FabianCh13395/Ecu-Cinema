@@ -6,13 +6,18 @@
 package Controlador;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
+import Modelo.Categoria;
 import Modelo.Cliente;
 import Modelo.Funcion;
 import Modelo.ModeloAsiento;
+import Modelo.ModeloCategoria;
 import Modelo.ModeloCliente;
 import Modelo.ModeloCompra;
 import Modelo.ModeloFuncion;
+import Modelo.ModeloPelicula;
 import Modelo.ModeloVendedor;
+import Modelo.Pelicula;
+import Modelo.Sala;
 import Vistas.Venta;
 import Vistas.VistaAsiento;
 import java.awt.event.FocusEvent;
@@ -31,6 +36,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.xml.ws.Holder;
 
 /**
  *
@@ -42,6 +49,12 @@ public class ControlVenta {
     private Venta vistacli;
     private ModeloFuncion f;
     private ModeloCompra compra;
+    List<Categoria> listac=new ArrayList<>();
+    List<Funcion> funcion=new ArrayList<>();
+    private int indice;
+    private String nombreAsi;
+    private double preciofinal=0;
+    
 
     public ControlVenta(ModeloVendedor v, Venta vistacli,ModeloCliente c) {
         this.v = v;
@@ -54,6 +67,7 @@ public class ControlVenta {
     
     
     public void inicioControlCliente(){
+        llenarComboCategoria();
         validarCliente();
          deshabilitarB(false);
         vistacli.getBtn_buscar().addActionListener(l->mostrarInfCliente());
@@ -61,14 +75,30 @@ public class ControlVenta {
        vistacli.getBtn_Asiento().addActionListener(l->{
        VistaAsiento v= new VistaAsiento();
        ModeloAsiento m= new ModeloAsiento();
-       ControlAsiento c= new ControlAsiento(v,m);
+       Sala s1=new Sala();
+       int l1=vistacli.getjComboFuncion().getSelectedIndex();
+           System.out.println(l1);
+       ControlAsiento c= new ControlAsiento(v,m,funcion.get(l1).getS(),this);
+       llenarTablaVenta();
+       
+       vistacli.getTxt_costoTotal().setText(String.valueOf(precioTotal()));
        
        });
+       vistacli.getBtn_aceptar().addActionListener(l->{
+      realizarCompra();
+      limpiarTabla();
+      mostrarDiaolog();
+       });
+       
+    }
+
+    public void setNombreAsi(String nombreAsi) {
+        this.nombreAsi = nombreAsi;
     }
     private void realizarCompra(){
         String cedula=vistacli.getTxtcedula_cli().getText();
-        Calendar fecha_compra=Calendar.getInstance();
-        Date Fechaactual=(Date) fecha_compra.getTime();
+       
+        Date Fechaactual= new Date(new java.util.Date().getTime());
         String metodoPa=String.valueOf(vistacli.getJcombo_MetodoPago().getSelectedItem());
         Double costoTotal=Double.valueOf(vistacli.getTxt_costoTotal().getText());
         LocalDateTime horaActual=LocalDateTime.now();
@@ -76,10 +106,24 @@ public class ControlVenta {
         int minutos=horaActual.getMinute();
         int segundos=horaActual.getSecond();
         LocalTime horadecompra=LocalTime.of(hora,minutos,segundos);
+        ModeloCompra c= new ModeloCompra();
+        c.setCostoTotal(costoTotal);
+        c.setFecha(Fechaactual);
+        c.setHora(horadecompra);
+        c.setMetodoPago(metodoPa);
+        Cliente c1= new Cliente();
+        c1.setCedula(cedula);
+        c.setC(c1);
+        if(c.grabarCompra()){
+            JOptionPane.showMessageDialog(vistacli,"Compra realizada con exito");
+        }else{
+            JOptionPane.showMessageDialog(vistacli,"Error en la compra");
+        }
+        
     }
     private void CargaFunciones(){
-        List<Funcion> lista= new ModeloFuncion().traerFuncion();
-        for (Funcion funcion : lista) {
+        funcion= new ModeloFuncion().traerFuncion();
+        for (Funcion funcion : funcion) {
             vistacli.getjComboFuncion().addItem(funcion.toString());    
         }
     }
@@ -274,9 +318,7 @@ public class ControlVenta {
                 }
            }
        });
-
-       
-        
+    
    }
      public boolean paraEmail(String correo2) {
         Pattern pat = null;
@@ -289,6 +331,64 @@ public class ControlVenta {
             return false;
         }
     }
+     public void llenarComboCategoria(){
+         ModeloCategoria c=new ModeloCategoria();
+         vistacli.getJcombo_Categoria().removeAllItems();
+         listac.clear();
+         listac=c.traerCategoria();
+         listac.stream().forEach(s->vistacli.getJcombo_Categoria().addItem(s.getNombre()));
+     }
+     public void llenarTablaVenta(){
+         int cont=vistacli.getjComboFuncion().getSelectedIndex();
+         indice=cont;
+         Funcion f1=funcion.get(cont);
+         int con1=Integer.valueOf(vistacli.getTxt_Cantidad().getText());
+         int contCa=vistacli.getJcombo_Categoria().getSelectedIndex();
+         Categoria c=listac.get(contCa);
+         Double precio1=con1*(c.getPrecio());
+         DefaultTableModel tbmodel;
+        tbmodel=(DefaultTableModel)vistacli.getTabButacas().getModel();
+        int ncol=tbmodel.getColumnCount();
+        int nrow=tbmodel.getRowCount();
+         System.out.println(nrow);
+        
+            tbmodel.addRow(new Object[ncol]);
+        vistacli.getTabButacas().setValueAt(f1.getP().getTitulo(), nrow,0);
+        vistacli.getTabButacas().setValueAt(f1.getS().getNombreSala(),nrow, 1);
+        vistacli.getTabButacas().setValueAt(f1.getHoraInicio(), nrow,2);
+        vistacli.getTabButacas().setValueAt(f1.getHoraFin(),nrow, 3);
+        vistacli.getTabButacas().setValueAt(c.getNombre(),nrow, 4);
+        vistacli.getTabButacas().setValueAt(con1,nrow, 5);
+        vistacli.getTabButacas().setValueAt(precio1,nrow, 6);
+        
+     }
+     private void limpiarTabla(){
+         DefaultTableModel tbmodel;
+        tbmodel=(DefaultTableModel)vistacli.getTabButacas().getModel();
+        tbmodel.setRowCount(0);
+     }
+     private double precioTotal(){
+         DefaultTableModel tbmodel;
+        tbmodel=(DefaultTableModel)vistacli.getTabButacas().getModel();
+        double precio=0;
+         for (int i = 0; i <tbmodel.getRowCount(); i++) {
+             precio+=Double.valueOf(tbmodel.getValueAt(i, 5).toString());
+         }
+         return precio;
+     }
+     private void mostrarDiaolog(){
+         
+         vistacli.getDlgFactura().setVisible(true);
+         Funcion f=funcion.get(indice);
+         vistacli.getLblpelicula().setText(f.getP().getTitulo());
+         vistacli.getLbl_horainicio().setText(f.getHoraInicio().toString());
+         vistacli.getLbl_cliente().setText(vistacli.getTxt_nombreCli().getText()+" "+vistacli.getTxt_apeliidoCli().getText());
+         vistacli.getLbl_sala().setText(f.getS().getNombreSala());
+         vistacli.getLbltotalPagar().setText(vistacli.getTxt_costoTotal().getText());
+         vistacli.getLbl_asientos().setText(nombreAsi);
+         nombreAsi="";
+         
+     }
 }
 
     

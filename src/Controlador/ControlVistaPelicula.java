@@ -92,11 +92,12 @@ public class ControlVistaPelicula {
             //   String[] persona={p1.getIdPersona(),p1.getNombres(),p1.getApellidos(),String.valueOf(p1.getEdad())};
 
             tblModel.addRow(new Object[ncol]);
-            v.getTabPeliculas().setValueAt(p1.getTitulo(), i.value, 0);
-            v.getTabPeliculas().setValueAt(p1.getGenero(), i.value, 1);
-            v.getTabPeliculas().setValueAt(p1.getDuracion(), i.value, 2);
-            v.getTabPeliculas().setValueAt(p1.getClasificacion(), i.value, 3);
-            v.getTabPeliculas().setValueAt(p1.getEstado(), i.value, 5);
+            v.getTabPeliculas().setValueAt(p1.getIdPelicula(), i.value, 0);
+            v.getTabPeliculas().setValueAt(p1.getTitulo(), i.value, 1);
+            v.getTabPeliculas().setValueAt(p1.getGenero(), i.value, 2);
+            v.getTabPeliculas().setValueAt(p1.getDuracion(), i.value, 3);
+            v.getTabPeliculas().setValueAt(p1.getClasificacion(), i.value, 4);
+            v.getTabPeliculas().setValueAt(p1.getEstado(), i.value, 6);
             
 
             java.awt.Image img = p1.getFoto();
@@ -105,9 +106,9 @@ public class ControlVistaPelicula {
                 java.awt.Image newimg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
                 ImageIcon icon = new ImageIcon(newimg);
                 renderer.setIcon(icon);
-                v.getTabPeliculas().setValueAt(new JLabel(icon), i.value, 4);
+                v.getTabPeliculas().setValueAt(new JLabel(icon), i.value, 5);
             } else {
-                v.getTabPeliculas().setValueAt(null, i.value, 4);
+                v.getTabPeliculas().setValueAt(null, i.value, 5);
             }
             i.value++;
             

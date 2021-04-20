@@ -122,12 +122,13 @@ public class ModeloPelicula extends Pelicula{
    }
    public  List<Pelicula> listarPeliculas() {
         try {
-            String query = "select titulo,genero,disponibilidad,clasificacion,duracion,foto from pelicula";
+            String query = "select id_pelicula,titulo,genero,disponibilidad,clasificacion,duracion,foto from pelicula";
             ResultSet rs = con.query(query);
             List<Pelicula> lista = new ArrayList<Pelicula>();
             byte[] bf;
             while (rs.next()) {
                 Pelicula p = new Pelicula();
+                p.setIdPelicula(rs.getString("id_pelicula"));
                 p.setTitulo(rs.getString("titulo"));
                 p.setGenero(rs.getString("genero"));
                 p.setClasificacion(rs.getString("clasificacion"));
@@ -157,6 +158,7 @@ public class ModeloPelicula extends Pelicula{
             return null;
         }
     }
+   
     public boolean Editar() {
         String foto64 = null;
         ByteArrayOutputStream byt = new ByteArrayOutputStream();

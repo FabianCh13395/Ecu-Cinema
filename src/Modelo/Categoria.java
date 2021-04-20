@@ -12,12 +12,12 @@ package Modelo;
 public class Categoria {
     private String IdCategoria;
     private String Nombre;
-    private String Precio;
+    private Double Precio;
 
     public Categoria() {
     }
 
-    public Categoria(String IdCategoria, String Nombre, String Precio) {
+    public Categoria(String IdCategoria, String Nombre, Double Precio) {
         this.IdCategoria = IdCategoria;
         this.Nombre = Nombre;
         this.Precio = Precio;
@@ -39,12 +39,14 @@ public class Categoria {
         this.Nombre = Nombre;
     }
 
-    public String getPrecio() {
+    public Double getPrecio() {
         return Precio;
     }
 
-    public void setPrecio(String Precio) {
+    public void setPrecio(Double Precio) {
         this.Precio = Precio;
     }
+
+  
     
 }

@@ -89,7 +89,7 @@ public class ControlVenta {
       limpiarTabla();
       mostrarDiaolog();
        });
-       
+       vistacli.getBtn_imprimir().addActionListener(l->vistacli.getDlgFactura().setVisible(false));
     }
 
     public void setNombreAsi(String nombreAsi) {

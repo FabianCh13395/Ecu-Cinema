@@ -58,7 +58,6 @@ public class ControlVentanaEmpleado {
     }
     private void DestokPaneEmpleado(){
         ModeloCliente c=new ModeloCliente();
-        ModeloVendedor v=new ModeloVendedor();
         Venta v1=new Venta();
         ControlVenta m1=new ControlVenta(v,v1,c);
         m.getMenu_general().add(v1);

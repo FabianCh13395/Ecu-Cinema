@@ -7,6 +7,8 @@ package Modelo;
 
 import java.awt.Image;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
 
 /**
  *
@@ -15,10 +17,15 @@ import java.sql.Date;
 public class Administrador extends Usuario{
     private String Contraseña;
     private Image FotoA;
+    private int edad;
 
     public Administrador() {
     }
-    
+    public int getEdad() {
+        LocalDate fecha_inicial=getFecha_nacimiento().toLocalDate();
+        this.edad=Period.between(fecha_inicial, LocalDate.now()).getYears();  
+        return edad;
+    }
 
     public Administrador(String Contraseña, Image FotoA) {
         this.Contraseña = Contraseña;

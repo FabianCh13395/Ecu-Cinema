@@ -2,6 +2,8 @@ package Modelo;
 
 import java.awt.Image;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,10 +19,15 @@ public class Vendedor extends Usuario{
     private String ContraseñaV;
     private Image FotoV; 
     private String id_vendedor;
+    private int edad;
 
     public Vendedor() {
     }
-
+    public int getEdad() {
+        LocalDate fecha_inicial=getFecha_nacimiento().toLocalDate();
+        this.edad=Period.between(fecha_inicial, LocalDate.now()).getYears();  
+        return edad;
+    }
     public String getId_vendedor() {
         return id_vendedor;
     }

@@ -49,9 +49,9 @@ public class ModeloPelicula extends Pelicula{
 
             if (dato.next()) {
                 id = dato.getString(1);
-            }
-            System.out.println(id);
-            int suf;
+                System.out.println(id);
+                if(id!=null){
+                    int suf;
             suf = Integer.parseInt(id.split("p-")[1]);
             suf += 1;
             System.out.println(suf);
@@ -67,6 +67,12 @@ public class ModeloPelicula extends Pelicula{
                 id = "p-0000" + suf;
             }
             System.out.println("Nuevo: " + id);
+                }else{
+                    id = "p-00000";
+                }
+            
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(ModeloPelicula.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("ERROR: " + ex);

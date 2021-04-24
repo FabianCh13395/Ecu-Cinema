@@ -36,9 +36,9 @@ public class ModeloSala extends Sala {
 
             if (dato.next()) {
                 id = dato.getString(1);
-            }
-            System.out.println(id);
-            int suf;
+                System.out.println(id);
+                if(id!=null){
+                    int suf;
             suf = Integer.parseInt(id.split("s-")[1]);
             suf += 1;
             System.out.println(suf);
@@ -54,6 +54,12 @@ public class ModeloSala extends Sala {
                 id = "s-0000" + suf;
             }
             System.out.println("Nuevo: " + id);
+                }else{
+                    id = "s-00000";
+                }
+            
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(ModeloVendedor.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("ERROR: " + ex);

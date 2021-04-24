@@ -35,9 +35,9 @@ public class ModeloCompra extends Compra{
 
             if (dato.next()) {
                 id = dato.getString(1);
-            }
-            System.out.println(id);
-            int suf;
+                System.out.println(id);
+                if(id!=null){
+                   int suf;
             suf = Integer.parseInt(id.split("c-")[1]);
             suf += 1;
             System.out.println(suf);
@@ -52,13 +52,20 @@ public class ModeloCompra extends Compra{
             } else if (suf >= 0) {
                 id = "c-0000" + suf;
             }
-            System.out.println("Nuevo: " + id);
+            System.out.println("Nuevo: " + id);  
+                }else{
+                    id="c-00000";
+                }
+           
+            }
+             
         } catch (SQLException ex) {
             Logger.getLogger(ModeloCompra.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("ERROR: " + ex);
             System.out.println(ex);
             id = "c-00000";
         }
+        setIdCompra(id);
         return id;
     }
     public boolean grabarCompra() {

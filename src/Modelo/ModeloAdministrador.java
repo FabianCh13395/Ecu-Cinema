@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -188,5 +190,48 @@ public class ModeloAdministrador extends Administrador {
         }
         return null;
     }
-    
+    public List<Administrador> ListarAdministradores(){
+        try {
+            String query = "select u.cedula,u.nombre,u.apellido,u.telefono,u.correo,u.fecha_nacimiento,a.contraseña_admi,a.foto\n" +
+           "from usuario u\n" +
+             "join administrador a on u.cedula=a.cedula;";
+            ResultSet rs = con.query(query);
+            List<Administrador> lista = new ArrayList<Administrador>();
+            byte[] bf;
+            while (rs.next()) {
+                Administrador p = new Administrador();
+                p.setCedula(rs.getString(1));
+                p.setNombre(rs.getString(2));
+                p.setApellido(rs.getString(3));
+                p.setTelefono(rs.getString(4));
+                p.setCorreo(rs.getString(5));
+                p.setContraseña(rs.getString(7));
+                // PARA FECHA
+                p.setFecha_nacimiento(rs.getDate(6));
+                //
+                bf = rs.getBytes(8);
+
+                if (bf != null) {
+                    bf = Base64.decode(bf, 0, bf.length);
+                    try {
+                        //OBTENER IMAGEN
+                        p.setFotoA(obtenImagen(bf));
+                    } catch (IOException ex) {
+                        p.setFotoA(null);
+                        Logger.getLogger(ModeloAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    p.setFotoA(null);
+                }
+
+                lista.add(p);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }
+

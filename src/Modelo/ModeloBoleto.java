@@ -36,9 +36,9 @@ public class ModeloBoleto extends Boleto{
 
             if (dato.next()) {
                 id = dato.getString(1);
-            }
-            System.out.println(id);
-            int suf;
+                System.out.println(id);
+                if(id!=null){
+                  int suf;
             suf = Integer.parseInt(id.split("b-")[1]);
             suf += 1;
             System.out.println(suf);
@@ -53,7 +53,13 @@ public class ModeloBoleto extends Boleto{
             } else if (suf >= 0) {
                 id = "b-0000" + suf;
             }
-            System.out.println("Nuevo: " + id);
+            System.out.println("Nuevo: " + id);  
+                }else{
+                    id = "b-00000";
+                }
+            
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(ModeloBoleto.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("ERROR: " + ex);
@@ -65,7 +71,7 @@ public class ModeloBoleto extends Boleto{
     public boolean GuardarBoleto(){
          String sql;
           sql = "INSERT INTO boleto (id_boleto,id_vendedor,id_funcion,id_categoria,id_compra)";
-        sql += "VALUES('" + GeneraridBoleto()+ "','" + getV().getId_vendedor()+ "','" + getF().getIdFuncion()+"','"+getC().getIdCategoria() +"'"+getCo().getIdCompra()+ "')";
+        sql += "VALUES('" + GeneraridBoleto()+ "','" + getV().getId_vendedor()+ "','" + getF().getIdFuncion()+"','"+getC().getIdCategoria() +"','"+getCo().getIdCompra()+ "')";
         if (con.noquery(sql) == null) {
             return true;
         } else {

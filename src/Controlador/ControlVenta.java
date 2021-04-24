@@ -10,6 +10,7 @@ import Modelo.Categoria;
 import Modelo.Cliente;
 import Modelo.Funcion;
 import Modelo.ModeloAsiento;
+import Modelo.ModeloBoleto;
 import Modelo.ModeloCategoria;
 import Modelo.ModeloCliente;
 import Modelo.ModeloCompra;
@@ -18,6 +19,7 @@ import Modelo.ModeloPelicula;
 import Modelo.ModeloVendedor;
 import Modelo.Pelicula;
 import Modelo.Sala;
+import Modelo.Vendedor;
 import Vistas.Venta;
 import Vistas.VistaAsiento;
 import java.awt.event.FocusEvent;
@@ -86,6 +88,7 @@ public class ControlVenta {
        });
        vistacli.getBtn_aceptar().addActionListener(l->{
       realizarCompra();
+      
       limpiarTabla();
       mostrarDiaolog();
        });
@@ -94,6 +97,34 @@ public class ControlVenta {
 
     public void setNombreAsi(String nombreAsi) {
         this.nombreAsi = nombreAsi;
+    }
+    private void grabarBoleto(ModeloCompra c){
+        int indice=vistacli.getjComboFuncion().getSelectedIndex();
+        Funcion f=funcion.get(indice);
+        System.out.println(f.getIdFuncion());
+        Vendedor vendedor=v.getVendedor();
+        System.out.println(vendedor.getId_vendedor());
+        DefaultTableModel tbmodel;
+        tbmodel=(DefaultTableModel)vistacli.getTabButacas().getModel();
+       List  <String> nombresCa= new ArrayList<>();
+         for (int i = 0; i <tbmodel.getRowCount(); i++) {
+           nombresCa.add((tbmodel.getValueAt(i, 4).toString()));
+         }
+        nombresCa.stream().forEach(p1->{
+        Categoria ca=listac.stream().filter(l->l.getNombre().equals(p1)).findAny().get();
+        ModeloBoleto bo=new ModeloBoleto();
+        bo.setF(f);
+        bo.setCo(c);
+        bo.setC(ca);
+        bo.setV(vendedor);
+        if(bo.GuardarBoleto()){
+            
+            System.out.println("boleto creado"); 
+        }else{
+            System.out.println("error de boleto");
+        }
+        });
+        
     }
     private void realizarCompra(){
         String cedula=vistacli.getTxtcedula_cli().getText();
@@ -115,6 +146,7 @@ public class ControlVenta {
         c1.setCedula(cedula);
         c.setC(c1);
         if(c.grabarCompra()){
+            grabarBoleto(c);
             JOptionPane.showMessageDialog(vistacli,"Compra realizada con exito");
         }else{
             JOptionPane.showMessageDialog(vistacli,"Error en la compra");
@@ -372,7 +404,7 @@ public class ControlVenta {
         tbmodel=(DefaultTableModel)vistacli.getTabButacas().getModel();
         double precio=0;
          for (int i = 0; i <tbmodel.getRowCount(); i++) {
-             precio+=Double.valueOf(tbmodel.getValueAt(i, 5).toString());
+             precio+=Double.valueOf(tbmodel.getValueAt(i, 6).toString());
          }
          return precio;
      }

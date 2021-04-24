@@ -36,9 +36,9 @@ public class ModeloFuncion extends Funcion{
 
             if (dato.next()) {
                 id = dato.getString(1);
-            }
-            System.out.println(id);
-            int suf;
+                System.out.println(id);
+                if(id!=null){
+                    int suf;
             suf = Integer.parseInt(id.split("f-")[1]);
             suf += 1;
             System.out.println(suf);
@@ -54,6 +54,12 @@ public class ModeloFuncion extends Funcion{
                 id = "f-0000" + suf;
             }
             System.out.println("Nuevo: " + id);
+                }else{
+                    id = "f-00000";
+                }
+            
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(ModeloCompra.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("ERROR: " + ex);
@@ -75,11 +81,11 @@ public class ModeloFuncion extends Funcion{
     
      
      public List<Funcion> traerFuncion(){
-         String query="select p.titulo,s.nombre,s.id_sala,f.hora_inicio,f.hora_final "+
+         String query="select p.titulo,s.nombre,s.id_sala,f.hora_inicio,f.hora_final,f.id_funcion "+
           "from funcion f "+
           "join pelicula p on f.id_pelicula=p.id_pelicula "+
           "join sala s on f.id_sala=s.id_sala "+
-          "where f.disponibilidad='true' and f.hora_inicio>=(select current_time)";
+          "where f.disponibilidad='true' and f.fecha>=(select current_date) ";
          ResultSet rs =con.query(query);
          List<Funcion> lista=new ArrayList<Funcion>();
         try {
@@ -87,13 +93,16 @@ public class ModeloFuncion extends Funcion{
                 Sala s1=new Sala();
                 s1.setIdSala(rs.getString(3));
                 s1.setNombreSala(rs.getString(2));
-                lista.add(new Funcion(
-                        rs.getTime(4).toLocalTime(),
-                        rs.getTime(5).toLocalTime(),
-                       s1,
-                        new Pelicula(
-                        rs.getString(1))                       
-                ));
+                Funcion n=new Funcion();
+                n.setIdFuncion(rs.getString(6));
+                n.setHoraInicio(rs.getTime(4).toLocalTime());
+                n.setHoraFin(rs.getTime(5).toLocalTime());
+                n.setP(new Pelicula(
+                        rs.getString(1)));
+                n.setS(s1);
+                lista.add(
+                     n                          
+                );
             }
         } catch (SQLException ex) {
             Logger.getLogger(ModeloFuncion.class.getName()).log(Level.SEVERE, null, ex);
@@ -130,7 +139,7 @@ public class ModeloFuncion extends Funcion{
     }
      public boolean DisponibilidadFuncion(){
          String sql="";
-         sql="Update funcion set disponibilidad='false' where hora_inicio >(Select current_time) and fecha<(select current_date)";
+         sql="Update funcion set disponibilidad='false' where hora_inicio <(Select current_time) and fecha<(select current_date)";
          return (con.noquery(sql)!=null);
      }
 }

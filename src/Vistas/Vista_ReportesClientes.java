@@ -59,7 +59,7 @@ public class Vista_ReportesClientes extends javax.swing.JFrame {
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/lupa_peque.png"))); // NOI18N
 
-        btn_Actualizar.setText("Actualizar");
+        btn_Actualizar.setText("Editar");
 
         btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salir.png"))); // NOI18N
         btn_salir.addActionListener(new java.awt.event.ActionListener() {

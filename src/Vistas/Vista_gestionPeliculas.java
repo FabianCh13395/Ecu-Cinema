@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -24,6 +25,24 @@ public class Vista_gestionPeliculas extends javax.swing.JInternalFrame {
      */
     public Vista_gestionPeliculas() {
         initComponents();
+    }
+
+    public ButtonGroup getBoton_grupo() {
+        return boton_grupo;
+    }
+
+   
+
+    public JTextField getTxt_buscar() {
+        return txt_buscar;
+    }
+
+    public void setTxt_buscar(JTextField txt_buscar) {
+        this.txt_buscar = txt_buscar;
+    }
+
+    public void setBoton_grupo(ButtonGroup boton_grupo) {
+        this.boton_grupo = boton_grupo;
     }
 
     public JButton getBtn_ExaminarFoto() {
@@ -163,7 +182,7 @@ public class Vista_gestionPeliculas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        boton_grupo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -192,6 +211,8 @@ public class Vista_gestionPeliculas extends javax.swing.JInternalFrame {
         tabPeliculas = new javax.swing.JTable();
         jeliminar = new javax.swing.JButton();
         jeditar = new javax.swing.JButton();
+        txt_buscar = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
 
         setBorder(null);
         setClosable(true);
@@ -253,10 +274,10 @@ public class Vista_gestionPeliculas extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Estado");
 
-        buttonGroup1.add(radio_btnActivo);
+        boton_grupo.add(radio_btnActivo);
         radio_btnActivo.setText("Activo");
 
-        buttonGroup1.add(radio_btnInactivo);
+        boton_grupo.add(radio_btnInactivo);
         radio_btnInactivo.setText("Inactiva");
 
         jactualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/reply.png"))); // NOI18N
@@ -407,6 +428,8 @@ public class Vista_gestionPeliculas extends javax.swing.JInternalFrame {
         jeditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/documentediting_.png"))); // NOI18N
         jeditar.setToolTipText("Editar");
 
+        jLabel8.setText("Buscar:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -421,16 +444,26 @@ public class Vista_gestionPeliculas extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jeliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jeliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jeditar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jeditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jeliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -483,10 +516,10 @@ public class Vista_gestionPeliculas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup boton_grupo;
     private javax.swing.JButton btn_ExaminarFoto;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_salir;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> combo_genero;
     private javax.swing.JComboBox<String> combo_pelicula;
     private javax.swing.JLabel jLabel1;
@@ -496,6 +529,7 @@ public class Vista_gestionPeliculas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -510,6 +544,7 @@ public class Vista_gestionPeliculas extends javax.swing.JInternalFrame {
     private javax.swing.JTable tabPeliculas;
     private javax.swing.JTextField txt_Titulo;
     private javax.swing.JTextArea txt_area_Descripcion;
+    private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_codigoPeli;
     private javax.swing.JTextField txt_duracion;
     // End of variables declaration//GEN-END:variables

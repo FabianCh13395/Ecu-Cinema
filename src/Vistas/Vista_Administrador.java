@@ -22,6 +22,14 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JMenu getReporteAdministradores() {
+        return reporteAdministradores;
+    }
+
+    public void setReporteAdministradores(JMenu reporteAdministradores) {
+        this.reporteAdministradores = reporteAdministradores;
+    }
+
     public JMenu getBtnSalir() {
         return btnSalir;
     }
@@ -40,6 +48,14 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
 
     public JMenuItem getBtnNuevasPelis() {
         return btnNuevasPelis;
+    }
+
+    public JMenuItem getMenuReporteAdministrador() {
+        return menuReporteAdministrador;
+    }
+
+    public void setMenuReporteAdministrador(JMenuItem menuReporteAdministrador) {
+        this.menuReporteAdministrador = menuReporteAdministrador;
     }
 
     public JDesktopPane getMenuAdmin() {
@@ -117,10 +133,11 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         jMenu5 = new javax.swing.JMenu();
         btnNuevasFunciones = new javax.swing.JMenuItem();
         btnNuevasSalas = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        reporteAdministradores = new javax.swing.JMenu();
         btnreportVentas = new javax.swing.JMenuItem();
         btnReportClientes = new javax.swing.JMenuItem();
         btnreportEmpleados = new javax.swing.JMenuItem();
+        menuReporteAdministrador = new javax.swing.JMenuItem();
         btnSalir = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
@@ -140,7 +157,7 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         menuAdmin.setLayout(menuAdminLayout);
         menuAdminLayout.setHorizontalGroup(
             menuAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
+            .addGap(0, 719, Short.MAX_VALUE)
         );
         menuAdminLayout.setVerticalGroup(
             menuAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,12 +197,12 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
 
         jMenuBar1.add(jMenu5);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/report.png"))); // NOI18N
-        jMenu2.setText("Reportes");
+        reporteAdministradores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/report.png"))); // NOI18N
+        reporteAdministradores.setText("Reportes");
 
         btnreportVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Sales-report_.png"))); // NOI18N
         btnreportVentas.setText("Reporte Ventas");
-        jMenu2.add(btnreportVentas);
+        reporteAdministradores.add(btnreportVentas);
 
         btnReportClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/documentediting_.png"))); // NOI18N
         btnReportClientes.setText("Reporte Clientes");
@@ -194,18 +211,22 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
                 btnReportClientesActionPerformed(evt);
             }
         });
-        jMenu2.add(btnReportClientes);
+        reporteAdministradores.add(btnReportClientes);
 
         btnreportEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/report.png"))); // NOI18N
-        btnreportEmpleados.setText("Reporte Empleados");
+        btnreportEmpleados.setText("Reporte Vendedores");
         btnreportEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnreportEmpleadosActionPerformed(evt);
             }
         });
-        jMenu2.add(btnreportEmpleados);
+        reporteAdministradores.add(btnreportEmpleados);
 
-        jMenuBar1.add(jMenu2);
+        menuReporteAdministrador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/check_1.png"))); // NOI18N
+        menuReporteAdministrador.setText("Reporte Administradores");
+        reporteAdministradores.add(menuReporteAdministrador);
+
+        jMenuBar1.add(reporteAdministradores);
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salir.png"))); // NOI18N
         btnSalir.setText("Salir");
@@ -217,7 +238,9 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(87, 87, 87))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,7 +271,6 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
     private javax.swing.JMenu btnSalir;
     private javax.swing.JMenuItem btnreportEmpleados;
     private javax.swing.JMenuItem btnreportVentas;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
@@ -257,6 +279,8 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JDesktopPane menuAdmin;
+    private javax.swing.JMenuItem menuReporteAdministrador;
     private javax.swing.JMenu menu_peliculas;
+    private javax.swing.JMenu reporteAdministradores;
     // End of variables declaration//GEN-END:variables
 }

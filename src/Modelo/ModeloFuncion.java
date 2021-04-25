@@ -139,7 +139,7 @@ public class ModeloFuncion extends Funcion{
     }
      public boolean DisponibilidadFuncion(){
          String sql="";
-         sql="Update funcion set disponibilidad='false' where hora_inicio <(Select current_time) and fecha<(select current_date)";
+         sql="Update funcion set disponibilidad='false' where hora_inicio <(Select current_time) and hora_final > (Select current_time) or fecha<(select current_date)";
          return (con.noquery(sql)!=null);
      }
 }

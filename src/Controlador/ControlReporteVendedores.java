@@ -27,9 +27,12 @@ public class ControlReporteVendedores {
     public ControlReporteVendedores(ModeloVendedor vendedor, Vista_ReporteVendedores vistav) {
         this.vendedor = vendedor;
         this.vistav = vistav;
+        vistav.setVisible(true);
+        InicioControl();
     }
     private void InicioControl(){
-    
+    llenarTabla();
+    vistav.getBtn_salir().addActionListener(l->vistav.dispose());
 }
     private void llenarTabla(){
         vistav.getTabla_Vendedor().setDefaultRenderer(Object.class, new ImagenTabla());

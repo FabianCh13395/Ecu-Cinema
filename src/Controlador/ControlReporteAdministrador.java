@@ -29,10 +29,13 @@ public class ControlReporteAdministrador {
     public ControlReporteAdministrador(ModeloAdministrador admi, Vista_ReporteAdministradores vistaA) {
         this.admi = admi;
         this.vistaA = vistaA;
+        vistaA.setVisible(true);
+        InicioControl();
     }
     
     private void InicioControl(){
-        
+        llenarTablaAdmi();
+        vistaA.getBtn_salir().addActionListener(l->vistaA.dispose());
     }
      private void llenarTablaAdmi(){
         vistaA.getTablaAdmi().setDefaultRenderer(Object.class, new ImagenTabla());
@@ -53,8 +56,8 @@ public class ControlReporteAdministrador {
             vistaA.getTablaAdmi().setValueAt(p1.getNombre(), i.value, 1);
             vistaA.getTablaAdmi().setValueAt(p1.getApellido(), i.value, 2);
             vistaA.getTablaAdmi().setValueAt(p1.getTelefono(), i.value, 3);
-            vistaA.getTablaAdmi().setValueAt(p1.getEdad(), i.value, 4);
-            vistaA.getTablaAdmi().setValueAt(p1.getCorreo(), i.value, 5);
+            vistaA.getTablaAdmi().setValueAt(p1.getEdad(), i.value, 5);
+            vistaA.getTablaAdmi().setValueAt(p1.getCorreo(), i.value, 4);
            
 
             java.awt.Image img = p1.getFotoA();

@@ -5,11 +5,15 @@
  */
 package Vistas;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author FabianCh
  */
-public class Vista_ReportesClientes extends javax.swing.JFrame {
+public class Vista_ReportesClientes extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Vista_ReportesClientes
@@ -35,7 +39,7 @@ public class Vista_ReportesClientes extends javax.swing.JFrame {
         btn_buscar = new javax.swing.JButton();
         btn_Actualizar = new javax.swing.JButton();
         btn_salir = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_Imprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,7 +72,7 @@ public class Vista_ReportesClientes extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Imprimir");
+        btn_Imprimir.setText("Imprimir");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,7 +89,7 @@ public class Vista_ReportesClientes extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btn_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(btn_Imprimir)
                 .addGap(187, 187, 187))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(247, Short.MAX_VALUE)
@@ -112,7 +116,7 @@ public class Vista_ReportesClientes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Actualizar)
-                    .addComponent(jButton4))
+                    .addComponent(btn_Imprimir))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -131,6 +135,54 @@ public class Vista_ReportesClientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JTable getTabla_Cliente() {
+        return Tabla_Cliente;
+    }
+
+    public JButton getBtn_Imprimir() {
+        return btn_Imprimir;
+    }
+
+    public void setBtn_Imprimir(JButton btn_Imprimir) {
+        this.btn_Imprimir = btn_Imprimir;
+    }
+
+    public void setTabla_Cliente(JTable Tabla_Cliente) {
+        this.Tabla_Cliente = Tabla_Cliente;
+    }
+
+    public JButton getBtn_Actualizar() {
+        return btn_Actualizar;
+    }
+
+    public void setBtn_Actualizar(JButton btn_Actualizar) {
+        this.btn_Actualizar = btn_Actualizar;
+    }
+
+    public JButton getBtn_buscar() {
+        return btn_buscar;
+    }
+
+    public void setBtn_buscar(JButton btn_buscar) {
+        this.btn_buscar = btn_buscar;
+    }
+
+    public JButton getBtn_salir() {
+        return btn_salir;
+    }
+
+    public void setBtn_salir(JButton btn_salir) {
+        this.btn_salir = btn_salir;
+    }
+
+    public JTextField getTxt_buscarCliente() {
+        return txt_buscarCliente;
+    }
+
+    public void setTxt_buscarCliente(JTextField txt_buscarCliente) {
+        this.txt_buscarCliente = txt_buscarCliente;
+    }
+
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_salirActionPerformed
@@ -138,44 +190,14 @@ public class Vista_ReportesClientes extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista_ReportesClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista_ReportesClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista_ReportesClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista_ReportesClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista_ReportesClientes().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla_Cliente;
     private javax.swing.JButton btn_Actualizar;
+    private javax.swing.JButton btn_Imprimir;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_salir;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

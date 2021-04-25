@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    <Component class="javax.swing.ButtonGroup" name="boton_grupo">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -392,7 +392,7 @@
             <Component class="javax.swing.JRadioButton" name="radio_btnActivo">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                  <ComponentRef name="boton_grupo"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Activo"/>
               </Properties>
@@ -400,7 +400,7 @@
             <Component class="javax.swing.JRadioButton" name="radio_btnInactivo">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                  <ComponentRef name="boton_grupo"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Inactiva"/>
               </Properties>
@@ -437,17 +437,29 @@
                       <Component id="jeliminar" min="-2" pref="49" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="jLabel8" min="-2" pref="57" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txt_buscar" min="-2" pref="146" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txt_buscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="188" max="-2" attributes="0"/>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jeliminar" min="-2" pref="49" max="-2" attributes="0"/>
-                          <Component id="jeditar" min="-2" pref="49" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jeditar" max="32767" attributes="0"/>
+                          <Component id="jeliminar" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -530,6 +542,13 @@
                   <Image iconType="3" name="/iconos/documentediting_.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Editar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txt_buscar">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar:"/>
               </Properties>
             </Component>
           </SubComponents>

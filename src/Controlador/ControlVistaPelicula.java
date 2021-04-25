@@ -9,6 +9,8 @@ import Modelo.ModeloPelicula;
 import Modelo.Pelicula;
 import Vistas.Vista_gestionPeliculas;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,6 +24,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+
 
 
 /**
@@ -41,14 +44,39 @@ public class ControlVistaPelicula {
         InicioContro();
     }
     private void InicioContro(){
+         cargaPeliculas();
+        validarCampos();
         v.getJactualizar().setVisible(false);
-       v.getBtn_guardar().addActionListener(l->grabarPelicula());
+       v.getBtn_guardar().addActionListener(l->{
+       if(validarCamposV()==true){
+           grabarPelicula();
+       }
+       });
        v.getJeditar().addActionListener(l->EditarPelicula());
        v.getJeliminar().addActionListener(l->EliminarPelicula());
        v.getBtn_ExaminarFoto().addActionListener(l->cargarImagen());
         v.getJactualizar().addActionListener(l->actualiza());
        v.getBtn_salir().addActionListener(l->v.dispose());
-       cargaPeliculas();
+      
+       v.getTxt_buscar().addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+               if (v.getTxt_buscar().getText().length() >= 25) {
+                    char c = e.getKeyChar();
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+               BuscarPelicula();
+            }
+        });
     }
     private void grabarPelicula(){
         boolean disponibilidad=true ;
@@ -72,6 +100,8 @@ public class ControlVistaPelicula {
         p1.setFoto(foto);
         p1.setEstado(disponibilidad);
         if(p1.GrabarPelicula()){
+            JOptionPane.showMessageDialog(v, "Pelicula añadida correctamente");
+            limpiarCampos();
            cargaPeliculas();
         }else{
             JOptionPane.showMessageDialog(v, "Error al guardar la Película");
@@ -228,5 +258,146 @@ public class ControlVistaPelicula {
                 Logger.getLogger(ControlVendedor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    private void limpiarCampos(){
+        v.getTxt_Titulo().setText("");
+        v.getTxt_area_Descripcion().setText("");
+        v.getTxt_duracion().setText("");
+        v.getLbl_fotoPeli().setIcon(null);
+        v.getBoton_grupo().clearSelection();
+        v.getCombo_pelicula().setSelectedIndex(0);
+        v.getCombo_genero().setSelectedIndex(0);
+    }
+    private boolean validarCamposV(){
+        if(v.getTxt_Titulo().getText().isEmpty()||v.getTxt_area_Descripcion().getText().isEmpty()||
+                v.getTxt_duracion().getText().isEmpty()){
+            JOptionPane.showMessageDialog(v, "Rellene todos los campos");
+            return false;
+        }else{
+            if(!v.getRadio_btnActivo().isSelected()&&!v.getRadio_btnInactivo().isSelected()){
+                JOptionPane.showMessageDialog(v, "Elija un estado");
+                return false;
+            }else{
+                if(String.valueOf(v.getCombo_genero().getSelectedItem()).equals("Seleccione")){
+                     JOptionPane.showMessageDialog(v, "Elija el genero de la pélicula");
+                     return false;
+                }else{
+                    if(String.valueOf(v.getCombo_pelicula().getSelectedItem()).equals("Seleccione")){
+                         JOptionPane.showMessageDialog(v, "Elija una categoría");
+                         return false;
+                    }else{
+                        if(v.getLbl_fotoPeli().getIcon()==null){
+                            JOptionPane.showMessageDialog(v, "Seleccione una imagen");
+                            return false;
+                        }else{
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    private void validarCampos(){
+        v.getTxt_Titulo().addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (v.getTxt_Titulo().getText().length() >= 25) {
+                    char c = e.getKeyChar();
+                    e.consume();
+                }
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+               
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+        v.getTxt_area_Descripcion().addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+               if (v.getTxt_area_Descripcion().getText().length() >= 250) {
+                    char c = e.getKeyChar();
+                    e.consume();
+                }
+                
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+               
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+        v.getTxt_duracion().addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (v.getTxt_duracion().getText().length() >= 3) {
+                    e.consume();
+                }
+                char c = e.getKeyChar();
+                if (c < '0' || c > '9') {
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+        
+    }
+    private void BuscarPelicula() {
+        String texto = v.getTxt_buscar().getText().toLowerCase();
+        ModeloPelicula pelicula= new ModeloPelicula();
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        pelicula.setTitulo(texto);
+        pelicula.setGenero(texto);
+        DefaultTableModel tblModel;
+        tblModel = (DefaultTableModel) v.getTabPeliculas().getModel();//modelo de la tabla
+        tblModel.setNumRows(0);//borro todas las filas
+        Holder<Integer> i = new Holder<>(0);
+        List<Pelicula> lista1= pelicula.buscarPelicula();
+        lista1.stream().forEach(p1 -> {
+            //   String[] persona={p1.getIdPersona(),p1.getNombres(),p1.getApellidos(),String.valueOf(p1.getEdad())};
+
+            tblModel.addRow(new Object[6]);
+            v.getTabPeliculas().setValueAt(p1.getIdPelicula(), i.value, 0);
+            v.getTabPeliculas().setValueAt(p1.getTitulo(), i.value, 1);
+            v.getTabPeliculas().setValueAt(p1.getGenero(), i.value, 2);
+            v.getTabPeliculas().setValueAt(p1.getDuracion(), i.value, 3);
+            v.getTabPeliculas().setValueAt(p1.getClasificacion(), i.value, 4);
+            v.getTabPeliculas().setValueAt(p1.getEstado(), i.value, 6);
+            
+
+            java.awt.Image img = p1.getFoto();
+
+            if (img != null) {
+                java.awt.Image newimg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(newimg);
+                renderer.setIcon(icon);
+                v.getTabPeliculas().setValueAt(new JLabel(icon), i.value, 5);
+            } else {
+                v.getTabPeliculas().setValueAt(null, i.value, 5);
+            }
+            i.value++;
+            ;
+        });
     }
 }

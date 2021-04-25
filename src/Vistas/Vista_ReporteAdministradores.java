@@ -13,7 +13,7 @@ import javax.swing.JTextField;
  *
  * @author FabianCh
  */
-public class Vista_ReporteAdministradores extends javax.swing.JFrame {
+public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Vista_ReporteAdministradores

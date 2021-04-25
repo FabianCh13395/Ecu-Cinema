@@ -218,6 +218,50 @@ public class ModeloPelicula extends Pelicula{
         gra.dispose();
         return b1;
     }
-    
+    public List<Pelicula> buscarPelicula() {
+        try {
+            String query;
+            query = "select id_pelicula,titulo,genero,duracion,clasificacion,foto,disponibilidad\n" +
+              "from pelicula \n" +
+               "where lower(titulo) like '%"+getTitulo()+"%' or lower(genero) like '%"+getGenero()+"%'";
+
+            ResultSet rs = con.query(query);
+            byte[] bf;
+            List<Pelicula> lista = new ArrayList<Pelicula>();
+            while (rs.next()) {
+                Pelicula p = new Pelicula();
+                p.setIdPelicula(rs.getString("id_pelicula"));
+                p.setTitulo(rs.getString("titulo"));
+                p.setGenero(rs.getString("genero"));
+                p.setDuracion(rs.getInt("duracion"));
+                p.setClasificacion(rs.getString("clasificacion"));
+                p.setEstado(rs.getBoolean("disponibilidad"));
+               
+                // PARA FECHA
+               
+                bf = rs.getBytes("foto");
+
+                if (bf != null) {
+                    bf = Base64.decode(bf, 0, bf.length);
+                    try {
+                        //OBTENER IMAGEN
+                        p.setFoto(obtenImagen(bf));
+                    } catch (IOException ex) {
+                        p.setFoto(null);
+                        Logger.getLogger(ModeloPelicula.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    p.setFoto(null);
+                }
+                lista.add(p);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloPelicula.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
     
 }

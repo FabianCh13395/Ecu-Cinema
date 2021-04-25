@@ -509,7 +509,7 @@ public class Venta extends javax.swing.JInternalFrame {
 
         jLabel21.setText("Metodo de pago");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tarjeta de Crédito", "Tarjeta de Débito", "Efectivo", " " }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione--", "Tarjeta de Crédito", "Tarjeta de Débito", "Efectivo", " " }));
 
         jLabel27.setText("Sala");
 
@@ -574,10 +574,10 @@ public class Venta extends javax.swing.JInternalFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_cancelar)
                             .addComponent(btn_aceptar)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel21)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
@@ -642,6 +642,9 @@ public class Venta extends javax.swing.JInternalFrame {
         jLabel6.setText("Correo");
 
         jLabel7.setText("Telefono");
+
+        fecha_cliente.setMaxSelectableDate(new java.util.Date(1072936906000L));
+        fecha_cliente.setMinSelectableDate(new java.util.Date(21706000L));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

@@ -19,6 +19,33 @@ public class Compra {
     private String MetodoPago;
     private double CostoTotal;
     private Cliente c;
+    private Boleto b;
+    private Vendedor v;
+    private Categoria cate;
+
+    public Boleto getB() {
+        return b;
+    }
+
+    public void setB(Boleto b) {
+        this.b = b;
+    }
+
+    public Vendedor getV() {
+        return v;
+    }
+
+    public void setV(Vendedor v) {
+        this.v = v;
+    }
+
+    public Categoria getCate() {
+        return cate;
+    }
+
+    public void setCate(Categoria cate) {
+        this.cate = cate;
+    }
 
     public Compra() {
     }

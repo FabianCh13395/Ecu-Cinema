@@ -651,10 +651,10 @@
                                   <Component id="btn_aceptar" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jComboBox5" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jComboBox5" min="-2" pref="115" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
@@ -790,11 +790,12 @@
             <Component class="javax.swing.JComboBox" name="jComboBox5">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Tarjeta de Cr&#xe9;dito"/>
-                    <StringItem index="1" value="Tarjeta de D&#xe9;bito"/>
-                    <StringItem index="2" value="Efectivo"/>
-                    <StringItem index="3" value=" "/>
+                  <StringArray count="5">
+                    <StringItem index="0" value="--Seleccione--"/>
+                    <StringItem index="1" value="Tarjeta de Cr&#xe9;dito"/>
+                    <StringItem index="2" value="Tarjeta de D&#xe9;bito"/>
+                    <StringItem index="3" value="Efectivo"/>
+                    <StringItem index="4" value=" "/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -1036,6 +1037,14 @@
             <Component class="javax.swing.JTextField" name="txt_correoCli">
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="fecha_cliente">
+              <Properties>
+                <Property name="maxSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
+                  <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,0,-7,-48,5,-19,16,120"/>
+                </Property>
+                <Property name="minSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
+                  <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,0,0,1,75,53,16,120"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

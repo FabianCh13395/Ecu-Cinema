@@ -9,6 +9,8 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -79,5 +81,44 @@ public class ModeloCompra extends Compra{
         }
 
     }
-    
+    public List<Compra> llenarVentas(){
+        try {
+            String query = "select b.id_boleto,c.fecha,u.nombre,u.apellido,c2.nom_categoria,c.costo_total,u1.nombre,c.hora\n" +
+"from compra c\n" +
+"join boleto b on c.id_compra=b.id_compra\n" +
+"join categoria c2 on c2.id_categoria=b.id_categoria\n" +
+"join cliente c1 on c.id_cliente=c1.id_cliente\n" +
+"join usuario u on u.cedula=c1.cedula\n" +
+"join vendedor v on b.id_vendedor=v.id_vendedor\n" +
+"join usuario u1 on v.cedula=u1.cedula";
+            ResultSet rs = con.query(query);
+            List<Compra> lista = new ArrayList<Compra>();
+            while (rs.next()) {
+                Boleto b = new Boleto();
+                b.setIdBoleto(rs.getString(1));
+                Compra c2=new Compra();
+                c2.setFecha(rs.getDate(2));
+                c2.setCostoTotal(rs.getDouble(6));
+                c2.setHora(rs.getTime(8).toLocalTime());
+                Categoria cat=new Categoria();
+                cat.setNombre(rs.getString(5));
+                Cliente cli=new Cliente();
+                cli.setNombre(rs.getString(3));
+                cli.setApellido(rs.getString(4));
+                Vendedor v1=new Vendedor();
+                v1.setNombre(rs.getString(7));
+              c2.setB(b);
+              c2.setC(cli);
+              c2.setCate(cat);
+              c2.setV(v1);
+
+                lista.add(c2);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloCompra.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }

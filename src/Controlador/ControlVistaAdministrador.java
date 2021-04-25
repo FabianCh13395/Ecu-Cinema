@@ -6,12 +6,19 @@
 package Controlador;
 
 import Modelo.ModeloAdministrador;
+import Modelo.ModeloCliente;
+import Modelo.ModeloCompra;
 import Modelo.ModeloFuncion;
 import Modelo.ModeloPelicula;
 import Modelo.ModeloSala;
+import Modelo.ModeloVendedor;
 import Vistas.Vista_Administrador;
 import Vistas.Vista_GestionFunciones;
 import Vistas.Vista_MenuGeneral;
+import Vistas.Vista_ReporteAdministradores;
+import Vistas.Vista_ReporteVendedores;
+import Vistas.Vista_ReportesClientes;
+import Vistas.Vista_ReportesVentas;
 import Vistas.Vista_Salas;
 import Vistas.Vista_gestionPeliculas;
 
@@ -55,6 +62,30 @@ public class ControlVistaAdministrador {
         v.getBtnSalir().addActionListener(l->{
         Vista_MenuGeneral vista= new Vista_MenuGeneral();
         vista.dispose();
+        });
+        v.getBtnReportClientes().addActionListener(l->{
+        ModeloCliente c=new ModeloCliente();
+        Vista_ReportesClientes rv=new Vista_ReportesClientes();
+        ControlReporteClientes c1=new ControlReporteClientes(c,rv);
+        v.getMenuAdmin().add(rv);
+        });
+        v.getBtnreportEmpleados().addActionListener(l->{
+        ModeloVendedor vendedor= new ModeloVendedor();
+        Vista_ReporteVendedores v2=new Vista_ReporteVendedores();
+        ControlReporteVendedores cv=new ControlReporteVendedores(vendedor,v2);
+        v.getMenuAdmin().add(v2);
+        });
+        v.getMenuReporteAdministrador().addActionListener(l->{
+        ModeloAdministrador admin=new ModeloAdministrador();
+        Vista_ReporteAdministradores ad1=new Vista_ReporteAdministradores();
+        ControlReporteAdministrador ad2=new ControlReporteAdministrador(admin,ad1);
+        v.getMenuAdmin().add(ad1);
+        });
+        v.getBtnreportVentas().addActionListener(l->{
+        ModeloCompra compra=new ModeloCompra();
+        Vista_ReportesVentas vent=new Vista_ReportesVentas();
+        ControlReporteVentas ventas1 =new ControlReporteVentas(compra,vent);
+        v.getMenuAdmin().add(vent);
         });
     }
     

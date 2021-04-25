@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import static Modelo.ModeloVendedor.obtenImagen;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -114,5 +115,34 @@ public class ModeloCliente extends Cliente{
             return false;
         }
       }
+       public List<Cliente> ListarClientes(){
+        try {
+            String query = "select u.cedula,u.nombre,u.apellido,u.telefono,u.correo,u.fecha_nacimiento\n" +
+           "from usuario u\n" +
+             "join cliente c on u.cedula=c.cedula;";
+            ResultSet rs = con.query(query);
+            List<Cliente> lista = new ArrayList<Cliente>();
+            while (rs.next()) {
+                Cliente p = new Cliente();
+                p.setCedula(rs.getString(1));
+                p.setNombre(rs.getString(2));
+                p.setApellido(rs.getString(3));
+                p.setTelefono(rs.getString(4));
+                p.setCorreo(rs.getString(5));
+                
+                // PARA FECHA
+                p.setFecha_nacimiento(rs.getDate(6));
+                //
+              
+
+                lista.add(p);
+            }
+            rs.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloCliente.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
       
 }

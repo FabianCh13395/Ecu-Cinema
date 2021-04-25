@@ -5,17 +5,61 @@
  */
 package Vistas;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author FabianCh
  */
-public class Vista_ReportesVentas extends javax.swing.JFrame {
+public class Vista_ReportesVentas extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Vista_ReportesVentas
      */
     public Vista_ReportesVentas() {
         initComponents();
+    }
+
+    public JTable getTabla_venta() {
+        return Tabla_venta;
+    }
+
+    public void setTabla_venta(JTable Tabla_venta) {
+        this.Tabla_venta = Tabla_venta;
+    }
+
+    public JButton getBtn_buscar() {
+        return btn_buscar;
+    }
+
+    public void setBtn_buscar(JButton btn_buscar) {
+        this.btn_buscar = btn_buscar;
+    }
+
+    public JButton getBtn_imprimir() {
+        return btn_imprimir;
+    }
+
+    public void setBtn_imprimir(JButton btn_imprimir) {
+        this.btn_imprimir = btn_imprimir;
+    }
+
+    public JButton getBtn_salir() {
+        return btn_salir;
+    }
+
+    public void setBtn_salir(JButton btn_salir) {
+        this.btn_salir = btn_salir;
+    }
+
+    public JTextField getTxt_Buscar() {
+        return txt_Buscar;
+    }
+
+    public void setTxt_Buscar(JTextField txt_Buscar) {
+        this.txt_Buscar = txt_Buscar;
     }
 
     /**
@@ -36,6 +80,7 @@ public class Vista_ReportesVentas extends javax.swing.JFrame {
         btn_salir = new javax.swing.JButton();
         btn_imprimir = new javax.swing.JButton();
         fecha = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,7 +90,7 @@ public class Vista_ReportesVentas extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("EcuCinema Reportes Ventas");
+        jLabel1.setText("EcuCinema Reporte de  Ventas");
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/lupa_peque.png"))); // NOI18N
 
@@ -54,7 +99,7 @@ public class Vista_ReportesVentas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Venta", "Fecha", "Cliente", "Costo Total", "Vendedor", "Hora"
+                "Venta", "Fecha", "Cliente", "Costo Total", "Vendedor", "Hora", "Categoría"
             }
         ));
         jScrollPane1.setViewportView(Tabla_venta);
@@ -62,6 +107,8 @@ public class Vista_ReportesVentas extends javax.swing.JFrame {
         btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salir.png"))); // NOI18N
 
         btn_imprimir.setText("Imprimir");
+
+        jLabel2.setText("Busqueda por Fecha:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -76,16 +123,18 @@ public class Vista_ReportesVentas extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txt_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
-                        .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                        .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,9 +149,11 @@ public class Vista_ReportesVentas extends javax.swing.JFrame {
                         .addGap(58, 58, 58)
                         .addComponent(btn_buscar))
                     .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(btn_imprimir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -164,6 +215,7 @@ public class Vista_ReportesVentas extends javax.swing.JFrame {
     private javax.swing.JButton btn_salir;
     private com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_Buscar;

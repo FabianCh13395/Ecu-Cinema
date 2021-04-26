@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -75,6 +77,7 @@ public class vista_loguin extends javax.swing.JFrame {
         txt_paswInicio = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/icon_login.png"))); // NOI18N
 
@@ -109,14 +112,10 @@ public class vista_loguin extends javax.swing.JFrame {
                         .addGap(213, 213, 213)
                         .addComponent(jLabel2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondo_login1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(181, 181, 181))
             .addGroup(fondo_login1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(112, 112, 112)
                 .addComponent(btn_inicio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(btn_cancelarInicio)
                 .addGap(77, 77, 77))
             .addGroup(fondo_login1Layout.createSequentialGroup()
@@ -125,6 +124,10 @@ public class vista_loguin extends javax.swing.JFrame {
                     .addComponent(txt_inicioCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                     .addComponent(txt_paswInicio))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondo_login1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(163, 163, 163))
         );
         fondo_login1Layout.setVerticalGroup(
             fondo_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +167,10 @@ public class vista_loguin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_paswInicioActionPerformed
 
-   
+   @Override public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("iconos/iconoGenral.png"));
+        return retValue;
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

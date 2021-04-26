@@ -18,9 +18,10 @@ import java.util.logging.Logger;
  * @author FabianCh
  */
 public class Conexion_Ecu_Cinema {
-    private String cadenaConexion="jdbc:postgresql://localhost:5432/Ecu-Cinema";
+    private String cadenaConexion="jdbc:postgresql://localhost:5432/EcuCinema";
     private String usuarioPos="postgres";
-    private String pasw="15xyz1820111";
+    //private String pasw="15xyz1820111";
+    private String pasw="1234";
     
     private Connection con;
 

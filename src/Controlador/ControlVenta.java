@@ -69,6 +69,7 @@ public class ControlVenta {
         control_btn_asiento();
         CargaFunciones();
         inicioControlCliente();
+        eliminarFondobutton();
     }
 
     public void inicioControlCliente() {
@@ -96,8 +97,8 @@ public class ControlVenta {
 
         });
         vistacli.getBtn_aceptar().addActionListener(l -> {
-            if (String.valueOf(vistacli.getJcombo_MetodoPago().getSelectedItem()).equals("--Seleccione--")||
-                    vistacli.getTxtcedula_cli().getText().isEmpty()) {
+            if (String.valueOf(vistacli.getJcombo_MetodoPago().getSelectedItem()).equals("--Seleccione--")
+                    || vistacli.getTxtcedula_cli().getText().isEmpty()) {
                 JOptionPane.showMessageDialog(vistacli, "Rellene Correctamente los campos");
             } else {
                 realizarCompra();
@@ -513,4 +514,17 @@ public class ControlVenta {
         });
 
     }
+
+    private void eliminarFondobutton() {
+
+        vistacli.getBtn_buscar().setOpaque(false);
+        vistacli.getBtn_buscar().setContentAreaFilled(false);
+        vistacli.getBtn_buscar().setBorderPainted(false);
+        //-------------------------------------------//
+        
+        vistacli.getBtn_Asiento().setOpaque(false);
+        vistacli.getBtn_Asiento().setContentAreaFilled(false);
+        vistacli.getBtn_Asiento().setBorderPainted(false);
+    }
+
 }

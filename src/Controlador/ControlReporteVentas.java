@@ -28,11 +28,12 @@ public class ControlReporteVentas {
         this.v1 = v1;
         v1.setVisible(true);
         InicioControl();
+        eliminarFondoButton();
     }
 
     private void InicioControl() {
-llenarTabla();
-v1.getBtn_salir().addActionListener(l->v1.dispose());
+        llenarTabla();
+        //v1.getBtn_salir().addActionListener(l -> v1.dispose());
     }
 
     private void llenarTabla() {
@@ -57,5 +58,19 @@ v1.getBtn_salir().addActionListener(l->v1.dispose());
             i.value++;
 
         });
+    }
+
+    private void eliminarFondoButton() {
+
+        v1.getBtn_buscar().setOpaque(false);
+        v1.getBtn_buscar().setContentAreaFilled(false);
+        v1.getBtn_buscar().setBorderPainted(false);
+        
+        //--------//
+        v1.getBtn_imprimir().setOpaque(false);
+        v1.getBtn_imprimir().setContentAreaFilled(false);
+        v1.getBtn_imprimir().setBorderPainted(false);
+        
+
     }
 }

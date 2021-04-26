@@ -233,5 +233,40 @@ public class ModeloAdministrador extends Administrador {
             return null;
         }
     }
+    
+     public boolean Editar() {
+          
+          String foto64=null;
+        //Transformar imgagen a base64 para postgresql
+        
+        ByteArrayOutputStream bos= new ByteArrayOutputStream();
+        
+        try{
+        BufferedImage img =imgBuffered(getFotoA());
+        ImageIO.write(img, "PNG", bos);
+        byte[] imgb=bos.toByteArray();
+        foto64=Base64.encodeBytes(imgb);
+        } catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+          
+          
+        String sql;
+        sql = "UPDATE administrador set nombres='" + getNombre() + "',apellidos='" + getApellido() + "',fecha_nacimiento='" + getFecha_nacimiento() + "',telefono='" + getTelefono() +  "',foto='"+foto64+ "'";
+        sql += " WHERE idpersona='" + getCedula() + "'";
+        System.out.println(sql);
+        if (con.noquery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
 }
 

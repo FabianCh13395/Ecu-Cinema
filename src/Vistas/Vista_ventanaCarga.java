@@ -33,7 +33,7 @@ public class Vista_ventanaCarga extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         barra_progreso = new javax.swing.JProgressBar();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N

@@ -23,6 +23,7 @@ public class Vista_MenuGeneral extends javax.swing.JFrame {
     public Vista_MenuGeneral() {
         initComponents();
         this.setLocationRelativeTo(null);
+         this.setExtendedState(MAXIMIZED_BOTH);
         
     }
 

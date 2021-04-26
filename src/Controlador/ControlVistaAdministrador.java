@@ -59,10 +59,10 @@ public class ControlVistaAdministrador {
         ControlGestionFunciones r1=new ControlGestionFunciones(f,v1);
         v.getMenuAdmin().add(v1);
         });
-        v.getBtnSalir().addActionListener(l->{
+        /*v.getBtnSalir().addActionListener(l->{
         Vista_MenuGeneral vista= new Vista_MenuGeneral();
         vista.dispose();
-        });
+        });*/
         v.getBtnReportClientes().addActionListener(l->{
         ModeloCliente c=new ModeloCliente();
         Vista_ReportesClientes rv=new Vista_ReportesClientes();

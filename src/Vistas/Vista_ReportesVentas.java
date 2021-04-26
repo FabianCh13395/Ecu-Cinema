@@ -133,10 +133,12 @@ public class Vista_ReportesVentas extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Busqueda por Fecha:");
 
+        txt_Buscar.setToolTipText("");
+
         btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/lupa_peque.png"))); // NOI18N
-        btn_buscar.setMnemonic('b');
+        btn_buscar.setToolTipText("Buscar");
         btn_buscar.setBorder(null);
         btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -170,7 +172,7 @@ public class Vista_ReportesVentas extends javax.swing.JInternalFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(52, 52, 52)
                                 .addComponent(jLabel3)))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );

@@ -10,6 +10,7 @@ import Modelo.ModeloAdministrador;
 import Modelo.ModeloVendedor;
 import Modelo.Vendedor;
 import Vistas.Vista_ReporteAdministradores;
+import java.awt.Image;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -41,7 +42,7 @@ public class ControlReporteAdministrador {
 
     private void InicioControl() {
         llenarTablaAdmi();
-        
+
         vistaA.getBtn_editar().addActionListener(l -> mostrarDialogo());
         vistaA.getBtnEditarAdmin().addActionListener(l -> editarVendedor());
     }
@@ -86,40 +87,87 @@ public class ControlReporteAdministrador {
     public void editarVendedor() {
 
         int ind = vistaA.getTablaAdmi().getSelectedRow();
-        String Cedula = vistaA.getTablaAdmi().getValueAt(ind, 0).toString();
-        String Nombre = vistaA.getTxtName().getText();
-        String Apellido = vistaA.getTxtlast_name().getText();
-        String Telefono = vistaA.getTxtNumberPhone().getText();
-        String Correo = vistaA.getTxtemail().getText();
+        String cedula = vistaA.getTablaAdmi().getValueAt(ind, 0).toString();
+        String nombre = vistaA.getTxtName().getText();
+        String apellido = vistaA.getTxtlast_name().getText();
+        String telefono = vistaA.getTxtNumberPhone().getText();
+        String correo = vistaA.getTxtemail().getText();
         Instant instant = vistaA.getDtc_Date().getDate().toInstant();
         ZoneId zid = ZoneId.of("America/Guayaquil");
         ZonedDateTime zdt = ZonedDateTime.ofInstant(instant, zid);
         Date fecha_nacimiento = Date.valueOf(zdt.toLocalDate());
-        //ModeloPersona persona = new ModeloPersona(idPersona, nombre, apellido, fechaNacimiento, telefono, sexo, sueldo, cupo);
-        ModeloAdministrador persona = new ModeloAdministrador(Cedula, Nombre, Telefono, Apellido, Correo, fecha_nacimiento);
-        if (persona.Editar() == true) {
 
-            ImageIcon ic = (ImageIcon) vistaA.getLbl_foto().getIcon();
-            persona.setFotoA(ic.getImage());
-            if (persona.Editar()) {
-                llenarTablaAdmi();
-                vistaA.getDlg_editarAdmin().setVisible(false);
-                JOptionPane.showMessageDialog(vistaA, "Registro grabado satisfactoriamente");
-            } else {
-                JOptionPane.showMessageDialog(vistaA, "ERROR");
-            }
+        ModeloAdministrador usuario = new ModeloAdministrador(cedula, nombre, telefono, apellido, correo, fecha_nacimiento);
+        if (usuario.grabarUsuario() == true) {
 
-            vistaA.getDlg_editarAdmin().setVisible(false);
-            JOptionPane.showMessageDialog(vistaA, "Registro actualizado exitosamente");
+            System.out.println("Usuario registrado");
+        } else {
+            System.out.println("ERROR");
+
+        }
+
+        String contraseña = String.valueOf(vistaA.getJps_Contraseña().getPassword());
+        Image foto = ((ImageIcon) vistaA.getLbl_foto().getIcon()).getImage();
+        ModeloAdministrador administrador = new ModeloAdministrador();
+        administrador.setCedula(cedula);
+        administrador.setContraseña(contraseña);
+        administrador.setFotoA(foto);
+        if (administrador.grabarAdministtador() == true) {
+            JOptionPane.showMessageDialog(vistaA, "Administrador Guardado exitosamente");
+            vistaA.dispose();
+        } else {
+            JOptionPane.showMessageDialog(vistaA, "ERROR ");
         }
 
     }
 
+    public boolean getInformacion() {
+        int ind = vistaA.getTablaAdmi().getSelectedRow();
+        if (ind != -1) {
+            String cedula = vistaA.getTablaAdmi().getValueAt(ind, 0).toString();
+            String nombre = vistaA.getTablaAdmi().getValueAt(ind, 1).toString();
+            String apellido = vistaA.getTablaAdmi().getValueAt(ind, 2).toString();
+            String telefono = vistaA.getTablaAdmi().getValueAt(ind, 3).toString();
+            String fecha = vistaA.getTablaAdmi().getValueAt(ind, 4).toString();
+            String correo = vistaA.getTablaAdmi().getValueAt(ind, 5).toString();
+            //String foto = vistaA.getTablaAdmi().getValueAt(ind, 6).toString();
+
+            
+
+            ModeloAdministrador p1 = new ModeloAdministrador();
+            p1.setCedula(cedula);
+            vistaA.getTxtName().setText(nombre);
+            vistaA.getTxtlast_name().setText(apellido);
+            vistaA.getTxtNumberPhone().setText(telefono);
+            vistaA.getTxtemail().setText(correo);
+            vistaA.getDtc_Date().setDateFormatString(fecha);
+
+            vistaA.getTxtCedula().setEditable(false);
+            return true;
+
+        } else {
+            JOptionPane.showMessageDialog(vistaA, "USTED NO HA SELECCIONADO UNA FILA");
+            return false;
+        }
+        
+
+    }
+
     public void mostrarDialogo() {
-        vistaA.getDlg_editarAdmin().setSize(439, 400);
+        if (getInformacion()==true) {
+         
+             vistaA.getDlg_editarAdmin().setSize(439, 400);
         vistaA.getDlg_editarAdmin().setTitle("Actualizar Informacion");
         vistaA.getDlg_editarAdmin().setLocationRelativeTo(vistaA);
+        
         vistaA.getDlg_editarAdmin().setVisible(true);
+        getInformacion();
+            
+        }else{
+        JOptionPane.showMessageDialog(vistaA, "Error");
+        
+        }
+       
     }
 
     public void transparentarBotones() {

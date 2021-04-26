@@ -190,11 +190,12 @@ public class ModeloAdministrador extends Administrador {
         }
         return null;
     }
-    public List<Administrador> ListarAdministradores(){
+
+    public List<Administrador> ListarAdministradores() {
         try {
-            String query = "select u.cedula,u.nombre,u.apellido,u.telefono,u.correo,u.fecha_nacimiento,a.contraseña_admi,a.foto\n" +
-           "from usuario u\n" +
-             "join administrador a on u.cedula=a.cedula;";
+            String query = "select u.cedula,u.nombre,u.apellido,u.telefono,u.correo,u.fecha_nacimiento,a.contraseña_admi,a.foto\n"
+                    + "from usuario u\n"
+                    + "join administrador a on u.cedula=a.cedula;";
             ResultSet rs = con.query(query);
             List<Administrador> lista = new ArrayList<Administrador>();
             byte[] bf;
@@ -233,40 +234,49 @@ public class ModeloAdministrador extends Administrador {
             return null;
         }
     }
-    
-     public boolean Editar() {
-          
-          String foto64=null;
+
+   public boolean EditarVendedor() {
+
+        String foto64 = null;
         //Transformar imgagen a base64 para postgresql
-        
-        ByteArrayOutputStream bos= new ByteArrayOutputStream();
-        
-        try{
-        BufferedImage img =imgBuffered(getFotoA());
-        ImageIO.write(img, "PNG", bos);
-        byte[] imgb=bos.toByteArray();
-        foto64=Base64.encodeBytes(imgb);
-        } catch(IOException ex){
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+        try {
+            BufferedImage img = imgBuffered(getFotoA());
+            ImageIO.write(img, "PNG", bos);
+            byte[] imgb = bos.toByteArray();
+            foto64 = Base64.encodeBytes(imgb);
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-          
-          
+
         String sql;
-        sql = "UPDATE administrador set nombres='" + getNombre() + "',apellidos='" + getApellido() + "',fecha_nacimiento='" + getFecha_nacimiento() + "',telefono='" + getTelefono() +  "',foto='"+foto64+ "'";
-        sql += " WHERE idpersona='" + getCedula() + "'";
+
+        sql = "UPDATE administrador set contraseña='" + getContraseña() + "',foto='" + foto64 + "'";
+        sql += " WHERE cedula='" + getCedula() + "'";
+
         System.out.println(sql);
         if (con.noquery(sql) == null) {
             return true;
         } else {
             return false;
         }
-        
-        
-        
-        
+
     }
     
     
-    
-}
+     public boolean editarUsuario() {
+        String sql;
+        sql = "UPDATE usuario set nombre='" + getNombre() + "',apellido='" + getApellido() + "',fecha_nacimiento='" + getFecha_nacimiento() + "',telefono='" + getTelefono() + "'";
+        sql += " WHERE cedula='" + getCedula() + "'";
+          System.out.println(sql);
+        if (con.noquery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
 
+    }
+
+}

@@ -9,6 +9,7 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -42,7 +43,6 @@ public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        lbl_cedula = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         txtlast_name = new javax.swing.JTextField();
         txtemail = new javax.swing.JTextField();
@@ -53,6 +53,8 @@ public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         btnEditarAdmin = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jps_Contraseña = new javax.swing.JPasswordField();
+        txtCedula = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btn_editar = new javax.swing.JButton();
@@ -112,15 +114,9 @@ public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dtc_Date, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbl_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jps_Contraseña)
+                            .addComponent(dtc_Date, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -130,7 +126,15 @@ public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNumberPhone)
                             .addComponent(txtemail)
-                            .addComponent(txtlast_name))))
+                            .addComponent(txtlast_name)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtName)
+                            .addComponent(txtCedula))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -149,15 +153,24 @@ public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lbl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(147, 147, 147)
+                        .addComponent(btnEditarAdmin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3)
-                                    .addComponent(lbl_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(23, 23, 23)
+                                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20, 20, 20)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel2)
                                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -178,16 +191,9 @@ public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(dtc_Date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(48, 48, 48))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(lbl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addGap(147, 147, 147)))
-                .addComponent(btnEditarAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addGap(18, 18, 18))
+                        .addGap(31, 31, 31)
+                        .addComponent(jps_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
         );
 
         javax.swing.GroupLayout dlg_editarAdminLayout = new javax.swing.GroupLayout(dlg_editarAdmin.getContentPane());
@@ -431,8 +437,6 @@ public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
         this.btn_eliminar = btn_eliminar;
     }
 
-   
-
     public JTable getTablaAdmi() {
         return tablaAdmi;
     }
@@ -481,14 +485,6 @@ public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
         this.dtc_Date = dtc_Date;
     }
 
-    public JLabel getLbl_cedula() {
-        return lbl_cedula;
-    }
-
-    public void setLbl_cedula(JLabel lbl_cedula) {
-        this.lbl_cedula = lbl_cedula;
-    }
-
     public JLabel getLbl_foto() {
         return lbl_foto;
     }
@@ -529,7 +525,22 @@ public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
         this.txtlast_name = txtlast_name;
     }
 
-    
+    public JPasswordField getJps_Contraseña() {
+        return jps_Contraseña;
+    }
+
+    public void setJps_Contraseña(JPasswordField jps_Contraseña) {
+        this.jps_Contraseña = jps_Contraseña;
+    }
+
+    public JTextField getTxtCedula() {
+        return txtCedula;
+    }
+
+    public void setTxtCedula(JTextField txtCedula) {
+        this.txtCedula = txtCedula;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditarAdmin;
@@ -560,13 +571,16 @@ public class Vista_ReporteAdministradores extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl_cedula;
+    private javax.swing.JPasswordField jps_Contraseña;
     private javax.swing.JLabel lbl_foto;
     private javax.swing.JTable tablaAdmi;
+    private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumberPhone;
     private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtlast_name;
     // End of variables declaration//GEN-END:variables
+
+    
 }

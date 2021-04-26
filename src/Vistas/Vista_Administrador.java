@@ -20,7 +20,8 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
      */
     public Vista_Administrador() {
         initComponents();
-        this.setLocation(null);
+        
+       
     }
 
     public JMenu getReporteAdministradores() {
@@ -31,13 +32,7 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         this.reporteAdministradores = reporteAdministradores;
     }
 
-    public JMenu getBtnSalir() {
-        return btnSalir;
-    }
-
-    public void setBtnSalir(JMenu btnSalir) {
-        this.btnSalir = btnSalir;
-    }
+  
 
     public JMenuItem getBtnNuevasFunciones() {
         return btnNuevasFunciones;
@@ -141,7 +136,6 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         btnReportClientes = new javax.swing.JMenuItem();
         btnreportEmpleados = new javax.swing.JMenuItem();
         menuReporteAdministrador = new javax.swing.JMenuItem();
-        btnSalir = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
 
@@ -172,7 +166,7 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         menuAdminLayout.setHorizontalGroup(
             menuAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuAdminLayout.createSequentialGroup()
-                .addContainerGap(659, Short.MAX_VALUE)
+                .addContainerGap(707, Short.MAX_VALUE)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
@@ -212,6 +206,7 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
 
         menu_peliculas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ticket_icon.png"))); // NOI18N
         menu_peliculas.setText("Peliculas");
+        menu_peliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnNuevasPelis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pelicula.png"))); // NOI18N
         btnNuevasPelis.setText("Gestion Peliculas");
@@ -221,6 +216,8 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/teatro.png"))); // NOI18N
         jMenu5.setText("Funciones");
+        jMenu5.setToolTipText("Gestionar Salas de Cine");
+        jMenu5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnNuevasFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/glasses_icon.png"))); // NOI18N
         btnNuevasFunciones.setText("Gestionar Funciones");
@@ -234,9 +231,12 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
 
         reporteAdministradores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/report.png"))); // NOI18N
         reporteAdministradores.setText("Reportes");
+        reporteAdministradores.setToolTipText("Informes, Reportes y registros");
+        reporteAdministradores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnreportVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Sales-report_.png"))); // NOI18N
         btnreportVentas.setText("Reporte Ventas");
+        btnreportVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         reporteAdministradores.add(btnreportVentas);
 
         btnReportClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/documentediting_.png"))); // NOI18N
@@ -262,10 +262,6 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
         reporteAdministradores.add(menuReporteAdministrador);
 
         jMenuBar1.add(reporteAdministradores);
-
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salir.png"))); // NOI18N
-        btnSalir.setText("Salir");
-        jMenuBar1.add(btnSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -301,7 +297,6 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem btnNuevasPelis;
     private javax.swing.JMenuItem btnNuevasSalas;
     private javax.swing.JMenuItem btnReportClientes;
-    private javax.swing.JMenu btnSalir;
     private javax.swing.JMenuItem btnreportEmpleados;
     private javax.swing.JMenuItem btnreportVentas;
     private javax.swing.JLabel jLabel1;

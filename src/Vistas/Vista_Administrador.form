@@ -43,6 +43,9 @@
               <Image iconType="3" name="/iconos/ticket_icon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Peliculas"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="btnNuevasPelis">
@@ -61,6 +64,10 @@
               <Image iconType="3" name="/iconos/teatro.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Funciones"/>
+            <Property name="toolTipText" type="java.lang.String" value="Gestionar Salas de Cine"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="btnNuevasFunciones">
@@ -87,6 +94,10 @@
               <Image iconType="3" name="/iconos/report.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reportes"/>
+            <Property name="toolTipText" type="java.lang.String" value="Informes, Reportes y registros"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="btnreportVentas">
@@ -95,6 +106,9 @@
                   <Image iconType="3" name="/iconos/Sales-report_.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Reporte Ventas"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor de Mano"/>
+                </Property>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="btnReportClientes">
@@ -128,14 +142,6 @@
               </Properties>
             </MenuItem>
           </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="btnSalir">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/salir.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Salir"/>
-          </Properties>
         </Menu>
       </SubComponents>
     </Menu>
@@ -212,7 +218,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="659" max="32767" attributes="0"/>
+                      <EmptySpace pref="707" max="32767" attributes="0"/>
                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>

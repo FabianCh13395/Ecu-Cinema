@@ -70,7 +70,6 @@ public class VistaAsiento extends javax.swing.JFrame {
         panelAsientos = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -100,10 +99,6 @@ public class VistaAsiento extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 255));
         jLabel7.setText("ENTRADA");
 
-        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/iconoventan.png"))); // NOI18N
-        jLabel30.setText("EcuCinema");
-
         javax.swing.GroupLayout panelAsientosLayout = new javax.swing.GroupLayout(panelAsientos);
         panelAsientos.setLayout(panelAsientosLayout);
         panelAsientosLayout.setHorizontalGroup(
@@ -114,18 +109,15 @@ public class VistaAsiento extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAsientosLayout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(262, 262, 262)
-                        .addComponent(jLabel30)))
+                        .addGap(379, 379, 379)))
                 .addContainerGap())
         );
         panelAsientosLayout.setVerticalGroup(
             panelAsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAsientosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelAsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel30))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addContainerGap())
         );
@@ -193,7 +185,6 @@ public class VistaAsiento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

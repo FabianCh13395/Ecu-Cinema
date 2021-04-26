@@ -20,6 +20,7 @@ public class Vista_MenuEmpleado extends javax.swing.JFrame {
      */
     public Vista_MenuEmpleado() {
         initComponents();
+         this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     public JButton getBtn_generarVenta() {

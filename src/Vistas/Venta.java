@@ -452,6 +452,7 @@ public class Venta extends javax.swing.JInternalFrame {
         btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/lupa.png"))); // NOI18N
+        btn_buscar.setToolTipText("Buscar Cliente");
         btn_buscar.setBorder(null);
         btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -462,6 +463,7 @@ public class Venta extends javax.swing.JInternalFrame {
 
         btn_registrarCli.setBackground(new java.awt.Color(255, 255, 255));
         btn_registrarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Add_User.png"))); // NOI18N
+        btn_registrarCli.setToolTipText("Nuevo Cliente");
         btn_registrarCli.setBorder(null);
         btn_registrarCli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_registrarCli.addActionListener(new java.awt.event.ActionListener() {
@@ -557,6 +559,7 @@ public class Venta extends javax.swing.JInternalFrame {
 
         btn_Asiento.setBackground(new java.awt.Color(255, 255, 255));
         btn_Asiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus.png"))); // NOI18N
+        btn_Asiento.setToolTipText("");
         btn_Asiento.setBorder(null);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

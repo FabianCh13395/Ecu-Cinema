@@ -24,8 +24,9 @@ import org.postgresql.util.Base64;
  *
  * @author a-adr_000
  */
-public class ModeloCliente extends Cliente{
-    Conexion_Ecu_Cinema con= new Conexion_Ecu_Cinema();
+public class ModeloCliente extends Cliente {
+
+    Conexion_Ecu_Cinema con = new Conexion_Ecu_Cinema();
 
     public ModeloCliente() {
     }
@@ -37,31 +38,33 @@ public class ModeloCliente extends Cliente{
     public ModeloCliente(String Cedula, String Nombre, String Telefono, String Apellido, String Correo, Date fecha_nacimiento) {
         super(Cedula, Nombre, Telefono, Apellido, Correo, fecha_nacimiento);
     }
-    
-      public boolean grabarUsuario(){
+
+    public boolean grabarUsuario() {
         String sql;
         sql = "INSERT INTO usuario (cedula,nombre,apellido,telefono,correo,fecha_nacimiento)";
-        sql += "VALUES('" + getCedula()+ "','" + getNombre() + "','" + getApellido() + "','" + getTelefono()+ "','" + getCorreo()+ "','" + getFecha_nacimiento() + "')";
+        sql += "VALUES('" + getCedula() + "','" + getNombre() + "','" + getApellido() + "','" + getTelefono() + "','" + getCorreo() + "','" + getFecha_nacimiento() + "')";
         if (con.noquery(sql) == null) {
             return true;
         } else {
             return false;
         }
     }
-      public boolean grabarCliente(){
-    
+
+    public boolean grabarCliente() {
+
         String sql;
-          sql = "INSERT INTO cliente (id_cliente,cedula)";
-        sql += "VALUES('" + getCedula()+ "','" + getCedula()+ "')";
+        sql = "INSERT INTO cliente (id_cliente,cedula)";
+        sql += "VALUES('" + getCedula() + "','" + getCedula() + "')";
         if (con.noquery(sql) == null) {
             return true;
         } else {
             return false;
         }
     }
-      public boolean actualizarUsuario(){
-          String sql;
-          sql = "UPDATE usuario set nombre='" + getNombre() + "',apellido='" + getApellido() + "',telefono='" + getTelefono() + "',correo='" + getCorreo() + "',fecha_nacimiento='" + getFecha_nacimiento()+"'";
+
+    public boolean actualizarUsuario() {
+        String sql;
+        sql = "UPDATE usuario set nombre='" + getNombre() + "',apellido='" + getApellido() + "',telefono='" + getTelefono() + "',correo='" + getCorreo() + "',fecha_nacimiento='" + getFecha_nacimiento() + "'";
         sql += " WHERE cedula='" + getCedula() + "'";
 
         if (con.noqueryActualizar(sql) == null) {
@@ -69,9 +72,10 @@ public class ModeloCliente extends Cliente{
         } else {
             return false;
         }
-      }
-      public boolean eliminarCliente(){
-          String sql;
+    }
+
+    public boolean eliminarCliente() {
+        String sql;
         sql = "DELETE FROM cliente where id_cliente='" + getCedula() + "'";
         System.out.println(sql);
         if (con.noquery(sql) == null) {
@@ -79,11 +83,12 @@ public class ModeloCliente extends Cliente{
         } else {
             return false;
         }
-      }
-      public List<Cliente> buscarCedula(){
-            try {
+    }
+
+    public List<Cliente> buscarCedula() {
+        try {
             String query;
-            query = "SELECT* FROM usuario u join cliente c on u.cedula=c.cedula where  c.cedula LIKE '%" + getCedula()+ "%'";
+            query = "SELECT* FROM usuario u join cliente c on u.cedula=c.cedula where  c.cedula LIKE '%" + getCedula() + "%'";
 
             ResultSet rs = con.query(query);
             List<Cliente> lista = new ArrayList<Cliente>();
@@ -104,9 +109,10 @@ public class ModeloCliente extends Cliente{
             Logger.getLogger(ModeloCliente.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-      }
-      public boolean  eliminarUsuario(){
-          String sql;
+    }
+
+    public boolean eliminarUsuario() {
+        String sql;
         sql = "DELETE FROM usuario where id_cliente='" + getCedula() + "'";
         System.out.println(sql);
         if (con.noquery(sql) == null) {
@@ -114,12 +120,13 @@ public class ModeloCliente extends Cliente{
         } else {
             return false;
         }
-      }
-       public List<Cliente> ListarClientes(){
+    }
+
+    public List<Cliente> ListarClientes() {
         try {
-            String query = "select u.cedula,u.nombre,u.apellido,u.telefono,u.correo,u.fecha_nacimiento\n" +
-           "from usuario u\n" +
-             "join cliente c on u.cedula=c.cedula;";
+            String query = "select u.cedula,u.nombre,u.apellido,u.telefono,u.correo,u.fecha_nacimiento\n"
+                    + "from usuario u\n"
+                    + "join cliente c on u.cedula=c.cedula;";
             ResultSet rs = con.query(query);
             List<Cliente> lista = new ArrayList<Cliente>();
             while (rs.next()) {
@@ -129,11 +136,10 @@ public class ModeloCliente extends Cliente{
                 p.setApellido(rs.getString(3));
                 p.setTelefono(rs.getString(4));
                 p.setCorreo(rs.getString(5));
-                
+
                 // PARA FECHA
                 p.setFecha_nacimiento(rs.getDate(6));
                 //
-              
 
                 lista.add(p);
             }
@@ -144,5 +150,19 @@ public class ModeloCliente extends Cliente{
             return null;
         }
     }
-      
+
+    public boolean Editar() {
+
+        String sql;
+        sql = "UPDATE usuario set nombres='" + getNombre() + "',apellidos='" + getApellido() + "',fecha_nacimiento='" + getFecha_nacimiento() + "',telefono='" + getTelefono() + "'";
+        sql += " WHERE idpersona='" + getCedula() + "'";
+        System.out.println(sql);
+        if (con.noquery(sql) == null) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }

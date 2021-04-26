@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.ModeloAdministrador;
+import Modelo.ModeloCliente;
 import Modelo.ModeloVendedor;
 import Modelo.Vendedor;
 import Vistas.Vista_ReporteVendedores;
@@ -125,11 +126,50 @@ public class ControlReporteVendedores {
 
     }
 
+    
+    public boolean getInformacion(){
+    
+     int ind = vistav.getTabla_Vendedor().getSelectedRow();
+        if (ind != -1) {
+            String cedula = vistav.getTabla_Vendedor().getValueAt(ind, 0).toString();
+            String nombre = vistav.getTabla_Vendedor().getValueAt(ind, 1).toString();
+            String apellido = vistav.getTabla_Vendedor().getValueAt(ind, 2).toString();
+            String telefono = vistav.getTabla_Vendedor().getValueAt(ind, 3).toString();
+            String fecha = vistav.getTabla_Vendedor().getValueAt(ind, 4).toString();
+            String correo = vistav.getTabla_Vendedor().getValueAt(ind, 5).toString();
+            //String foto = vistaA.getTablaAdmi().getValueAt(ind, 6).toString();
+
+            ModeloCliente p1 = new ModeloCliente();
+            p1.setCedula(cedula);
+            vistav.getTxtName().setText(cedula);
+            vistav.getTxtName().setText(nombre);
+            vistav.getTxtlast_name().setText(apellido);
+            vistav.getTxtNumberPhone().setText(telefono);
+            vistav.getTxtemail().setText(correo);
+            vistav.getDtc_Date().setDateFormatString(fecha);
+
+            vistav.getTxtCedula().setEditable(false);
+            return true;
+
+        } else {
+            JOptionPane.showMessageDialog(vistav, "USTED NO HA SELECCIONADO UNA FILA");
+            return false;
+        }
+    
+    
+    }
+    
+    
     public void mostrarDialogo() {
-        vistav.getDlg_editarVendedor().setSize(439, 400);
-        vistav.getDlg_editarVendedor().setTitle("Actualizar Informacion");
-        vistav.getDlg_editarVendedor().setLocationRelativeTo(vistav);
-        vistav.getDlg_editarVendedor().setVisible(true);
+        if (getInformacion()==true) {
+            vistav.getDlg_editarVendedor().setSize(439, 400);
+            vistav.getDlg_editarVendedor().setTitle("Actualizar Informacion");
+            vistav.getDlg_editarVendedor().setLocationRelativeTo(vistav);
+            vistav.getDlg_editarVendedor().setVisible(true);
+        }else{
+        
+        }
+        
     }
 
     public void eliminarFondoButton() {

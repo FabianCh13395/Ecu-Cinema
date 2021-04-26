@@ -11,6 +11,7 @@ import Modelo.ModeloCliente;
 import Modelo.ModeloVendedor;
 import Modelo.Vendedor;
 import Vistas.Vista_ReportesClientes;
+import java.awt.Image;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -43,7 +44,7 @@ public class ControlReporteClientes {
 
     private void InicioControl() {
         llenarTabla();
-      
+
         vistare.getBtn_Actualizar().addActionListener(l -> mostrarDialogo());
         vistare.getBtnEditarClient().addActionListener(l -> editarCliente());
 
@@ -85,27 +86,68 @@ public class ControlReporteClientes {
         ZonedDateTime zdt = ZonedDateTime.ofInstant(instant, zid);
         Date fecha_nacimiento = Date.valueOf(zdt.toLocalDate());
         //ModeloPersona persona = new ModeloPersona(idPersona, nombre, apellido, fechaNacimiento, telefono, sexo, sueldo, cupo);
-        ModeloAdministrador persona = new ModeloAdministrador(Cedula, Nombre, Telefono, Apellido, Correo, fecha_nacimiento);
-        if (persona.Editar() == true) {
+        ModeloCliente persona = new ModeloCliente(Cedula, Nombre, Telefono, Apellido, Correo, fecha_nacimiento);
+        if (persona.actualizarUsuario() == true) {
 
-            if (persona.Editar()) {
-                llenarTabla();
-                vistare.getDlg_editarCliente().setVisible(false);
-                JOptionPane.showMessageDialog(vistare, "Registro grabado satisfactoriamente");
-            } else {
-                JOptionPane.showMessageDialog(vistare, "ERROR");
-            }
+            System.out.println("Usuario registrado");
+        } else {
+            System.out.println("ERROR");
 
-            vistare.getDlg_editarCliente().setVisible(false);
-            JOptionPane.showMessageDialog(vistare, "Registro actualizado exitosamente");
         }
+
+        ModeloCliente cliente = new ModeloCliente();
+        cliente.setCedula(Cedula);
+
+        if (cliente.grabarCliente() == true) {
+            JOptionPane.showMessageDialog(vistare, "Cliete Guardado exitosamente");
+            vistare.dispose();
+        } else {
+            JOptionPane.showMessageDialog(vistare, "ERROR ");
+        }
+
+    }
+
+    public boolean getInformacion() {
+        int ind = vistare.getTabla_Cliente().getSelectedRow();
+        if (ind != -1) {
+            String cedula = vistare.getTabla_Cliente().getValueAt(ind, 0).toString();
+            String nombre = vistare.getTabla_Cliente().getValueAt(ind, 1).toString();
+            String apellido = vistare.getTabla_Cliente().getValueAt(ind, 2).toString();
+            String telefono = vistare.getTabla_Cliente().getValueAt(ind, 3).toString();
+            String fecha = vistare.getTabla_Cliente().getValueAt(ind, 4).toString();
+            String correo = vistare.getTabla_Cliente().getValueAt(ind, 5).toString();
+            //String foto = vistaA.getTablaAdmi().getValueAt(ind, 6).toString();
+
+            ModeloCliente p1 = new ModeloCliente();
+            p1.setCedula(cedula);
+            vistare.getTxtcedula().setText(cedula);
+            vistare.getTxtName().setText(nombre);
+            vistare.getTxtlast_name().setText(apellido);
+            vistare.getTxtNumberPhone().setText(telefono);
+            vistare.getTxtemail().setText(correo);
+            vistare.getDtc_Date().setDateFormatString(fecha);
+
+            vistare.getTxtcedula().setEditable(false);
+            return true;
+
+        } else {
+            JOptionPane.showMessageDialog(vistare, "USTED NO HA SELECCIONADO UNA FILA");
+            return false;
+        }
+
     }
 
     public void mostrarDialogo() {
-        vistare.getDlg_editarCliente().setSize(439, 400);
-        vistare.getDlg_editarCliente().setTitle("Actualizar Informacion");
-        vistare.getDlg_editarCliente().setLocationRelativeTo(vistare);
-        vistare.getDlg_editarCliente().setVisible(true);
+        if (getInformacion()==true) {
+            vistare.getDlg_editarCliente().setSize(439, 400);
+            vistare.getDlg_editarCliente().setTitle("Actualizar Informacion");
+            vistare.getDlg_editarCliente().setLocationRelativeTo(vistare);
+            vistare.getDlg_editarCliente().setVisible(true);
+        }else{
+        
+        
+        }
+        
     }
 
     public void transparentarBotones() {

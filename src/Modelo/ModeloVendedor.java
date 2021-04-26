@@ -208,26 +208,29 @@ public class ModeloVendedor extends Vendedor {
         return reader.read(0, param);
     }
 
-    public List<Vendedor> ListarVendedores() {
+    public List<Vendedor> ListarVendedores(String aguja) {
         try {
             String query = "select u.cedula,u.nombre,u.apellido,u.telefono,u.correo,u.fecha_nacimiento,v.contraseña,v.foto\n"
                     + "from usuario u\n"
-                    + "join vendedor v on u.cedula=v.cedula;";
+                    + "join vendedor v on u.cedula=v.cedula"
+                    + "WHERE UPPER(u.nombre) LIKE UPPER('%" + aguja + "%') OR "
+                    + "UPPER(u.apellido) LIKE UPPER('%" + aguja + "%') OR "
+                    + "UPPER(v.cedula) LIKE UPPER('%" + aguja + "%')";
             ResultSet rs = con.query(query);
             List<Vendedor> lista = new ArrayList<Vendedor>();
             byte[] bf;
             while (rs.next()) {
                 Vendedor p = new Vendedor();
-                p.setCedula(rs.getString(1));
-                p.setNombre(rs.getString(2));
-                p.setApellido(rs.getString(3));
-                p.setTelefono(rs.getString(4));
-                p.setCorreo(rs.getString(5));
-                p.setContraseñaV(rs.getString(7));
+                p.setCedula(rs.getString("cedula"));
+                p.setNombre(rs.getString("nombre"));
+                p.setApellido(rs.getString("apellido"));
+                p.setTelefono(rs.getString("telefono"));
+                p.setCorreo(rs.getString("correo"));
+                p.setContraseñaV(rs.getString("contraseña"));
                 // PARA FECHA
-                p.setFecha_nacimiento(rs.getDate(6));
+                p.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
                 //
-                bf = rs.getBytes(8);
+                bf = rs.getBytes("foto");
 
                 if (bf != null) {
                     bf = Base64.decode(bf, 0, bf.length);

@@ -159,6 +159,7 @@ public class Vista_GestionFunciones extends javax.swing.JInternalFrame {
         tablaFuncion = new javax.swing.JTable();
 
         setClosable(true);
+        setMaximizable(true);
 
         jPanel1.setBackground(new java.awt.Color(186, 39, 39));
 
@@ -319,7 +320,7 @@ public class Vista_GestionFunciones extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(EcuCinema)))

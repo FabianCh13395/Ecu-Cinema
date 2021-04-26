@@ -122,23 +122,26 @@ public class ModeloCliente extends Cliente {
         }
     }
 
-    public List<Cliente> ListarClientes() {
+    public List<Cliente> ListarClientes(String aguja) {
         try {
             String query = "select u.cedula,u.nombre,u.apellido,u.telefono,u.correo,u.fecha_nacimiento\n"
                     + "from usuario u\n"
-                    + "join cliente c on u.cedula=c.cedula;";
+                    + "join cliente c on u.cedula=c.cedula "
+                    + "WHERE UPPER(u.nombre)  LIKE UPPER('%" + aguja + "%') OR "
+                    + "UPPER(u.apellido)  LIKE UPPER('%" + aguja + "%') OR "
+                    + "UPPER(c.cedula)  LIKE UPPER('%" + aguja + "%')";
             ResultSet rs = con.query(query);
             List<Cliente> lista = new ArrayList<Cliente>();
             while (rs.next()) {
                 Cliente p = new Cliente();
-                p.setCedula(rs.getString(1));
-                p.setNombre(rs.getString(2));
-                p.setApellido(rs.getString(3));
-                p.setTelefono(rs.getString(4));
-                p.setCorreo(rs.getString(5));
+                p.setCedula(rs.getString("cedula"));
+                p.setNombre(rs.getString("nombre"));
+                p.setApellido(rs.getString("apellido"));
+                p.setTelefono(rs.getString("telefono"));
+                p.setCorreo(rs.getString("correo"));
 
                 // PARA FECHA
-                p.setFecha_nacimiento(rs.getDate(6));
+                p.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
                 //
 
                 lista.add(p);

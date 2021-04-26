@@ -191,26 +191,29 @@ public class ModeloAdministrador extends Administrador {
         return null;
     }
 
-    public List<Administrador> ListarAdministradores() {
+    public List<Administrador> ListarAdministradores(String aguja) {
         try {
             String query = "select u.cedula,u.nombre,u.apellido,u.telefono,u.correo,u.fecha_nacimiento,a.contraseña_admi,a.foto\n"
                     + "from usuario u\n"
-                    + "join administrador a on u.cedula=a.cedula;";
+                    + "join administrador a on u.cedula=a.cedula"
+                    + "WHERE UPPER(u.nombre) LIKE UPPER('%" + aguja + "%') OR "
+                    + "UPPER(u.apellido) LIKE UPPER('%" + aguja + "%') OR "
+                    + "UPPER(a.cedula) LIKE UPPER('%" + aguja + "%')";
             ResultSet rs = con.query(query);
             List<Administrador> lista = new ArrayList<Administrador>();
             byte[] bf;
             while (rs.next()) {
                 Administrador p = new Administrador();
-                p.setCedula(rs.getString(1));
-                p.setNombre(rs.getString(2));
-                p.setApellido(rs.getString(3));
-                p.setTelefono(rs.getString(4));
-                p.setCorreo(rs.getString(5));
-                p.setContraseña(rs.getString(7));
+                p.setCedula(rs.getString("cedula"));
+                p.setNombre(rs.getString("nombre"));
+                p.setApellido(rs.getString("apellido"));
+                p.setTelefono(rs.getString("telefono"));
+                p.setCorreo(rs.getString("correo"));
+                p.setContraseña(rs.getString("contraseña_admi"));
                 // PARA FECHA
-                p.setFecha_nacimiento(rs.getDate(6));
+                p.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
                 //
-                bf = rs.getBytes(8);
+                bf = rs.getBytes("a.foto");
 
                 if (bf != null) {
                     bf = Base64.decode(bf, 0, bf.length);

@@ -5,23 +5,34 @@
  */
 package Controlador;
 
+import Modelo.Conexion_Ecu_Cinema;
 import Modelo.ModeloAdministrador;
 import Modelo.ModeloCliente;
 import Modelo.ModeloVendedor;
 import Modelo.Vendedor;
 import Vistas.Vista_ReporteVendedores;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -41,14 +52,33 @@ public class ControlReporteVendedores {
     }
 
     private void InicioControl() {
-        llenarTabla();
-       
+          KeyListener kl = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                llenarTabla(vistav.getTxt_buscar().getText());
+                //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
+        llenarTabla("");
+
         vistav.getBtn_Editar().addActionListener(l -> editarVendedor());
+        vistav.getBtn_imprimir().addActionListener(l->imprimirReporte());
+        vistav.getTxt_buscar().addKeyListener(kl);
         //vistav.getBtnEditarVendedor().addActionListener(l -> editarVendedor());
 
     }
 
-    private void llenarTabla() {
+    private void llenarTabla(String aguja) {
         vistav.getTabla_Vendedor().setDefaultRenderer(Object.class, new ImagenTabla());
         vistav.getTabla_Vendedor().setRowHeight(100);
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
@@ -58,7 +88,7 @@ public class ControlReporteVendedores {
         int ncol = tblModel.getColumnCount();
         Holder<Integer> i = new Holder<>(0);
 
-        List<Vendedor> lista = new ModeloVendedor().ListarVendedores();
+        List<Vendedor> lista = new ModeloVendedor().ListarVendedores(aguja);
         lista.stream().forEach(p1 -> {
             //   String[] persona={p1.getIdPersona(),p1.getNombres(),p1.getApellidos(),String.valueOf(p1.getEdad())};
 
@@ -102,7 +132,7 @@ public class ControlReporteVendedores {
         if (persona.editarUsuario() == true) {
 
             if (persona.editarUsuario()) {
-                llenarTabla();
+                llenarTabla("");
                 vistav.getDlg_editarVendedor().setVisible(false);
                 JOptionPane.showMessageDialog(vistav, "Registro grabado satisfactoriamente");
             } else {
@@ -126,10 +156,9 @@ public class ControlReporteVendedores {
 
     }
 
-    
-    public boolean getInformacion(){
-    
-     int ind = vistav.getTabla_Vendedor().getSelectedRow();
+    public boolean getInformacion() {
+
+        int ind = vistav.getTabla_Vendedor().getSelectedRow();
         if (ind != -1) {
             String cedula = vistav.getTabla_Vendedor().getValueAt(ind, 0).toString();
             String nombre = vistav.getTabla_Vendedor().getValueAt(ind, 1).toString();
@@ -155,21 +184,19 @@ public class ControlReporteVendedores {
             JOptionPane.showMessageDialog(vistav, "USTED NO HA SELECCIONADO UNA FILA");
             return false;
         }
-    
-    
+
     }
-    
-    
+
     public void mostrarDialogo() {
-        if (getInformacion()==true) {
+        if (getInformacion() == true) {
             vistav.getDlg_editarVendedor().setSize(439, 400);
             vistav.getDlg_editarVendedor().setTitle("Actualizar Informacion");
             vistav.getDlg_editarVendedor().setLocationRelativeTo(vistav);
             vistav.getDlg_editarVendedor().setVisible(true);
-        }else{
-        
+        } else {
+
         }
-        
+
     }
 
     public void eliminarFondoButton() {
@@ -190,6 +217,23 @@ public class ControlReporteVendedores {
         vistav.getBtn_Eliminar().setOpaque(false);
         vistav.getBtn_Eliminar().setContentAreaFilled(false);
         vistav.getBtn_Eliminar().setBorderPainted(false);
+
+    }
+
+    public void imprimirReporte() {
+
+      
+        try {
+            Conexion_Ecu_Cinema con = new Conexion_Ecu_Cinema();
+
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/Vista_Reportes/rptVendedores.jasper"));
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getCon());
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(ControlReporteClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
 
     }
 

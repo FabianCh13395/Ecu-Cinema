@@ -154,6 +154,7 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
 
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/iconoGenral.png"))); // NOI18N
+        jLabel16.setToolTipText("Boleteria Segura");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("EcuCinema");
@@ -206,6 +207,7 @@ public class Vista_Administrador extends javax.swing.JInternalFrame {
 
         menu_peliculas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ticket_icon.png"))); // NOI18N
         menu_peliculas.setText("Peliculas");
+        menu_peliculas.setToolTipText("Almacenar peliculas");
         menu_peliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnNuevasPelis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/pelicula.png"))); // NOI18N

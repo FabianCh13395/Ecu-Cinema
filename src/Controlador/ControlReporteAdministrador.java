@@ -6,22 +6,33 @@
 package Controlador;
 
 import Modelo.Administrador;
+import Modelo.Conexion_Ecu_Cinema;
 import Modelo.ModeloAdministrador;
 import Modelo.ModeloVendedor;
 import Modelo.Vendedor;
 import Vistas.Vista_ReporteAdministradores;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -38,16 +49,36 @@ public class ControlReporteAdministrador {
         vistaA.setVisible(true);
         InicioControl();
         transparentarBotones();
+        llenarTablaAdmi("");
     }
 
     private void InicioControl() {
-        llenarTablaAdmi();
 
+        KeyListener kl = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                llenarTablaAdmi(vistaA.getTxt_buscar().getText());
+                //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
+
+        vistaA.getTxt_buscar().addKeyListener(kl);
         vistaA.getBtn_editar().addActionListener(l -> mostrarDialogo());
         vistaA.getBtnEditarAdmin().addActionListener(l -> editarVendedor());
+        vistaA.getBtn_imprimir().addActionListener(l -> imprimirReporte());
     }
 
-    private void llenarTablaAdmi() {
+    private void llenarTablaAdmi(String aguja) {
         vistaA.getTablaAdmi().setDefaultRenderer(Object.class, new ImagenTabla());
         vistaA.getTablaAdmi().setRowHeight(100);
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
@@ -57,7 +88,7 @@ public class ControlReporteAdministrador {
         int ncol = tblModel.getColumnCount();
         Holder<Integer> i = new Holder<>(0);
 
-        List<Administrador> lista = new ModeloAdministrador().ListarAdministradores();
+        List<Administrador> lista = new ModeloAdministrador().ListarAdministradores(aguja);
         lista.stream().forEach(p1 -> {
             //   String[] persona={p1.getIdPersona(),p1.getNombres(),p1.getApellidos(),String.valueOf(p1.getEdad())};
 
@@ -70,6 +101,7 @@ public class ControlReporteAdministrador {
             vistaA.getTablaAdmi().setValueAt(p1.getCorreo(), i.value, 4);
 
             java.awt.Image img = p1.getFotoA();
+           
 
             if (img != null) {
                 java.awt.Image newimg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
@@ -132,8 +164,6 @@ public class ControlReporteAdministrador {
             String correo = vistaA.getTablaAdmi().getValueAt(ind, 5).toString();
             //String foto = vistaA.getTablaAdmi().getValueAt(ind, 6).toString();
 
-            
-
             ModeloAdministrador p1 = new ModeloAdministrador();
             p1.setCedula(cedula);
             vistaA.getTxtName().setText(nombre);
@@ -149,25 +179,39 @@ public class ControlReporteAdministrador {
             JOptionPane.showMessageDialog(vistaA, "USTED NO HA SELECCIONADO UNA FILA");
             return false;
         }
-        
 
     }
 
     public void mostrarDialogo() {
-        if (getInformacion()==true) {
-         
-             vistaA.getDlg_editarAdmin().setSize(439, 400);
-        vistaA.getDlg_editarAdmin().setTitle("Actualizar Informacion");
-        vistaA.getDlg_editarAdmin().setLocationRelativeTo(vistaA);
-        
-        vistaA.getDlg_editarAdmin().setVisible(true);
-        getInformacion();
-            
-        }else{
-        JOptionPane.showMessageDialog(vistaA, "Error");
-        
+        if (getInformacion() == true) {
+
+            vistaA.getDlg_editarAdmin().setSize(439, 400);
+            vistaA.getDlg_editarAdmin().setTitle("Actualizar Informacion");
+            vistaA.getDlg_editarAdmin().setLocationRelativeTo(vistaA);
+
+            vistaA.getDlg_editarAdmin().setVisible(true);
+            getInformacion();
+
+        } else {
+            JOptionPane.showMessageDialog(vistaA, "Error");
+
         }
-       
+
+    }
+
+    public void imprimirReporte() {
+
+        try {
+            Conexion_Ecu_Cinema con = new Conexion_Ecu_Cinema();
+
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/Vista_Reportes/rptAdministradores.jasper"));
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getCon());
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(ControlReporteClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     public void transparentarBotones() {
